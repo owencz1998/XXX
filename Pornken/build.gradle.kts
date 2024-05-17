@@ -1,7 +1,7 @@
 version = 5
 
 cloudstream {
-    authors     = listOf("Coxju")
+    authors     = listOf("OwenConnor")
     language    = "en"
     description = "We Provide Huge Colocation of Hindi Porn (Uncut) Web Series"
 
