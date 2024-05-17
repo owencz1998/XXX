@@ -7,7 +7,7 @@ cloudstream {
 
     description = "5+ Jav sources in one"
     language    = "en"
-    authors = listOf("HindiProviders")
+    authors = listOf("XXX")
 
     /**
     * Status int as the following:
