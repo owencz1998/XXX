@@ -7,6 +7,6 @@
 **/build
 /captures
 .externalNativeBuild
-.xxx
+.XXX
 local.properties
 .vscode
