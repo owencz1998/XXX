@@ -1,5 +1,7 @@
 # `Cloudstream3 Plugin Repo Template`
 
+<p align="center"> <img src="https://capsule-render.vercel.app/api?type=Waving&color=timeGradient&height=200&animation=fadeIn&section=header&text=XXX Repo&fontSize=60"> </p>
+
 Template for a [Cloudstream3](https://github.com/recloudstream) plugin repo
 
 **⚠️ Make sure you check "Include all branches" when using this template**
