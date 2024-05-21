@@ -1,6 +1,7 @@
 # `Cloudstream3 Plugin Repo Template`
 
-https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=XXX%20Repo
+<p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=XXX%20Repo&animation=twinkling&reversal=true" </p>
+
 
 Template for a [Cloudstream3](https://github.com/recloudstream) plugin repo
 
