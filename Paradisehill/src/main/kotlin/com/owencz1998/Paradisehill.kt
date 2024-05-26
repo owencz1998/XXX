@@ -23,7 +23,7 @@ class Paradisehill : MainAPI() {
         "$mainUrl/studio/6/?sort=created_at&page=" to "Bang Bros Productions",
         "$mainUrl/studio/78/?sort=created_at&page=" to "Jules Jordan Video",
         "$mainUrl/studio/64/?sort=created_at&page=" to "Reality Kings",
-        "$mainUrl/category/hentai-animation/?sort=created_at&page=" to "Animation",
+        "$mainUrl/category/hentai-animation/?sort=created_at&page=" to "Animation"
     )
 
     override suspend fun getMainPage(
