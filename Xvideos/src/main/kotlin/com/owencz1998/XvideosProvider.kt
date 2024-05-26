@@ -28,7 +28,8 @@ class XvideosProvider : MainAPI() {
     override val mainPage = mainPageOf(
         Pair(mainUrl, "Main Page"),
         Pair("$mainUrl/new/", "New"),
-        Pair("$mainUrl/squirting/", "Squirt")
+        Pair("$mainUrl/c/asmr/",
+"ASMR"),
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
