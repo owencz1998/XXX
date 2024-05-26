@@ -7,4 +7,6 @@
 ● Mangoporn
 ● InternetChicks
 ● PornKen
+● TollyPro
+● Xtapes
 
