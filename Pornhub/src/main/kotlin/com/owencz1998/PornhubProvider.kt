@@ -30,7 +30,7 @@ class CornHubProvider : MainAPI() {
         "${mainUrl}/video?o=tr&t=w&hd=1&page="       to "Top Rated",
         "${mainUrl}/video?o=mv&t=w&hd=1&page="       to "Most Viewed",
         "${mainUrl}/video?o=ht&t=w&hd=1&page="       to "Hottest",
-        "${mainUrl}/video? m=ht&t=w&hd=1&page='      to q-1656TbeqM48zjadOf"  
+        "${mainUrl}/video? m=ht&t=w&hd=1&page="       to q-1656TbeqM48zjadOf"  
 "Teen",
         "${mainUrl}/video?p=professional&hd=1&page=" to "Professional",
         "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
