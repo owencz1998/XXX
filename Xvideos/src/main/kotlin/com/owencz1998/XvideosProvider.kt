@@ -30,6 +30,8 @@ class XvideosProvider : MainAPI() {
         Pair("$mainUrl/new/", "New"),
         Pair("$mainUrl/c/squirting-56/",
 "Squirt"),
+        Pair("$mainUrl/c/amateur-65/",
+"Amateur"),
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
