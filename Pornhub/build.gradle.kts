@@ -22,7 +22,7 @@ cloudstream {
     // https://recloudstream.github.io/cloudstream/html/app/com.lagradost.cloudstream3/-tv-type/index.html
     tvTypes = listOf("NSFW")
 
-    iconUrl = "https://www.google.com/s2/favicons?domain=pornhub.website&sz=%size%"
+    iconUrl = "https://www.pornhub.com/video/search%3Fsearch%3Dfavicon%2Bfunny&ved=2ahUKEwin7a_7uquGAxVxQEEAHZ25BDAQFnoECBUQAQ&usg=AOvVaw0oXKC3pSCgsauBTkAgpMt8
 
     language = "en"
 }
