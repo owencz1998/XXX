@@ -40,7 +40,6 @@ class XvideosProvider : MainAPI() {
 "Blowjob"),
         Pair("$mainUrl/c/solo_and_masturbation-33/",
 "Solo"),
-    )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val categoryData = request.data
