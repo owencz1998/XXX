@@ -1,4 +1,4 @@
-package com.KillerDogeEmpire
+package com.owencz1998
 
 import android.util.Log
 import org.jsoup.nodes.Element
@@ -33,9 +33,7 @@ class CornHubProvider : MainAPI() {
         "${mainUrl}/video?p=professional&hd=1&page=" to "Professional",
         "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
         "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
-        "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
-        "${mainUrl}/video?   
- c=amateur&hd=1&page="     to "Amateur",                                                                                                    
+        "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",                                                                                                    
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
