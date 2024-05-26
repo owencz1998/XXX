@@ -35,9 +35,9 @@ class CornHubProvider : MainAPI() {
         "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
         "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
         "$mainUrl/video?   
- c=VerifiedAmateurs&hd=1&page="                                                                                                                                
+ c=verifiedamateurs&hd=1&page="                                                                                                                                
                            to
-"Amateur",
+"Amateur"
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
