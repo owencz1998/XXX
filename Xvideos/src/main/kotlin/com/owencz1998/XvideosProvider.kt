@@ -34,12 +34,13 @@ class XvideosProvider : MainAPI() {
 "Amateur"),
         Pair("$mainUrl/c/big_Tits-23/",
 "Big tits"),
-        Pair("$mainUrl/c/anal-12/"
+        Pair("$mainUrl/c/anal-12/",
 "Anal"),
         Pair("$mainUrl/c/blowjob-15/",
 "Blowjob"),
         Pair("$mainUrl/c/solo_and_masturbation-33/",
 "Solo"),
+     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val categoryData = request.data
