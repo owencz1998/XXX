@@ -16,7 +16,7 @@ import org.json.JSONObject
 class CornHubProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     override var mainUrl              = "https://www.pornhub.com"
-    override var name                 = "CornHub"
+    override var name                 = "PornHub"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
@@ -34,6 +34,8 @@ class CornHubProvider : MainAPI() {
         "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
         "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
         "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
+        "$mainUrl/video?   
+ c=VerifiedAmateurs&hd=1&page="                   to "Amateur"
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
