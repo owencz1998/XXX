@@ -58,7 +58,7 @@ class XvideosProvider : MainAPI() {
 "Brunette"),
         Pair("$mainUrl/c/fucked_up_family-81/", 
 "Family"),
-     )
+    )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val categoryData = request.data
@@ -309,9 +309,7 @@ class XvideosProvider : MainAPI() {
                             name = "${this.name} $validlinkext Default",
                             url = validlink,
                             referer = data,
-
-                           
-quality = Qualities.Unknown.value,
+                            quality = Qualities.Unknown.value,
                             isM3u8 = true
                         )
                     )
@@ -320,8 +318,4 @@ quality = Qualities.Unknown.value,
         }
         return true
     }
-}
-
-                            
-   
 }
