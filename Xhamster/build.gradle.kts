@@ -1,7 +1,7 @@
-version = 2
+version = 3
 
 cloudstream {
-    authors     = listOf("Coxju")
+    authors     = listOf("Owen Connor")
     language    = "en"
     description = "5 milyondan fazla Porno Videosunu ücretsiz izleyin."
 
