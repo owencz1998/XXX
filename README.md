@@ -9,4 +9,8 @@
 ● PornKen
 ● TollyPro
 ● Xtapes
+ 
+Cloustream plugin
+
+https://raw.githubusercontent.com/owencz1998/XXX/builds/XXX.json
 
