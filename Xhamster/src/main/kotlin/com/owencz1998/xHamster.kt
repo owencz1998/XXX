@@ -1,6 +1,4 @@
-// ! https://codeberg.org/coxju/cs-ext-coxju/src/branch/master/Xhamster/src/main/kotlin/com/coxju/Xhamster.kt
-
-package com.coxju
+package com.owencz1998
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
