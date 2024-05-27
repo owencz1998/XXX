@@ -13,13 +13,13 @@ import com.lagradost.cloudstream3.utils.M3u8Helper
 import com.lagradost.cloudstream3.utils.getQualityFromName
 import org.json.JSONObject
 
-class CornHubProvider : MainAPI() {
+class PornHubProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     override var mainUrl              = "https://www.pornhub.com"
     override var name                 = "PornHub"
     override val hasMainPage          = true
     override var lang                 = "en"
-    override val hasQuickSearch       = false
+    override val hasQuickSearch       = true
     override val hasDownloadSupport   = true
     override val hasChromecastSupport = true
     override val supportedTypes       = setOf(TvType.NSFW)
@@ -34,7 +34,8 @@ class CornHubProvider : MainAPI() {
         "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
         "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
         "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
-        "${mainUrl}/categories/teen"                      to
+        "${mainUrl}/categories/teen/video?
+c=29=page=2"                to
 "Teen",                                                                                                   
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
