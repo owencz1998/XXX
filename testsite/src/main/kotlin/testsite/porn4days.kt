@@ -15,16 +15,39 @@ class porn4days : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-    override val mainPage = mainPageOf(
-            "${mainUrl}/newest/" to "New",
-            "${mainUrl}/search/Hunters/page/" to "Hunter Web Series",
-            "${mainUrl}/search/fugi/page/" to "Fugi Web Series",
-            "${mainUrl}/search/besharams/page/" to "Besharams Web Series",
-            "${mainUrl}/search/primeplay/page/" to "Prime Play",
-            "${mainUrl}/search/neonx/page/" to "Neonx",
-            "${mainUrl}/search/Bang+Bros/page/" to "BangBros",
-            "${mainUrl}/search/brazzers/page/" to "Brazzers",
-            "${mainUrl}/search/voovi/page/" to "Voovi Web Series",
+     override val mainPage = mainPageOf(
+        Pair(mainUrl, "Main Page"),
+        Pair("$mainUrl/new/", "New"),
+        Pair("$mainUrl/c/squirting-56/",
+"Squirt"),
+        Pair("$mainUrl/c/amateur-65/",
+"Amateur"),
+        Pair("$mainUrl/c/teen-13/", 
+"Teen"),
+        Pair("$mainUrl/c/big_Tits-23/",
+"Big tits"),
+        Pair("$mainUrl/c/lesbian-26/", 
+"Lesbian"),
+        Pair("$mainUrl/c/anal-12/",
+"Anal"),
+        Pair("$mainUrl/c/blowjob-15/",
+"Blowjob"),
+        Pair("$mainUrl/c/solo_and_masturbation-33/",
+"Solo"),
+        Pair("$mainUrl/c/cumshot-18", 
+"Cumshot"),
+        Pair("$mainUrl/c/gangbang-69/", 
+"Gangbang"),
+        Pair("$mainUrl/c/big_cock-34/", 
+"Big cock"),
+        Pair("$mainUrl/c/fisting-165/", 
+"Fisting"),
+        Pair("$mainUrl/c/blonde-20/", 
+"Blonde"),
+        Pair("$mainUrl/c/brunette-25/", 
+"Brunette"),
+        Pair("$mainUrl/c/fucked_up_family-81/", 
+"Family"),/
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
