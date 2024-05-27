@@ -56,8 +56,8 @@ class XvideosProvider : MainAPI() {
 "Blonde"),
         Pair("$mainUrl/c/brunette-25/", 
 "Brunette"),
-        Pair("$mainUrl/c/orgasm&top/", 
-"Orgasm"),
+        Pair("$mainUrl/c/fucked_up_family-81/", 
+"Family"),
      )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
