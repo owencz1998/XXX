@@ -16,8 +16,7 @@ class porn4days : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-            "newest" to "Newest",
-            "${mainUrl}/tag/ullu-web-series/page/" to "Ullu Web Series",
+            "${mainUrl}/newest/" to "New",
             "${mainUrl}/search/Hunters/page/" to "Hunter Web Series",
             "${mainUrl}/search/fugi/page/" to "Fugi Web Series",
             "${mainUrl}/search/besharams/page/" to "Besharams Web Series",
