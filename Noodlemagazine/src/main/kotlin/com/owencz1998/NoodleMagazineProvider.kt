@@ -19,13 +19,22 @@ class NoodleMagazineProvider : MainAPI() { // all providers must be an instance 
     override val mainPage = mainPageOf(
             "latest" to "Latest",
             "onlyfans" to "Onlyfans",
+            "teen" to "Teen",
+            "school" to "School",
+            "lesbian" to  "Lesbian",
+            "barley%20legal" to "Barley Legal",
+            "incest" to "Incest",
+            "masterbation" to "Masterbation",
+            "fingering" to "Fingering",
+            "teen%20watching%20porn" to Teen watching porn",
             "latina" to "Latina",
             "blonde" to "Blonde",
             "milf" to "MILF",
             "jav" to "JAV",
             "hentai" to "Hentai",
-            "lesbian" to "Lesbian",
-            "teen" to "Teen",
+           
+
+            
     )
 
 
