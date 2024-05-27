@@ -33,7 +33,9 @@ class CornHubProvider : MainAPI() {
         "${mainUrl}/video?p=professional&hd=1&page=" to "Professional",
         "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
         "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
-        "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",                                                                                                    
+        "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
+        "${mainUrl}/categories/teen"                      to
+"Teen",                                                                                                   
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
