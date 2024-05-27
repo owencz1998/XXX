@@ -309,13 +309,16 @@ class XvideosProvider : MainAPI() {
                             name = "${this.name} $validlinkext Default",
                             url = validlink,
                             referer = data,
-                            quality = Qualities.Unknown.value,
-                            isM3u8 = true
-                        )
-                    )
-                }
-            }
-        }
-        return true
+
+availableQualities.add(Pair(quality, videoUrl))
     }
+
+    availableQualities.sortByDescending { it.first }
+
+    val bestQuality = availableQualities.firstOrNull()
+        ?: throw Exception("No available qualities found")
+
+    return bestQuality.second
+                            
+   
 }
