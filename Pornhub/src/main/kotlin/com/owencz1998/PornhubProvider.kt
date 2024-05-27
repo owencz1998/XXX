@@ -35,7 +35,7 @@ class PornHubProvider : MainAPI() {
         "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
         "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
         "${mainUrl}/categories/teen/video?
-c=29=page=2"                to
+c=29=page=2"               to
 "Teen",                                                                                                   
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
