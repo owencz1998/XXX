@@ -1,14 +1,14 @@
-package com.coxju
+package com.owencz1998
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
-class ixiporn : MainAPI() {
-    override var mainUrl              = "https://ixiporn.org"
-    override var name                 = "ixiporn"
+class porn4days : MainAPI() {
+    override var mainUrl              = "https://porn4days.red/?ref=porndude"
+    override var name                 = "porn4days"
     override val hasMainPage          = true
-    override var lang                 = "hi"
+    override var lang                 = "en"
     override val hasQuickSearch       = false
     override val hasDownloadSupport   = true
     override val hasChromecastSupport = true
