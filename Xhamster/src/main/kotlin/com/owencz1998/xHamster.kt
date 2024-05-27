@@ -21,7 +21,21 @@ class xHamster : MainAPI() {
         "${mainUrl}/most-viewed/monthly/" to "Most viewed monthly",
         "${mainUrl}/most-viewed"          to "Most viewed all time",
         "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly",
-        "${mainUrl}/categories/amateur/"  to "Amateur"
+        "${mainUrl}/categories/amateur/"  to "Amateur",
+        "${mainUrl}/categories/anal-masturbation"  to "Anal Masterbation",
+        "${mainUrl}/categories/bdsm/"  to "BDSM",
+        "${mainUrl}/categories/babe/"  to "Babe",
+        "${mainUrl}/categories/18-year-old/"  to "18",
+        "${mainUrl}/categories/blowbang/"  to "Blowbang",
+        "${mainUrl}/categories/blowjob/"  to "Blowjob",
+        "${mainUrl}/categories/bukkake/"  to "Bukkake",
+        "${mainUrl}/categories/cum-swallowing/"  to "Cum Swallow",
+        "${mainUrl}/categories/cowgirl/"  to "Cowgirl",
+        "${mainUrl}/categories/creampie/"  to "CreamPie",
+        "${mainUrl}/categories/cum-on-tits/"  to "Cum On Tits",
+        "${mainUrl}/categories/deep-throat/"  to "Deep Throat",
+        "${mainUrl}/categories/doggy-style/"  to "Doggy Style",
+        "${mainUrl}/categories/fingering/"  to "Fingering"
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
