@@ -5,7 +5,7 @@ import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
-class Xtapes : MainAPI() {
+class Redtube : MainAPI() {
     override var mainUrl              = "https://www.redtube.com/"
     override var name                 = "Redtube"
     override val hasMainPage          = true
