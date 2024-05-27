@@ -25,6 +25,7 @@ class NoodleMagazineProvider : MainAPI() { // all providers must be an instance 
             "jav" to "JAV",
             "hentai" to "Hentai",
             "lesbian" to "Lesbian",
+            "teen" to "Teen",
     )
 
 
