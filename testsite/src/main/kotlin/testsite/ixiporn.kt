@@ -4,7 +4,7 @@ import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
-class ixiporn : MainAPI() {
+class porn4days : MainAPI() {
     override var mainUrl              = "https://porn4days.red/?ref=porndude"
     override var name                 = "porn4days"
     override val hasMainPage          = true
