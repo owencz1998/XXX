@@ -26,7 +26,7 @@ class NoodleMagazineProvider : MainAPI() { // all providers must be an instance 
             "incest" to "Incest",
             "masterbation" to "Masterbation",
             "fingering" to "Fingering",
-            "teen%20watching%20porn" to Teen watching porn",
+            "teen%20watching%20porn" to "Teen watching porn",
             "latina" to "Latina",
             "blonde" to "Blonde",
             "milf" to "MILF",
