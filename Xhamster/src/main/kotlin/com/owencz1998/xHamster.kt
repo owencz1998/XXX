@@ -20,7 +20,7 @@ class xHamster : MainAPI() {
         "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly",
         "${mainUrl}/most-viewed/monthly/" to "Most viewed monthly",
         "${mainUrl}/most-viewed"          to "Most viewed all time",
-        "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly"
+        "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly",
         "${mainUrl}/categories/amateur/"  to "Amateur"
     )
 
