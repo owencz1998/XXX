@@ -21,6 +21,7 @@ class xHamster : MainAPI() {
         "${mainUrl}/most-viewed/monthly/" to "Most viewed monthly",
         "${mainUrl}/most-viewed"          to "Most viewed all time",
         "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly"
+        "${mainUrl}/categories/amateur/"  to "Amateur"
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
