@@ -5,8 +5,8 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class porn4days : MainAPI() {
-    override var mainUrl              = "https://porn4days.red/"
-    override var name                 = "porn4days"
+    override var mainUrl              = "https://www.redtube.com"
+    override var name                 = "redtube"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
@@ -15,17 +15,39 @@ class porn4days : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-         override val mainPage = mainPageOf(
-        "${mainUrl}/newest/page3/"                            to "New Videos",
-        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=video_viewed&from="                         to "Most Viewed Videos",
-        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=rating&from="                               to "Top Rated Videos",
-        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=most_commented&from="                       to "Most Commented Videos",
-        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=duration&from="                             to "Longest Videos",
-        "${mainUrl}/channels/brazzers/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="          to "Brazzers",
-        "${mainUrl}/channels/digitalplayground/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from=" to "Digital Playground",
-        "${mainUrl}/channels/realitykings/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="      to "Realitykings",
-        "${mainUrl}/channels/babes-network/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="     to "Babes Network",
-        "${mainUrl}/categories/amateur/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="         to "Amateur"
+     override val mainPage = mainPageOf(
+        Pair(mainUrl, "Main Page"),
+        Pair("$mainUrl/new/", "New"),
+        Pair("$mainUrl/amateur/",
+"amateur"),
+        Pair("$mainUrl/c/amateur-65/",
+"Amateur"),
+        Pair("$mainUrl/c/teen-13/", 
+"Teen"),
+        Pair("$mainUrl/c/big_Tits-23/",
+"Big tits"),
+        Pair("$mainUrl/c/lesbian-26/", 
+"Lesbian"),
+        Pair("$mainUrl/c/anal-12/",
+"Anal"),
+        Pair("$mainUrl/c/blowjob-15/",
+"Blowjob"),
+        Pair("$mainUrl/c/solo_and_masturbation-33/",
+"Solo"),
+        Pair("$mainUrl/c/cumshot-18", 
+"Cumshot"),
+        Pair("$mainUrl/c/gangbang-69/", 
+"Gangbang"),
+        Pair("$mainUrl/c/big_cock-34/", 
+"Big cock"),
+        Pair("$mainUrl/c/fisting-165/", 
+"Fisting"),
+        Pair("$mainUrl/c/blonde-20/", 
+"Blonde"),
+        Pair("$mainUrl/c/brunette-25/", 
+"Brunette"),
+        Pair("$mainUrl/c/fucked_up_family-81/", 
+"Family"),
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
