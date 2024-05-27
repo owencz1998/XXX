@@ -1,9 +1,9 @@
-version = 6
+version = 7
 
 cloudstream {
     authors     = listOf("test")
     language    = "en"
-    description = "testsite"
+    description = "redtube"
 
     /**
      * Status int as the following:
