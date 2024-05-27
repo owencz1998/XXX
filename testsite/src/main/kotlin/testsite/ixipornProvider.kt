@@ -1,12 +1,12 @@
-package com.coxju
+package com.owencz1998
 
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
 import android.content.Context
 
 @CloudstreamPlugin
-class ixipornProvider: Plugin() {
+class porn4daysProvider: Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(ixiporn())
+        registerMainAPI(porn4days())
     }
 }
