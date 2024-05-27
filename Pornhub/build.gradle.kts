@@ -1,12 +1,12 @@
 // use an integer for version numbers
-version = 15
+version = 16
 
 
 cloudstream {
     // All of these properties are optional, you can safely remove them
 
     description = "Pornhub"
-    authors = listOf("Stormunblessed", "Jace", "KillerDogeEmpire", "Hexated", "Coxju")
+    authors = listOf("Stormunblessed", "Jace", "KillerDogeEmpire", "Hexated", "Coxju", "Owen connor",)
 
     /**
     * Status int as the following:
@@ -22,7 +22,7 @@ cloudstream {
     // https://recloudstream.github.io/cloudstream/html/app/com.lagradost.cloudstream3/-tv-type/index.html
     tvTypes = listOf("NSFW")
 
-        iconUrl = "https://www.google.com/s2/favicons?domain=cornhub.website&sz=%size%"
+        iconUrl = "https://www.google.com/s2/favicons?domain=pornhub.com&sz=%size%"
 
     language = "en"
 }
