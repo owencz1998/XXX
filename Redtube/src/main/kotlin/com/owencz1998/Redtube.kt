@@ -27,7 +27,7 @@ class Redtube : MainAPI() {
 
     override val mainPage = mainPageOf(
         Pair(mainUrl, "Main Page"),
-        Pair("$mainUrl/new/", "New"),
+        Pair("$mainUrl/channels//girlsway", "girlsway"),
         Pair("$mainUrl/c/squirting-56/",
 "Squirt"),
         Pair("$mainUrl/c/amateur-65/",
