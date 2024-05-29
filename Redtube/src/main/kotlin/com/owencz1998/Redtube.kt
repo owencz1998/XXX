@@ -15,9 +15,11 @@ class Redtube : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-    override val mainPage = mainPageOf(
-        "${mainUrl}/newest/"              to "Newest",
-        "${mainUrl}/redtube/anal/"  to "Anal",
+        override val mainPage = mainPageOf(
+        Pair(mainUrl, "Main Page"),
+        Pair("$mainUrl/anal/", "Anal"),
+        Pair("$mainUrl/c/squirting-56/",
+"Squirt"),
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
