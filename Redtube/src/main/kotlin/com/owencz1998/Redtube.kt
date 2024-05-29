@@ -1,26 +1,41 @@
 package com.owencz1998
 
+import android.util.Log
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
+import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
+import com.lagradost.cloudstream3.*
+import com.lagradost.cloudstream3.mvvm.logError
+import com.lagradost.cloudstream3.network.WebViewResolver
+import com.lagradost.cloudstream3.utils.ExtractorLink
+import com.lagradost.cloudstream3.utils.M3u8Helper
+import com.lagradost.cloudstream3.utils.getQualityFromName
+import org.json.JSONObject
 
-class Redtube : MainAPI() {
+class RedtubeProvider : MainAPI() {
+    private val globalTvType = TvType.NSFW
     override var mainUrl              = "https://www.redtube.com/"
     override var name                 = "Redtube"
     override val hasMainPage          = true
     override var lang                 = "en"
-    override val hasQuickSearch       = false
+    override val hasQuickSearch       = true
     override val hasDownloadSupport   = true
     override val hasChromecastSupport = true
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-        override val mainPage = mainPageOf(
-        "${mainUrl}/channels/brazzers"              to "Brazzers",
-        "${mainUrl}/"  to "test",
+    override val mainPage = mainPageOf(
+        "${mainUrl}/video?o=mr&hd=1&page="           to "Recently Featured",
+        "${mainUrl}/video?o=tr&t=w&hd=1&page="       to "Top Rated",
+        "${mainUrl}/video?o=mv&t=w&hd=1&page="       to "Most Viewed",
+        "${mainUrl}/video?o=ht&t=w&hd=1&page="       to "Hottest",
+        "${mainUrl}/video?p=professional&hd=1&page=" to "Professional",
+        "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
+        "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
+        "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",                                                                                                   
     )
-
-      private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
+    private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         try {
