@@ -16,7 +16,7 @@ class Redtube : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-           "${mainUrl}/porn-videos-trending/"         to "Trending",
+           "${mainUrl}/hot?cc=gb/"         to "Trending",
             "top-rated" to "Top Rated",
             "most-viewed" to "Most Viewed",
             "cat/milf" to "Milf",
