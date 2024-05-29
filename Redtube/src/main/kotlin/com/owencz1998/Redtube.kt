@@ -16,7 +16,7 @@ class Redtube : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
         override val mainPage = mainPageOf(
-        "${mainUrl}/anal/"              to "Anal",
+        "${mainUrl}/channels/brazzers"              to "Brazzers",
         "${mainUrl}/"  to "test",
     )
 
