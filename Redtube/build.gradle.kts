@@ -14,5 +14,5 @@ cloudstream {
     **/
     status  = 1 // will be 3 if unspecified
     tvTypes = listOf("NSFW")
-    iconUrl = "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://redtube.org&size=16"
+    iconUrl = "https://ei.rdtcdn.com/www-static/cdn_files/redtube/icons/favicon.png?v=46b6baae4334d3e6961c561e501e5665dcee97a5" sizes="192x192">"
 }
