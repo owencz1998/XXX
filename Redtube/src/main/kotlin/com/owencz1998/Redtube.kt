@@ -86,7 +86,7 @@ class Redtube : MainAPI() {
 
     override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
         val response = app.get(
-            data, interceptor = WebViewResolver(Regex("""https://www\.eporner\.com/xhr/video"""))
+            data, interceptor = WebViewResolver(Regex("""https://www\.redtube\.com/xhr/video"""))
         )
         val json=response.text
         val regex = Regex("labelShort\":\\s\"(.*?)\"|src\":\\s\"(.*)\"")
