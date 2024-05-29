@@ -1,145 +1,295 @@
 package com.owencz1998
 
+import android.util.Log
 import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.utils.AppUtils
-import com.lagradost.cloudstream3.utils.ExtractorLink
-import org.jsoup.nodes.Element
-import com.lagradost.cloudstream3.utils.Qualities
+import com.lagradost.cloudstream3.mvvm.logError
+import com.lagradost.cloudstream3.utils.*
+import com.lagradost.cloudstream3.utils.AppUtils.toJson
+
 
 class Redtube : MainAPI() {
+    private val globalTvType = TvType.NSFW
+    private val Dev = "DevDebug"
+
     override var mainUrl = "https://www.redtube.com/"
     override var name = "Redtube"
     override val hasMainPage = true
+    override val hasChromecastSupport = true
     override val hasDownloadSupport = true
-    override val vpnStatus = VPNStatus.MightBeNeeded
     override val supportedTypes = setOf(TvType.NSFW)
 
-    override val mainPage = mainPageOf(
-        "$mainUrl/anal/" to "New Videos",
-        "$mainUrl/new.html?sm=trending&page=" to "Trending",
-        "$mainUrl/new.html?sm=views&page=" to "Most Viewed",
-        "$mainUrl/popular/top-viewed.html?p=day" to "Popular - Day",
-        "$mainUrl/popular/top-viewed.html" to "Popular - Week",
-        "$mainUrl/popular/top-viewed.html?p=month" to "Popular - Month",
-        "$mainUrl/popular/top-viewed.html?p=all" to "Popular - All Time"
-    )
-
-    override suspend fun getMainPage(
-        page: Int, request: MainPageRequest
-    ): HomePageResponse {
-        var pageStr = ((page - 1) * 30).toString()
-
-        val document = if ("page=" in request.data) {
-            app.get(request.data + pageStr).document
-        } else if ("/blog/" in request.data) {
-            pageStr = ((page - 1) * 20).toString()
-            app.get(request.data.replace(".html", "$pageStr.html")).document
-        } else {
-            app.get(request.data.replace(".html", ".html/$pageStr")).document
-        }
-        val home = document.select("div.main_content div.post_el_small").mapNotNull {
-                it.toSearchResult()
-            }
-        return newHomePageResponse(
-            list = HomePageList(
-                name = request.name, list = home, isHorizontalImages = true
-            ), hasNext = true
-        )
+    fun getLinkAndExt(text: String) : Pair<String, String> {
+        val validlink = text.trim().trim('"').trim('\'')
+        val valindlinkext = validlink.substringAfterLast(".")
+            .substringBeforeLast("?").trim().uppercase()
+        return Pair(validlink, valindlinkext)
     }
 
-    private fun Element.toSearchResult(): SearchResponse? {
-        val title = this.selectFirst("div.post_text")?.text() ?: return null
-        val href = fixUrl(this.selectFirst("a.js-pop")!!.attr("href"))
-        var posterUrl = fixUrl(this.select("div.vid_container div.post_vid_thumb img").attr("src"))
-        if (posterUrl == "") {
-            posterUrl =
-                fixUrl(this.select("div.vid_container div.post_vid_thumb img").attr("data-src"))
+    override val mainPage = mainPageOf(
+        Pair(mainUrl, "Main Page"),
+        Pair("$mainUrl/new/", "New"),
+        Pair("$mainUrl/c/squirting-56/",
+"Squirt"),
+        Pair("$mainUrl/c/amateur-65/",
+"Amateur"),
+    )
+
+    override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
+        val categoryData = request.data
+        val categoryName = request.name
+        val isPaged = categoryData.endsWith('/')
+        val pagedLink = if (isPaged) categoryData + page else categoryData
+        try {
+            if (!isPaged && page < 2 || isPaged) {
+                val soup = app.get(pagedLink).document
+                val home = soup.select("div.thumb-block").mapNotNull {
+                    if (it == null) { return@mapNotNull null }
+                    val title = it.selectFirst("p.title a")?.text() ?: ""
+                    val link = fixUrlNull(it.selectFirst("div.thumb a")?.attr("href")) ?: return@mapNotNull null
+                    val image = it.selectFirst("div.thumb a img")?.attr("data-src")
+                    newMovieSearchResponse(
+                        name = title,
+                        url = link,
+                        type = globalTvType,
+                    ) {
+                        this.posterUrl = image
+                    }
+                }
+                if (home.isNotEmpty()) {
+                    return newHomePageResponse(
+                        list = HomePageList(
+                            name = categoryName,
+                            list = home,
+                            isHorizontalImages = true
+                        ),
+                        hasNext = true
+                    )
+                } else {
+                    throw ErrorLoadingException("No homepage data found!")
+                }
+            }
+        } catch (e: Exception) {
+            //e.printStackTrace()
+            logError(e)
         }
-        return newMovieSearchResponse(title, href, TvType.Movie) {
-            this.posterUrl = posterUrl
-        }
+        throw ErrorLoadingException()
     }
 
     override suspend fun search(query: String): List<SearchResponse> {
-        val searchResponse = mutableListOf<SearchResponse>()
-        for (i in 0 until 15) {
-            val document = app.get(
-                "$mainUrl/${query.replace(" ", "-")}.html?page=${i * 30}"
-            ).document
-            val results = document.select("div.main_content div.post_el_small").mapNotNull {
-                    it.toSearchResult()
-                }
-            if (!searchResponse.containsAll(results)) {
-                searchResponse.addAll(results)
-            } else {
-                break
-            }
-            if (results.isEmpty()) break
-        }
-        return searchResponse
-    }
-
-    override suspend fun load(url: String): LoadResponse {
+        val url = "$mainUrl?k=${query}"
         val document = app.get(url).document
-        val title = document.selectFirst("div.post_text")?.text()?.trim().toString()
-        val poster = fixUrlNull(
-            document.selectFirst("meta[property=og:image]")
-                ?.attr("content")
-        )
+        return document.select("div.thumb-block").mapNotNull {
+            val title = it.selectFirst("p.title a")?.text()
+                ?: it.selectFirst("p.profile-name a")?.text()
+                ?: ""
+            val href = fixUrlNull(it.selectFirst("div.thumb a")?.attr("href")) ?: return@mapNotNull null
+            val image = if (href.contains("channels") || href.contains("pornstars")) null else it.selectFirst("div.thumb-inside a img")?.attr("data-src")
+            val finaltitle = if (href.contains("channels") || href.contains("pornstars")) "" else title
+            newMovieSearchResponse(
+                name = finaltitle,
+                url = href,
+                type = globalTvType,
+            ) {
+                this.posterUrl = image
+            }
 
-        val recommendations = document.select("div.main_content div div.post_el_small").mapNotNull {
-            it.toSearchResult()
+        }.toList()
+    }
+    override suspend fun load(url: String): LoadResponse {
+        val soup = app.get(url).document
+        val title = if (url.contains("channels")||url.contains("pornstars")) soup.selectFirst("html.xv-responsive.is-desktop head title")?.text() else
+            soup.selectFirst(".page-title")?.text()
+        val poster: String? = if (url.contains("channels") || url.contains("pornstars")) soup.selectFirst(".profile-pic img")?.attr("data-src") else
+            soup.selectFirst("head meta[property=og:image]")?.attr("content")
+        val tags = soup.select(".video-tags-list li a")
+            .map { it?.text()?.trim().toString().replace(", ","") }
+        val episodes = soup.select("div.thumb-block").mapNotNull {
+            val href = it?.selectFirst("a")?.attr("href") ?: return@mapNotNull null
+            val name = it.selectFirst("p.title a")?.text() ?: ""
+            val epthumb = it.selectFirst("div.thumb a img")?.attr("data-src")
+            Episode(
+                name = name,
+                data = href,
+                posterUrl = epthumb,
+            )
         }
-
-        return newMovieLoadResponse(title, url, TvType.NSFW, url) {
-            this.posterUrl = poster
-            this.recommendations = recommendations
+        val tvType = if (url.contains("channels") || url.contains("pornstars")) TvType.TvSeries else globalTvType
+        return when (tvType) {
+            TvType.TvSeries -> {
+                TvSeriesLoadResponse(
+                    name = title ?: "",
+                    url = url,
+                    apiName = this.name,
+                    type = globalTvType,
+                    episodes = episodes,
+                    posterUrl = poster,
+                    plot = title,
+                    showStatus = ShowStatus.Ongoing,
+                    tags = tags,
+                )
+            }
+            else -> {
+                newMovieLoadResponse(
+                    name = title ?: "",
+                    url = url,
+                    type = globalTvType,
+                    dataUrl = url,
+                ) {
+                    this.posterUrl = poster
+                    this.plot = title
+                    this.tags = tags
+                    this.duration = getDurationFromString(title)
+                }
+            }
         }
     }
-
-    private fun updateUrl(arg: MutableList<String>): MutableList<String> {
-        arg[5] =
-            (Integer.parseInt(arg[5]) - (generateNumber(arg[6]) + generateNumber(arg[7]))).toString()
-        return arg
-    }
-
-    private fun generateNumber(arg: String): Int {
-        val str = arg.replace(Regex("\\D"), "")
-        var sut = 0
-        for (element in str) {
-            sut += Integer.parseInt(element.toString(), 10)
-        }
-        return sut
-    }
-
-   override suspend fun loadLinks(
+    override suspend fun loadLinks(
         data: String,
         isCasting: Boolean,
         subtitleCallback: (SubtitleFile) -> Unit,
         callback: (ExtractorLink) -> Unit
     ): Boolean {
-        val document = app.get(data).document
-        val parsed = AppUtils.parseJson<Map<String, String>>(
-            document.select("span.vidsnfo").attr("data-vnfo")
-        )
-        parsed[parsed.keys.toList()[0]]
-        var url = parsed[parsed.keys.toList()[0]].toString()
+        app.get(data).document.select("script").apmap { script ->
+            val scriptdata = script.data()
+            if (scriptdata.isNullOrBlank()) {
+                return@apmap
+            }
+            //Log.i(Dev, "scriptdata => $scriptdata")
+            if (scriptdata.contains("HTML5Player")) {
+                val extractedlink = script.data().substringAfter(".setVideoHLS('")
+                    .substringBefore("');")
+                if (extractedlink.isNotBlank()) {
+                    M3u8Helper().m3u8Generation(
+                        M3u8Helper.M3u8Stream(
+                            extractedlink,
+                            headers = app.get(data).headers.toMap()
+                        ), true
+                    ).map { stream ->
+                        callback(
+                            ExtractorLink(
+                                source = this.name,
+                                name = "${this.name} m3u8",
+                                url = stream.streamUrl,
+                                referer = data,
+                                quality = getQualityFromName(stream.quality?.toString()),
+                                isM3u8 = true
+                            )
+                        )
+                    }
+                }
+                val mp4linkhigh = script.data().substringAfter("html5player.setVideoUrlHigh('").substringBefore("');")
+                if (mp4linkhigh.isNotBlank()) {
+                    callback(
+                        ExtractorLink(
+                            source = this.name,
+                            name = "${this.name} MP4 High",
+                            url = mp4linkhigh,
+                            referer = data,
+                            quality = Qualities.Unknown.value,
+                        )
+                    )
+                }
+                val mp4linklow = script.data().substringAfter("html5player.setVideoUrlLow('").substringBefore("');")
+                if (mp4linklow.isNotBlank()) {
+                    callback(
+                        ExtractorLink(
+                            source = this.name,
+                            name = "${this.name} MP4 Low",
+                            url = mp4linklow,
+                            referer = data,
+                            quality = Qualities.Unknown.value,
+                        )
+                    )
+                }
+            }
 
-        var tmp = url.split("/").toMutableList()
-        tmp[1] += "8"
-        tmp = updateUrl(tmp)
+            val setOfRegexOption = setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE)
+            //Fetch default links
+            if (scriptdata.contains("contentUrl")) {
+                Log.i(Dev, "Fetching default link..")
 
-        url = fixUrl(tmp.joinToString("/"))
+                "(?<=contentUrl\\\":)(.*)(?=\\\",)".toRegex(setOfRegexOption)
+                .findAll(scriptdata).forEach {
+                    it.groupValues.forEach { link ->
+                        val validLinkVal = getLinkAndExt(link)
+                        val validlink = validLinkVal.first
+                        val validlinkext = validLinkVal.second
+                        Log.i(Dev, "Result Default => $validlink")
+                        callback(
+                            ExtractorLink(
+                                source = this.name,
+                                name = "${this.name} $validlinkext",
+                                url = validlink,
+                                referer = data,
+                                quality = Qualities.Unknown.value,
+                                isM3u8 = validlinkext.startsWith("M3")
+                            )
+                        )
+                    }
+                }
+            }
+            //Fetch HLS links
+            Log.i(Dev, "Fetching HLS Low link..")
+            Regex("(?<=setVideoUrlLow\\()(.*?)(?=\\);)", setOfRegexOption).findAll(scriptdata)
+                .forEach {
+                it.groupValues.forEach { link ->
+                    val validLinkVal = getLinkAndExt(link)
+                    val validlink = validLinkVal.first
+                    val validlinkext = validLinkVal.second
+                    Log.i(Dev, "Result HLS Low => $validlink")
+                    callback(
+                        ExtractorLink(
+                            source = this.name,
+                            name = "${this.name} $validlinkext Low",
+                            url = validlink,
+                            referer = data,
+                            quality = Qualities.Unknown.value
+                        )
+                    )
+                }
+            }
 
-        callback.invoke(
-            ExtractorLink(
-                this.name,
-                this.name,
-                url,
-                referer = "",
-                quality = Qualities.Unknown.value
-            )
-        )
+            Log.i(Dev, "Fetching HLS High link..")
+            Regex("(?<=setVideoUrlHigh\\()(.*?)(?=\\);)", setOfRegexOption).findAll(scriptdata)
+                .forEach {
+                it.groupValues.forEach { link ->
+                    val validLinkVal = getLinkAndExt(link)
+                    val validlink = validLinkVal.first
+                    val validlinkext = validLinkVal.second
+                    Log.i(Dev, "Result HLS High => $validlink")
+                    callback(
+                        ExtractorLink(
+                            source = this.name,
+                            name = "${this.name} $validlinkext High",
+                            url = validlink,
+                            referer = data,
+                            quality = Qualities.Unknown.value
+                        )
+                    )
+                }
+            }
+
+            Log.i(Dev, "Fetching HLS Default link..")
+            Regex("(?<=setVideoHLS\\()(.*?)(?=\\);)", setOfRegexOption).findAll(scriptdata)
+                .forEach {
+                it.groupValues.forEach { link ->
+                    val validLinkVal = getLinkAndExt(link)
+                    val validlink = validLinkVal.first
+                    val validlinkext = validLinkVal.second
+                    Log.i(Dev, "Result HLS Default => $validlink")
+                    callback(
+                        ExtractorLink(
+                            source = this.name,
+                            name = "${this.name} $validlinkext Default",
+                            url = validlink,
+                            referer = data,
+                            quality = Qualities.Unknown.value,
+                            isM3u8 = true
+                        )
+                    )
+                }
+            }
+        }
         return true
     }
 }
