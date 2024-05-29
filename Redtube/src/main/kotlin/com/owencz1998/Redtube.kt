@@ -16,15 +16,11 @@ class Redtube : MainAPI() { // all providers must be an instance of MainAPI
             TvType.NSFW
     )
 
-    override val mainPage = mainPageOf(
-            "latest" to "Latest",
-            "onlyfans" to "Onlyfans",
-            "latina" to "Latina",
-            "blonde" to "Blonde",
-            "milf" to "MILF",
-            "jav" to "JAV",
-            "hentai" to "Hentai",
-            "lesbian" to "Lesbian",
+        override val mainPage = mainPageOf(
+        Pair(mainUrl, "Main Page"),
+        Pair("$mainUrl/redtube/", "New"),
+        Pair("$mainUrl/categories/squirting/",
+"Squirt"),
     )
 
 
