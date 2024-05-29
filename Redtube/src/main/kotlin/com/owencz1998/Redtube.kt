@@ -5,8 +5,8 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.network.WebViewResolver
 import com.lagradost.cloudstream3.utils.*
 
-class Eporner : MainAPI() {
-    override var mainUrl              = "https://www.eporner.com"
+class Redtube : MainAPI() {
+    override var mainUrl              = "https://www.Redtube.com"
     override var name                 = "Eporner"
     override val hasMainPage          = true
     override var lang                 = "en"
