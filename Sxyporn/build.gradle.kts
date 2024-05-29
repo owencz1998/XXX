@@ -21,7 +21,7 @@ cloudstream {
     // https://recloudstream.github.io/cloudstream/html/app/com.lagradost.cloudstream3/-tv-type/index.html
     tvTypes = listOf("NSFW")
 
-    iconUrl = "https://www.google.com/s2/favicons?domain=sxyprn.com&sz=%size%"
+    iconUrl = "https://www.google.com/s2/favicons?domain=sexyporn.com&sz=%size%"
 
     language = "en"
 }
