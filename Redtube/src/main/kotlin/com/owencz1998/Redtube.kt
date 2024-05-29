@@ -17,7 +17,7 @@ class Redtube : MainAPI() {
 
     override val mainPage = mainPageOf(
         "${mainUrl}/newest/"              to "Newest",
-        "${mainUrl}/categories/anal/"  to "Anal",
+        "${mainUrl}/redtube/anal/"  to "Anal",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
