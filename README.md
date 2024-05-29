@@ -4,7 +4,10 @@
 ● Paradisehill ● Mangoporn
 ● InternetChicks ● PornKen
 ● TollyPro ● Xtapes ● uncutmaza
-●
+● Eporner ●Perverzija ● Xvideos 
+● Xhamster ● Spankbang ● Sxyprn 
+● Javpoint ● Fullponer ●Ixiporn
+● NoodleMagazine
  
 Cloustream plugin
 
