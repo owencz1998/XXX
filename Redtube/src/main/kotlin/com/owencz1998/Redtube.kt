@@ -16,10 +16,8 @@ class Redtube : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
         override val mainPage = mainPageOf(
-        Pair(mainUrl, "Main Page"),
-        Pair("$mainUrl/anal/", "Anal"),
-        Pair("$mainUrl/c/squirting-56/",
-"Squirt"),
+        "${mainUrl}/anal/"              to "Anal",
+        "${mainUrl}/"  to "test",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
