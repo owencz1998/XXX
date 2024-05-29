@@ -5,7 +5,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class Redtube : MainAPI() {
-    override var mainUrl              = "https://redtube.com/"
+    override var mainUrl              = "https://www.redtube.com"
     override var name                 = "Redtube"
     override val hasMainPage          = true
     override var lang                 = "en"
