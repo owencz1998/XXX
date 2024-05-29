@@ -82,7 +82,7 @@ class Redtube : MainAPI() {
             val video     = Jsoup.parse(videoHtml.toString()).selectFirst("video")
 
             poster        = fixUrlNull(video?.attr("poster"))
-            posterHeaders = mapOf(Pair("referer", "https://mydaddy.cc/"))
+            posterHeaders = mapOf(Pair("referer", "https://feeds.feedburner.com"))
         } else {
             val iframeDocument = app.get(iframeUrl).document
             val videoDocument  = Jsoup.parse("<video" + iframeDocument.selectXpath("//script[contains(text(),'\$(\"#jw\").html(')]")[0]?.toString()?.replace("\\", "")?.substringAfter("<video")?.substringBefore("</video>") + "</video>")
@@ -113,7 +113,7 @@ class Redtube : MainAPI() {
 
         val extlinkList = mutableListOf<ExtractorLink>()
         if (iframeUrl.contains("videoh")) {
-            val iframeDocument = app.get(iframeUrl, interceptor = WebViewResolver(Regex("""mydaddy"""))).document
+            val iframeDocument = app.get(iframeUrl, interceptor = WebViewResolver(Regex("""feedburner"""))).document
             val videoDocument  = Jsoup.parse("<video" + iframeDocument.selectXpath("//script[contains(text(),'\$(\"#jw\").html(')]").first()?.toString()?.replace("\\", "")?.substringAfter("<video")?.substringAfter("<video")?.substringBefore("</video>") + "</video>")
 
             videoDocument.select("source").map { res -> 
@@ -129,7 +129,7 @@ class Redtube : MainAPI() {
             val iframeDocument = app.get(iframeUrl).document
             val videoID        = Regex("""var id = \"(.+?)\"""").find(iframeDocument.html())?.groupValues?.get(1)
 
-            val pornTrexDocument = app.get("https://www.porntrex.com/embed/${videoID}").document
+            val pornTrexDocument = app.get("https://feeds.feedburner.com/embed/${videoID}").document
             val video_url = fixUrlNull(Regex("""video_url: \'(.+?)\',""").find(pornTrexDocument.html())?.groupValues?.get(1))
             if (video_url != null) {
                 extlinkList.add(ExtractorLink(
