@@ -129,7 +129,7 @@ class Redtube : MainAPI() {
             val iframeDocument = app.get(iframeUrl).document
             val videoID        = Regex("""var id = \"(.+?)\"""").find(iframeDocument.html())?.groupValues?.get(1)
 
-            val pornTrexDocument = app.get("https://feeds.feedburner.com/redtube/videos{videoID}").document
+            val pornTrexDocument = app.get("https://feeds.feedburner.com/redtube/videos/${videoID}").document
             val video_url = fixUrlNull(Regex("""video_url: \'(.+?)\',""").find(RedtubeDocument.html())?.groupValues?.get(1))
             if (video_url != null) {
                 extlinkList.add(ExtractorLink(
