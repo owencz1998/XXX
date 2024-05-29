@@ -6,7 +6,7 @@ import com.lagradost.cloudstream3.network.WebViewResolver
 import com.lagradost.cloudstream3.utils.*
 import org.jsoup.nodes.Element
 
-class RedtubeProvider : MainAPI() { // all providers must be an instance of MainAPI
+class Redtube : MainAPI() { // all providers must be an instance of MainAPI
     override var mainUrl = "https://www.redtube.com/"
     override var name = "Redtube"
     override val hasMainPage = true
