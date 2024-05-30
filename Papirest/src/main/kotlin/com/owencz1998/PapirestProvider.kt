@@ -7,6 +7,6 @@ import android.content.Context
 @CloudstreamPlugin
 class PapirestProvider: Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(Redtube())
+        registerMainAPI(Papirest())
     }
 }
