@@ -3,7 +3,7 @@ version = 1
 cloudstream {
     authors     = listOf("OwenConnor")
     language    = "en"
-    description = "PapiRest"
+    description = "Redtube"
 
     /**
      * Status int as the following:
