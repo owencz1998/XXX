@@ -5,7 +5,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class internetchicks : MainAPI() {
-    override var mainUrl              = "https://www.papi.rest/"
+    override var mainUrl              = "https://www.papi.rest"
     override var name                 = "Papirest"
     override val hasMainPage          = true
     override var lang                 = "en"
