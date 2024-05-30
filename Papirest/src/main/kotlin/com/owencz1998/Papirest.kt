@@ -7,7 +7,7 @@ import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.utils.Qualities
 
 class Papirest : MainAPI() {
-    override var mainUrl = "https://www.papi.rest/"
+    override var mainUrl = "https://papi-pornstarsapi.p.rapidapi.com/pornstars/"
     override var name = "Papirest"
     override val hasMainPage = true
     override val hasDownloadSupport = true
