@@ -4,7 +4,7 @@ import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
-class internetchicks : MainAPI() {
+class papirest : MainAPI() {
     override var mainUrl              = "https://www.papi.rest"
     override var name                 = "Papirest"
     override val hasMainPage          = true
