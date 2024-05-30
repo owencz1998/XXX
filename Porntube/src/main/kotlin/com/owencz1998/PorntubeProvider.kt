@@ -5,8 +5,8 @@ import com.lagradost.cloudstream3.plugins.Plugin
 import android.content.Context
 
 @CloudstreamPlugin
-class RedtubeProvider: Plugin() {
+class PorntubeProvider: Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(Redtube())
+        registerMainAPI(Porntube())
     }
 }
