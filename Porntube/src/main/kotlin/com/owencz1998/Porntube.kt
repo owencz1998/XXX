@@ -67,7 +67,7 @@ class Porntube : MainAPI() {
 
         for (say in 1..15) {
             val document = app.get(
-                "${mainUrl}/search/nikki-benz/?mode=async&function=get_block&block_id=list_videos_videos_list_search_result&q=${query}&category_ids=&sort_by=&from_videos=${say}&from_albums=${say}",
+                "${mainUrl}/tags/gorgeous-small-tit-brunette-masturbating_7705223/?mode=async&function=get_block&block_id=list_videos_videos_list_search_result&q=${query}&category_ids=&sort_by=&from_videos=${say}&from_albums=${say}",
                 headers = mapOf("X-Requested-With" to "XMLHttpRequest")
             ).document
 
@@ -89,7 +89,7 @@ class Porntube : MainAPI() {
         val title           = raw_title.removePrefix("- ").trim().removeSuffix("-").trim()
 
         val poster          = fixUrlNull(document.selectFirst("[property='og:image']")?.attr("content"))
-        val tags            = document.selectXpath("//div[contains(text(), 'Categories:')]/a").map { it.text() }
+        val tags            = document.selectXpath("//div[contains(text(), 'Tags:')]/a").map { it.text() }
         val description     = document.selectXpath("//div[contains(text(), 'Description:')]/em").text().trim()
         val actors          = document.selectXpath("//div[contains(text(), 'Models:')]/a").map { it.text() }
         val recommendations = document.select("div#list_videos_related_videos_items div.item").mapNotNull { it.toSearchResult() }
