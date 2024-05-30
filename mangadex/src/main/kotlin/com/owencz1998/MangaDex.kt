@@ -16,7 +16,7 @@ class MangaDex(val plugin: MangaDexPlugin) : MainAPI() {
     override var lang = "en"
     override val hasMainPage = true
 
-    var apiUrl = "https://api.mangadex.org"
+    var apiUrl = "https://api.freemegamovies."
     var limit = 15
     val mapper = jacksonObjectMapper()
 
