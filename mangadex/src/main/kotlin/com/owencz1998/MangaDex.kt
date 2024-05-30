@@ -1,4 +1,4 @@
-package com.RowdyAvocado
+package com.owencz1998
 
 // import android.util.Log
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -10,13 +10,13 @@ import com.lagradost.cloudstream3.utils.*
 import kotlin.text.replace
 
 class MangaDex(val plugin: MangaDexPlugin) : MainAPI() {
-    override var name = "MangaDex"
-    override var mainUrl = "https://mangadex.org"
+    override var name = "PapiRest"
+    override var mainUrl = https://papi-pornstarsapi.p.rapidapi.com/pornstars/"
     override var supportedTypes = setOf(TvType.Others)
     override var lang = "en"
     override val hasMainPage = true
 
-    var apiUrl = "https://api.freemegamovies."
+    var apiUrl = "https://papi-pornstarsapi.p.rapidapi.com/pornstars/"
     var limit = 15
     val mapper = jacksonObjectMapper()
 
@@ -138,7 +138,7 @@ class MangaDex(val plugin: MangaDexPlugin) : MainAPI() {
                     val mangaId = manga?.id
                     val poster = manga!!.rel.find { it.type.equals("cover_art") }?.attrs!!.fileName
                     val posterUrl = "$mainUrl/covers/$mangaId/$poster"
-                    newAnimeSearchResponse(manga.attrs.title.name, "manga/" + manga.id) {
+                    newAnimeSearchResponse(manga.attrs.title.name, "pornstars/" + pornstars.id) {
                         this.posterUrl = posterUrl
                     }
                 }
@@ -159,17 +159,17 @@ data class MangaInList(@JsonProperty("id") var id: String)
 
 // ======================== Manga API Response ==================================
 
-data class MultiMangaResponse(
+data class MultiPornstarsResponse(
         @JsonProperty("result") var result: String,
-        @JsonProperty("data") var data: List<MangaData?>
+        @JsonProperty("data") var data: List<PornstarsData?>
 )
 
 data class SingleMangaResponse(
         @JsonProperty("result") var result: String,
-        @JsonProperty("data") var data: MangaData?
+        @JsonProperty("data") var data: PornstarsData?
 )
 
-data class MangaData(
+data class PornstarsData(
         @JsonProperty("id") var id: String,
         @JsonProperty("attributes") var attrs: MangaAttributes,
         @JsonProperty("relationships") var rel: List<MangaRelationships>,
