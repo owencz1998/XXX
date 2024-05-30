@@ -1,119 +1,102 @@
 package com.owencz1998
 
-import com.fasterxml.jackson.annotation.JsonProperty
-import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.network.WebViewResolver
-import com.lagradost.cloudstream3.utils.*
 import org.jsoup.nodes.Element
+import com.lagradost.cloudstream3.*
+import com.lagradost.cloudstream3.utils.*
 
-class papirest : MainAPI() { // all providers must be an instance of MainAPI
-    override var mainUrl = "https://www.papi.rest/"
-    override var name = "Papirest"
-    override val hasMainPage = true
-    override var lang = "en"
-    override val hasDownloadSupport = true
-    override val supportedTypes = setOf(
-            TvType.NSFW
+class internetchicks : MainAPI() {
+    override var mainUrl              = "https://www.papi.rest/"
+    override var name                 = "Papirest"
+    override val hasMainPage          = true
+    override var lang                 = "en"
+    override val hasQuickSearch       = false
+    override val hasDownloadSupport   = true
+    override val supportedTypes       = setOf(TvType.NSFW)
+    override val vpnStatus            = VPNStatus.MightBeNeeded
+
+    override val mainPage = mainPageOf(
+        "category/onlyfans" to "Onlyfans",
+        "category/femdom" to "Femdom",
+        "category/asmr" to "ASMR",
+        "category/patreon" to "Patreon",
+        "category/manyvids" to "Random",
+        "category/tiktok" to "Tiktok",
+        "category/webcam" to "Webcam",
+        "category/snapchat" to "Snapchat",
     )
-
-        override val mainPage = mainPageOf(
-        Pair(mainUrl, "Main Page"),
-        Pair("$mainUrl/pornstar/cherie-deville-40/", "Ne"),
-        Pair("$mainUrl/categories/squirting/",
-"Squirt"),
-    )
-
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
-        val curpage = page - 1
-        val link = "$mainUrl/video/${request.data}?p=$curpage"
-        val document = app.get(link).document
-        val home = document.select("div.item").mapNotNull {
-            it.toSearchResult()
-        }
-        return newHomePageResponse(request.name, home)
+        val document = app.get("$mainUrl/${request.data}/page/$page/").document
+        val home     = document.select("article").mapNotNull { it.toSearchResult() }
+
+        return newHomePageResponse(
+            list    = HomePageList(
+                name               = request.name,
+                list               = home,
+                isHorizontalImages = true
+            ),
+            hasNext = true
+        )
     }
 
-
-    private fun Element.toSearchResult(): MovieSearchResponse? {
-
-        val href = fixUrl(this.selectFirst("a")?.attr("href") ?: return null)
-        val title = this.selectFirst("a div.i_info div.title")?.text() ?: return null
-        val posterUrl = fixUrlNull(this.selectFirst("a div.i_img img")?.attr("data-src"))
-
+    private fun Element.toSearchResult(): SearchResponse {
+        val title     = this.select("header > h2 > a").text().trim()
+        val href      = fixUrl(this.select("header > h2 > a").attr("href"))
+        val posterUrl = fixUrlNull(this.select("header > a > img").attr("data-src"))
+        println(posterUrl)
         return newMovieSearchResponse(title, href, TvType.Movie) {
-
             this.posterUrl = posterUrl
         }
     }
 
-    override suspend fun search(query: String): List<MovieSearchResponse> {
-        val searchresult = mutableListOf<MovieSearchResponse>()
+    override suspend fun search(query: String): List<SearchResponse> {
+        val searchResponse = mutableListOf<SearchResponse>()
 
-        (0..10).toList().apmap { page ->
-            val doc = app.get("$mainUrl/video/$query?p=$page").document
-            //return document.select("div.post-filter-image").mapNotNull {
-            doc.select("div.item").apmap { res ->
-                searchresult.add(res.toSearchResult()!!)
+        for (i in 1..5) {
+            val document = app.get("${mainUrl}/page/$i/?s=$query&id=5036").document
+
+            val results = document.select("article").mapNotNull { it.toSearchResult() }
+
+            if (!searchResponse.containsAll(results)) {
+                searchResponse.addAll(results)
+            } else {
+                break
             }
 
+            if (results.isEmpty()) break
         }
 
-        return searchresult
+        return searchResponse
     }
 
     override suspend fun load(url: String): LoadResponse {
         val document = app.get(url).document
-        val title = document.selectFirst("div.l_info h1")?.text()?.trim() ?: "null"
-        val poster =
-                document.selectFirst("""meta[property="og:image"]""")?.attr("content") ?: "null"
 
-        val recommendations = document.select("div.item").mapNotNull {
-            it.toSearchResult()
-        }
+        val title       = document.selectFirst("meta[property=og:title]")?.attr("content")?.trim().toString()
+        val poster      = fixUrlNull(document.selectFirst("[property='og:image']")?.attr("content"))
+        val description = document.selectFirst("meta[property=og:description]")?.attr("content")?.trim()
+
 
         return newMovieLoadResponse(title, url, TvType.NSFW, url) {
             this.posterUrl = poster
-            this.recommendations = recommendations
+            this.plot      = description
         }
-
     }
 
-
-    override suspend fun loadLinks(
-            data: String,
-            isCasting: Boolean,
-            subtitleCallback: (SubtitleFile) -> Unit,
-            callback: (ExtractorLink) -> Unit
-    ): Boolean {
-        val jason = app.get(
-                data, interceptor = WebViewResolver(Regex("""/playlist/"""))
-        ).parsed<SusJSON>()
-        val extlinkList = mutableListOf<ExtractorLink>()
-        jason.sources.map {
-            extlinkList.add(
-                    ExtractorLink(
-                            source = name,
-                            name = name,
-                            url = it.streamlink!!,
-                            referer = "$mainUrl/",
-                            quality = getQualityFromName(it.qualityfile)
-                    )
-            )
+    override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
+        val document = app.get(data).document
+        //val sources = mutableListOf<String>()
+        document.select("article > div > div > button").forEach { button ->
+            val onclickAttr = button.attr("onclick")
+            val regex = Regex("""playEmbed\('([^']+)'\)""")
+            val matchResult = regex.find(onclickAttr)
+            val playlistUrl = matchResult?.groups?.get(1)?.value
+            playlistUrl?.let {
+                //println(it) // Print the extracted URL
+                //sources.add(it) // Add the URL to the sources list
+                loadExtractor(it, subtitleCallback, callback)
+            }
         }
-        extlinkList.forEach(callback)
         return true
     }
-
-    data class SusJSON(
-            @JsonProperty("image") val img: String? = null,
-            @JsonProperty("sources") val sources: ArrayList<Streams> = arrayListOf()
-    )
-
-    data class Streams(
-            @JsonProperty("file") val streamlink: String? = null,//the link
-            @JsonProperty("label") val qualityfile: String? = null,//720 480 360 240
-            @JsonProperty("type") val type: String? = null,//mp4
-    )
-
 }
