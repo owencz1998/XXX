@@ -7,8 +7,8 @@ import com.lagradost.cloudstream3.utils.*
 import org.jsoup.nodes.Element
 
 class Redtube : MainAPI() { // all providers must be an instance of MainAPI
-    override var mainUrl = "https://www.redtube.com/"
-    override var name = "Redtube"
+    override var mainUrl = "https://www.papi.rest/"
+    override var name = "PapiResr"
     override val hasMainPage = true
     override var lang = "en"
     override val hasDownloadSupport = true
@@ -18,7 +18,7 @@ class Redtube : MainAPI() { // all providers must be an instance of MainAPI
 
         override val mainPage = mainPageOf(
         Pair(mainUrl, "Main Page"),
-        Pair("$mainUrl/redtube/", "New"),
+        Pair("$mainUrl/pornstar/cherie-deville-40/", "New"),
         Pair("$mainUrl/categories/squirting/",
 "Squirt"),
     )
