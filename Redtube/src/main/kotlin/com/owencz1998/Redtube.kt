@@ -6,9 +6,9 @@ import com.lagradost.cloudstream3.network.WebViewResolver
 import com.lagradost.cloudstream3.utils.*
 import org.jsoup.nodes.Element
 
-class papirest : MainAPI() { // all providers must be an instance of MainAPI
-    override var mainUrl = "https://www.papi.rest/"
-    override var name = "PapiRest"
+class Redtube : MainAPI() { // all providers must be an instance of MainAPI
+    override var mainUrl = "http://www.redtube.com/"
+    override var name = "Redtube"
     override val hasMainPage = true
     override var lang = "en"
     override val hasDownloadSupport = true
