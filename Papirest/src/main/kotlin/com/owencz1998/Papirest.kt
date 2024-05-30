@@ -14,14 +14,10 @@ class Papirest : MainAPI() {
     override val vpnStatus = VPNStatus.MightBeNeeded
     override val supportedTypes = setOf(TvType.NSFW)
 
-    override val mainPage = mainPageOf(
-        "$mainUrl/new.html?page=" to "New Videos",
-        "$mainUrl/new.html?sm=trending&page=" to "Trending",
-        "$mainUrl/new.html?sm=views&page=" to "Most Viewed",
-        "$mainUrl/popular/top-viewed.html?p=day" to "Popular - Day",
-        "$mainUrl/popular/top-viewed.html" to "Popular - Week",
-        "$mainUrl/popular/top-viewed.html?p=month" to "Popular - Month",
-        "$mainUrl/popular/top-viewed.html?p=all" to "Popular - All Time"
+        override val mainPage = mainPageOf(
+        "${mainUrl}/pornstars/1/"              to "Pornstars",
+        "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly",
+        "${mainUrl}/most-viewed/monthly/" to "Most viewed monthly",
     )
 
     override suspend fun getMainPage(
