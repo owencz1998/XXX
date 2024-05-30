@@ -5,8 +5,8 @@ import com.lagradost.cloudstream3.plugins.Plugin
 import android.content.Context
 
 @CloudstreamPlugin
-class PapirestProvider: Plugin() {
+class PornTubeProvider: Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(Papirest())
+        registerMainAPI(Porntube())
     }
 }
