@@ -19,7 +19,7 @@ class Porntube : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=post_date&from="                            to "New Videos",
+        "${mainUrl}/tags/amateur"                            to "New Videos",
         "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=video_viewed&from="                         to "Most Viewed Videos",
         "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=rating&from="                               to "Top Rated Videos",
         "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=most_commented&from="                       to "Most Commented Videos",
