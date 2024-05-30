@@ -15,7 +15,7 @@ class Papirest : MainAPI() {
     override val supportedTypes = setOf(TvType.NSFW)
 
         override val mainPage = mainPageOf(
-        "${mainUrl}/pornstars/1/"              to "Pornstars",
+        "${mainUrl}/pornstars/?ordering=blonde"              to "Blonde",
         "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly",
         "${mainUrl}/most-viewed/monthly/" to "Most viewed monthly",
     )
