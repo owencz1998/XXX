@@ -1,321 +1,144 @@
-package com.owencz1998
+package com.owencz1998 
 
-import android.util.Log
+//import android.util.Log
+import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.mvvm.logError
 import com.lagradost.cloudstream3.utils.*
-import com.lagradost.cloudstream3.utils.AppUtils.toJson
+import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
+import java.util.*
 
-
-class PorntubeProvider : MainAPI() {
-    private val globalTvType = TvType.NSFW
-    private val Dev = "DevDebug"
-
-    override var mainUrl = "https://www.porntube.com"
-    override var name = "Porntube"
-    override val hasMainPage = true
+class Porntube : MainAPI() {
+    override var mainUrl              = "https://www.porntube.com"
+    override var name                 = "Porntube"
+    override val hasMainPage          = true
+    override var lang                 = "en"
+    override val hasQuickSearch       = false
+    override val hasDownloadSupport   = true
     override val hasChromecastSupport = true
-    override val hasDownloadSupport = true
-    override val supportedTypes = setOf(TvType.NSFW)
-
-    fun getLinkAndExt(text: String) : Pair<String, String> {
-        val validlink = text.trim().trim('"').trim('\'')
-        val valindlinkext = validlink.substringAfterLast(".")
-            .substringBeforeLast("?").trim().uppercase()
-        return Pair(validlink, valindlinkext)
-    }
+    override val supportedTypes       = setOf(TvType.NSFW)
+    override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        Pair(mainUrl, "Main Page"),
-        Pair("$mainUrl/new/", "New"),
-        Pair("$mainUrl/c/squirting-56/",
-"Squirt"),
-        Pair("$mainUrl/c/amateur-65/",
-"Amateur"),
-        Pair("$mainUrl/c/teen-13/", 
-"Teen"),
-        Pair("$mainUrl/c/big_Tits-23/",
-"Big tits"),
-        Pair("$mainUrl/c/lesbian-26/", 
-"Lesbian"),
-        Pair("$mainUrl/c/anal-12/",
-"Anal"),
-        Pair("$mainUrl/c/blowjob-15/",
-"Blowjob"),
-        Pair("$mainUrl/c/solo_and_masturbation-33/",
-"Solo"),
-        Pair("$mainUrl/c/cumshot-18", 
-"Cumshot"),
-        Pair("$mainUrl/c/gangbang-69/", 
-"Gangbang"),
-        Pair("$mainUrl/c/big_cock-34/", 
-"Big cock"),
-        Pair("$mainUrl/c/fisting-165/", 
-"Fisting"),
-        Pair("$mainUrl/c/blonde-20/", 
-"Blonde"),
-        Pair("$mainUrl/c/brunette-25/", 
-"Brunette"),
-        Pair("$mainUrl/c/fucked_up_family-81/", 
-"Family"),
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=post_date&from="                            to "New Videos",
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=video_viewed&from="                         to "Most Viewed Videos",
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=rating&from="                               to "Top Rated Videos",
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=most_commented&from="                       to "Most Commented Videos",
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=duration&from="                             to "Longest Videos",
+        "${mainUrl}/channels/brazzers/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="          to "Brazzers",
+        "${mainUrl}/channels/digitalplayground/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from=" to "Digital Playground",
+        "${mainUrl}/channels/realitykings/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="      to "Realitykings",
+        "${mainUrl}/channels/babes-network/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="     to "Babes Network",
+        "${mainUrl}/categories/amateur/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="         to "Amateur"
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
-        val categoryData = request.data
-        val categoryName = request.name
-        val isPaged = categoryData.endsWith('/')
-        val pagedLink = if (isPaged) categoryData + page else categoryData
-        try {
-            if (!isPaged && page < 2 || isPaged) {
-                val soup = app.get(pagedLink).document
-                val home = soup.select("div.thumb-block").mapNotNull {
-                    if (it == null) { return@mapNotNull null }
-                    val title = it.selectFirst("p.title a")?.text() ?: ""
-                    val link = fixUrlNull(it.selectFirst("div.thumb a")?.attr("href")) ?: return@mapNotNull null
-                    val image = it.selectFirst("div.thumb a img")?.attr("data-src")
-                    newMovieSearchResponse(
-                        name = title,
-                        url = link,
-                        type = globalTvType,
-                    ) {
-                        this.posterUrl = image
-                    }
-                }
-                if (home.isNotEmpty()) {
-                    return newHomePageResponse(
-                        list = HomePageList(
-                            name = categoryName,
-                            list = home,
-                            isHorizontalImages = true
-                        ),
-                        hasNext = true
-                    )
-                } else {
-                    throw ErrorLoadingException("No homepage data found!")
-                }
-            }
-        } catch (e: Exception) {
-            //e.printStackTrace()
-            logError(e)
+        val document = app.get(request.data + page).document
+        val home     = document.select("div#list_videos_most_recent_videos_items div.item, div#list_videos_common_videos_list_items div.item").mapNotNull {
+            it.toSearchResult()
         }
-        throw ErrorLoadingException()
+
+        return newHomePageResponse(
+            list = HomePageList(
+                name = request.name,
+                list = home,
+                isHorizontalImages = true
+            ),
+            hasNext = true
+        )
+    }
+
+    private fun Element.toSearchResult(): SearchResponse? {
+        val full_title = this.selectFirst("strong.title")?.text() ?: return null
+        val last_index = full_title.lastIndexOf(" - ")
+        val raw_title  = if (last_index != -1) full_title.substring(0, last_index) else full_title
+        val title      = raw_title.removePrefix("- ").trim().removeSuffix("-").trim()
+
+        val href       = fixUrl(this.selectFirst("a")!!.attr("href"))
+        val posterUrl  = fixUrlNull(this.select("div.img > img").attr("src"))
+
+        return newMovieSearchResponse(title, href, TvType.Movie) {
+            this.posterUrl = posterUrl
+        }
+
     }
 
     override suspend fun search(query: String): List<SearchResponse> {
-        val url = "$mainUrl?k=${query}"
-        val document = app.get(url).document
-        return document.select("div.thumb-block").mapNotNull {
-            val title = it.selectFirst("p.title a")?.text()
-                ?: it.selectFirst("p.profile-name a")?.text()
-                ?: ""
-            val href = fixUrlNull(it.selectFirst("div.thumb a")?.attr("href")) ?: return@mapNotNull null
-            val image = if (href.contains("channels") || href.contains("pornstars")) null else it.selectFirst("div.thumb-inside a img")?.attr("data-src")
-            val finaltitle = if (href.contains("channels") || href.contains("pornstars")) "" else title
-            newMovieSearchResponse(
-                name = finaltitle,
-                url = href,
-                type = globalTvType,
-            ) {
-                this.posterUrl = image
-            }
+        val searchResponse = mutableListOf<SearchResponse>()
 
-        }.toList()
-    }
-    override suspend fun load(url: String): LoadResponse {
-        val soup = app.get(url).document
-        val title = if (url.contains("channels")||url.contains("pornstars")) soup.selectFirst("html.xv-responsive.is-desktop head title")?.text() else
-            soup.selectFirst(".page-title")?.text()
-        val poster: String? = if (url.contains("channels") || url.contains("pornstars")) soup.selectFirst(".profile-pic img")?.attr("data-src") else
-            soup.selectFirst("head meta[property=og:image]")?.attr("content")
-        val tags = soup.select(".video-tags-list li a")
-            .map { it?.text()?.trim().toString().replace(", ","") }
-        val episodes = soup.select("div.thumb-block").mapNotNull {
-            val href = it?.selectFirst("a")?.attr("href") ?: return@mapNotNull null
-            val name = it.selectFirst("p.title a")?.text() ?: ""
-            val epthumb = it.selectFirst("div.thumb a img")?.attr("data-src")
-            Episode(
-                name = name,
-                data = href,
-                posterUrl = epthumb,
-            )
+        for (say in 1..15) {
+            val document = app.get(
+                "${mainUrl}/search/nikki-benz/?mode=async&function=get_block&block_id=list_videos_videos_list_search_result&q=${query}&category_ids=&sort_by=&from_videos=${say}&from_albums=${say}",
+                headers = mapOf("X-Requested-With" to "XMLHttpRequest")
+            ).document
+
+            val results = document.select("div#list_videos_videos_list_search_result_items div.item").mapNotNull { it.toSearchResult() }
+            searchResponse.addAll(results)
+
+            if (results.isEmpty()) break
         }
-        val tvType = if (url.contains("channels") || url.contains("pornstars")) TvType.TvSeries else globalTvType
-        return when (tvType) {
-            TvType.TvSeries -> {
-                TvSeriesLoadResponse(
-                    name = title ?: "",
-                    url = url,
-                    apiName = this.name,
-                    type = globalTvType,
-                    episodes = episodes,
-                    posterUrl = poster,
-                    plot = title,
-                    showStatus = ShowStatus.Ongoing,
-                    tags = tags,
-                )
+
+        return searchResponse
+    }
+
+    override suspend fun load(url: String): LoadResponse {
+        val document = app.get(url).document
+
+        val full_title      = document.selectFirst("div.headline > h1")?.text()?.trim().toString()
+        val last_index      = full_title.lastIndexOf(" - ")
+        val raw_title       = if (last_index != -1) full_title.substring(0, last_index) else full_title
+        val title           = raw_title.removePrefix("- ").trim().removeSuffix("-").trim()
+
+        val poster          = fixUrlNull(document.selectFirst("[property='og:image']")?.attr("content"))
+        val tags            = document.selectXpath("//div[contains(text(), 'Categories:')]/a").map { it.text() }
+        val description     = document.selectXpath("//div[contains(text(), 'Description:')]/em").text().trim()
+        val actors          = document.selectXpath("//div[contains(text(), 'Models:')]/a").map { it.text() }
+        val recommendations = document.select("div#list_videos_related_videos_items div.item").mapNotNull { it.toSearchResult() }
+
+        val year            = full_title.substring(full_title.length - 4).toIntOrNull()
+        val rating          = document.selectFirst("div.rating span")?.text()?.substringBefore("%")?.trim()?.toFloatOrNull()?.div(10)?.toString()?.toRatingInt()
+
+        val raw_duration    = document.selectXpath("//span[contains(text(), 'Duration')]/em").text().trim()
+        val duration_parts  = raw_duration.split(":")
+        val duration        = when (duration_parts.size) {
+            3 -> {
+                val hours   = duration_parts[0].toIntOrNull() ?: 0
+                val minutes = duration_parts[1].toIntOrNull() ?: 0
+
+                hours * 60 + minutes
             }
             else -> {
-                newMovieLoadResponse(
-                    name = title ?: "",
-                    url = url,
-                    type = globalTvType,
-                    dataUrl = url,
-                ) {
-                    this.posterUrl = poster
-                    this.plot = title
-                    this.tags = tags
-                    this.duration = getDurationFromString(title)
-                }
+                duration_parts[0].toIntOrNull() ?: 0
             }
+        }
+
+        return newMovieLoadResponse(title.removePrefix("- ").removeSuffix("-").trim(), url, TvType.NSFW, url) {
+            this.posterUrl       = poster
+            this.year            = year
+            this.plot            = description
+            this.tags            = tags
+            this.recommendations = recommendations
+            this.rating          = rating
+            this.duration        = duration
+            addActors(actors)
         }
     }
-    override suspend fun loadLinks(
-        data: String,
-        isCasting: Boolean,
-        subtitleCallback: (SubtitleFile) -> Unit,
-        callback: (ExtractorLink) -> Unit
-    ): Boolean {
-        app.get(data).document.select("script").apmap { script ->
-            val scriptdata = script.data()
-            if (scriptdata.isNullOrBlank()) {
-                return@apmap
-            }
-            //Log.i(Dev, "scriptdata => $scriptdata")
-            if (scriptdata.contains("HTML5Player")) {
-                val extractedlink = script.data().substringAfter(".setVideoHLS('")
-                    .substringBefore("');")
-                if (extractedlink.isNotBlank()) {
-                    M3u8Helper().m3u8Generation(
-                        M3u8Helper.M3u8Stream(
-                            extractedlink,
-                            headers = app.get(data).headers.toMap()
-                        ), true
-                    ).map { stream ->
-                        callback(
-                            ExtractorLink(
-                                source = this.name,
-                                name = "${this.name} m3u8",
-                                url = stream.streamUrl,
-                                referer = data,
-                                quality = getQualityFromName(stream.quality?.toString()),
-                                isM3u8 = true
-                            )
-                        )
-                    }
-                }
-                val mp4linkhigh = script.data().substringAfter("html5player.setVideoUrlHigh('").substringBefore("');")
-                if (mp4linkhigh.isNotBlank()) {
-                    callback(
-                        ExtractorLink(
-                            source = this.name,
-                            name = "${this.name} MP4 High",
-                            url = mp4linkhigh,
-                            referer = data,
-                            quality = Qualities.Unknown.value,
-                        )
-                    )
-                }
-                val mp4linklow = script.data().substringAfter("html5player.setVideoUrlLow('").substringBefore("');")
-                if (mp4linklow.isNotBlank()) {
-                    callback(
-                        ExtractorLink(
-                            source = this.name,
-                            name = "${this.name} MP4 Low",
-                            url = mp4linklow,
-                            referer = data,
-                            quality = Qualities.Unknown.value,
-                        )
-                    )
-                }
-            }
 
-            val setOfRegexOption = setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE)
-            //Fetch default links
-            if (scriptdata.contains("contentUrl")) {
-                Log.i(Dev, "Fetching default link..")
+    override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
+        val document = app.get(data).document
 
-                "(?<=contentUrl\\\":)(.*)(?=\\\",)".toRegex(setOfRegexOption)
-                .findAll(scriptdata).forEach {
-                    it.groupValues.forEach { link ->
-                        val validLinkVal = getLinkAndExt(link)
-                        val validlink = validLinkVal.first
-                        val validlinkext = validLinkVal.second
-                        Log.i(Dev, "Result Default => $validlink")
-                        callback(
-                            ExtractorLink(
-                                source = this.name,
-                                name = "${this.name} $validlinkext",
-                                url = validlink,
-                                referer = data,
-                                quality = Qualities.Unknown.value,
-                                isM3u8 = validlinkext.startsWith("M3")
-                            )
-                        )
-                    }
-                }
-            }
-            //Fetch HLS links
-            Log.i(Dev, "Fetching HLS Low link..")
-            Regex("(?<=setVideoUrlLow\\()(.*?)(?=\\);)", setOfRegexOption).findAll(scriptdata)
-                .forEach {
-                it.groupValues.forEach { link ->
-                    val validLinkVal = getLinkAndExt(link)
-                    val validlink = validLinkVal.first
-                    val validlinkext = validLinkVal.second
-                    Log.i(Dev, "Result HLS Low => $validlink")
-                    callback(
-                        ExtractorLink(
-                            source = this.name,
-                            name = "${this.name} $validlinkext Low",
-                            url = validlink,
-                            referer = data,
-                            quality = Qualities.Unknown.value
-                        )
-                    )
-                }
-            }
-
-            Log.i(Dev, "Fetching HLS High link..")
-            Regex("(?<=setVideoUrlHigh\\()(.*?)(?=\\);)", setOfRegexOption).findAll(scriptdata)
-                .forEach {
-                it.groupValues.forEach { link ->
-                    val validLinkVal = getLinkAndExt(link)
-                    val validlink = validLinkVal.first
-                    val validlinkext = validLinkVal.second
-                    Log.i(Dev, "Result HLS High => $validlink")
-                    callback(
-                        ExtractorLink(
-                            source = this.name,
-                            name = "${this.name} $validlinkext High",
-                            url = validlink,
-                            referer = data,
-                            quality = Qualities.Unknown.value
-                        )
-                    )
-                }
-            }
-
-            Log.i(Dev, "Fetching HLS Default link..")
-            Regex("(?<=setVideoHLS\\()(.*?)(?=\\);)", setOfRegexOption).findAll(scriptdata)
-                .forEach {
-                it.groupValues.forEach { link ->
-                    val validLinkVal = getLinkAndExt(link)
-                    val validlink = validLinkVal.first
-                    val validlinkext = validLinkVal.second
-                    Log.i(Dev, "Result HLS Default => $validlink")
-                    callback(
-                        ExtractorLink(
-                            source = this.name,
-                            name = "${this.name} $validlinkext Default",
-                            url = validlink,
-                            referer = data,
-                            quality = Qualities.Unknown.value,
-                            isM3u8 = true
-                        )
-                    )
-                }
-            }
+        document.select("div.info div:last-child a").map { res ->
+            callback.invoke(
+                ExtractorLink(
+                    this.name,
+                    this.name,
+                    res.attr("href").replace(Regex("\\?download\\S+.mp4&"), "?") + "&rnd=${Date().time}",
+                    referer = data,
+                    quality = Regex("([0-9]+p),").find(res.text())?.groupValues?.get(1).let { getQualityFromName(it) },
+                    headers = mapOf("Range" to "bytes=0-"),
+                )
+            )
         }
+
         return true
     }
 }
