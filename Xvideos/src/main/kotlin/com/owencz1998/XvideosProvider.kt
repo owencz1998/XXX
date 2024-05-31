@@ -372,7 +372,8 @@ class XvideosProvider : MainAPI() {
                             source = this.name,
                             name = "${this.name} $validlinkext Default",
                             url = validlink,
-                                                                                           referer=
+        
+        referer=
  data,
                                  
                             quality = Qualities.Unknown
@@ -386,5 +387,5 @@ true
         }
         return true
     }
-}
+}                                                                                   
  
