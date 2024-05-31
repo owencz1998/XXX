@@ -8,7 +8,7 @@ import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import java.util.*
 
 class Porntube : MainAPI() {
-    override var mainUrl              = "https://www.porntube.com"
+    override var mainUrl              = "https://pornforce.com/tours/tgp_tour_1/?nats=NzQzLjQxLjQyLjI2MS4wLjAuMC4wLjA&switched=1&strack=0&mobile=1"
     override var name                 = "Porntube"
     override val hasMainPage          = true
     override var lang                 = "en"
