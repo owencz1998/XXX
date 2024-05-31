@@ -94,8 +94,6 @@ class XvideosProvider : MainAPI() {
 "Interracial"),
        Pair("$mainUrl/?k=hardcore&top/",
 "Hardcore"),
-       Pair("$mainUrl/h?k=3d&top/",
-"3D"),
      )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
