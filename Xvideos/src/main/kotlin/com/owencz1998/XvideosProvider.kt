@@ -96,7 +96,7 @@ class XvideosProvider : MainAPI() {
 "Hardcore"),
        Pair("$mainUrl/h?k=3d&top/",
 "3D"),
-        )
+     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val categoryData = request.data
