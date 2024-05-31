@@ -98,7 +98,7 @@ class XvideosProvider : MainAPI() {
 "Sweetie Fox"),
        Pair("$mainUrl/pornstars/henessy51",
 "Henessy"),
-       Pair("$mainUrl/pornstars/katerina-hartlova",
+       Pair("$mainUrl/pornstars/katerina-hartlova1",
 "Katerina Hartlova"),
        Pair("$mainUrl/pornstars/luna-rival1",
 "Luna Rival"),
