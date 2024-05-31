@@ -374,8 +374,8 @@ class XvideosProvider : MainAPI() {
                             url = validlink,
                             referer = data,
                                  
-                        quality = Qualities.Unknown.value
-
+                            quality = Qualities.Unknown.value,
+                            MP4 = true
                         )
                     )
                 }
@@ -383,3 +383,5 @@ class XvideosProvider : MainAPI() {
         }
         return true
     }
+}
+ 
