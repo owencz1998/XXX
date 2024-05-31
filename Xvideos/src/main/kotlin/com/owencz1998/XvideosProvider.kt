@@ -372,10 +372,13 @@ class XvideosProvider : MainAPI() {
                             source = this.name,
                             name = "${this.name} $validlinkext Default",
                             url = validlink,
-                            referer = data,
+                                                                                           referer=
+ data,
                                  
-                            quality = Qualities.Unknown.value,
-                            MP4 = true
+                            quality = Qualities.Unknown
+.value,
+          isMP4 = 
+true
                         )
                     )
                 }
