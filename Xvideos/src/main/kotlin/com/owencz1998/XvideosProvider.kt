@@ -108,6 +108,10 @@ class XvideosProvider : MainAPI() {
 "Sexy Susi"),
       Pair("$mainUrl/pornstars/mary-wet",
 "Mary Wet"),
+       Pair("$mainUrl/videos/girls/categories/amateur/",
+"Amateur"),
+       Pair("$mainUrl/live/girls/",
+"girls"),
      )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
