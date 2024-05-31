@@ -70,7 +70,7 @@ class XvideosProvider : MainAPI() {
 "Gape"),
         Pair("$mainUrl/?k=caught&top/",
 "Caught"),
-        Pair("$mainUrl/channels-index/porn_force",
+        Pair("$mainUrl/channels/porn_force",
 "Porn Force"),
          Pair("$mainUrl/scout69_official",
 "Sout69"),
