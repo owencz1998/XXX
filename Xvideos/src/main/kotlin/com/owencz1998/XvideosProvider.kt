@@ -378,7 +378,9 @@ class XvideosProvider : MainAPI() {
                                  
                             quality = Qualities.Unknown
 .value,
-          isMP4 = 
+          
+        
+         isMP4 = 
 true
                         )
                     )
