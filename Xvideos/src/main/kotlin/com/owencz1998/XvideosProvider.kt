@@ -5,7 +5,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.mvvm.logError
 import com.lagradost.cloudstream3.utils.*
 import com.lagradost.cloudstream3.utils.AppUtils.toJson
-
+import com.lagradost.cloudstream3.network.WebViewResolver
 
 class XvideosProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
