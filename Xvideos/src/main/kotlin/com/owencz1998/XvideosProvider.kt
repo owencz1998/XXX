@@ -96,7 +96,7 @@ class XvideosProvider : MainAPI() {
 "Hardcore"),
        Pair("$mainUrl/h?k=3d&top/",
 "3D"),
-       Pair("$mainUrl/c/asmr-229/",
+       Pair("$mainUrl/c/ASMR-229/",
 "ASMR"),
         )
 
