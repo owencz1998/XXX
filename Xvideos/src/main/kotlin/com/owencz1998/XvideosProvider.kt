@@ -34,7 +34,7 @@ class XvideosProvider : MainAPI() {
 "Amateur"),
         Pair("$mainUrl/c/teen-13/", 
 "Teen"),
-        Pair("$mainUrl/c/?k=handjob&top/",
+        Pair("$mainUrl/?k=handjob&top/",
 "Handjob"),   
         Pair("$mainUrl/c/big_Tits-23/",
 "Big tits"),
