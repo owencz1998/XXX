@@ -370,8 +370,13 @@ class XvideosProvider : MainAPI() {
                     callback(
                         ExtractorLink(
                             source = this.name,
-                            name = "${this.name} $validlinkext Default",
-                            url = validlink,
+                            
+                                   
+         name = "${this.name} 
+$validlinkext Default",
+                   
+           url =
+ validlink,
         
         referer=
  data,
@@ -380,7 +385,7 @@ class XvideosProvider : MainAPI() {
 .value,
           
         
-         isMP4 = 
+         isM3u8 = 
 true
                         )
                     )
