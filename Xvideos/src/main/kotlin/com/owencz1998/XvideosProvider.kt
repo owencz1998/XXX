@@ -70,20 +70,6 @@ class XvideosProvider : MainAPI() {
 "Gape"),
         Pair("$mainUrl/?k=caught&top/",
 "Caught"),
-         Pair("$mainUrl/porn_force/",
-"Porn Force"),
-         Pair("$mainUrl/scout69_official/",
-"Sout69"),
-        Pair("$mainUrl/creamyspot/",
-"Creamyspot"),
-        Pair("$mainUrl/mommy4k/",
-"Mommy4k"),
-        Pair("$mainUrl/hake-hub/",
-"Fake"),
-        Pair("$mainUrl/redhot_fox/",
-"Redhot Fox"),
-        Pair("$mainUrl/pornstars/jasmine-jae2",
-"Jasmine Jae"),
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
