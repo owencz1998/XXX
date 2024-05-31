@@ -78,7 +78,7 @@ class XvideosProvider : MainAPI() {
 "Creamyspot"),
         Pair("$mainUrl/mommy4k/",
 "Mommy4k"),
-        Pair("$mainUrl/hake_hub/",
+        Pair("$mainUrl/hake-hub/",
 "Fake"),
         Pair("$mainUrl/redhot_fox/",
 "Redhot Fox"),
