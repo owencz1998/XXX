@@ -11,7 +11,7 @@ class PornforceProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     private val Dev = "DevDebug"
 
-    override var mainUrl = "https://www.pornforce.com/"
+    override var mainUrl = "https://cams.xvideos.com/"
     override var name = "Pornforce"
     override val hasMainPage = true
     override val hasChromecastSupport = true
@@ -27,37 +27,7 @@ class PornforceProvider : MainAPI() {
 
     override val mainPage = mainPageOf(
         Pair(mainUrl, "Main Page"),
-        Pair("$mainUrl/new/", "New"),
-        Pair("$mainUrl/c/squirting-56/",
-"Squirt"),
-        Pair("$mainUrl/c/amateur-65/",
-"Amateur"),
-        Pair("$mainUrl/c/teen-13/", 
-"Teen"),
-        Pair("$mainUrl/c/big_Tits-23/",
-"Big tits"),
-        Pair("$mainUrl/c/lesbian-26/", 
-"Lesbian"),
-        Pair("$mainUrl/c/anal-12/",
-"Anal"),
-        Pair("$mainUrl/c/blowjob-15/",
-"Blowjob"),
-        Pair("$mainUrl/c/solo_and_masturbation-33/",
-"Solo"),
-        Pair("$mainUrl/c/cumshot-18", 
-"Cumshot"),
-        Pair("$mainUrl/c/gangbang-69/", 
-"Gangbang"),
-        Pair("$mainUrl/c/big_cock-34/", 
-"Big cock"),
-        Pair("$mainUrl/c/fisting-165/", 
-"Fisting"),
-        Pair("$mainUrl/c/blonde-20/", 
-"Blonde"),
-        Pair("$mainUrl/c/brunette-25/", 
-"Brunette"),
-        Pair("$mainUrl/c/fucked_up_family-81/", 
-"Family"),
+        Pair("$mainUrl/live/girls/", "New"),
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
