@@ -11,7 +11,7 @@ class PornforceProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     private val Dev = "DevDebug"
 
-    override var mainUrl = "https://pornforce.com/"
+    override var mainUrl = "https://www.pornforce.com/"
     override var name = "Pornforce"
     override val hasMainPage = true
     override val hasChromecastSupport = true
