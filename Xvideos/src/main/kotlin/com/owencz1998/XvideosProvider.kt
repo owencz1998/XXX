@@ -102,18 +102,6 @@ class XvideosProvider : MainAPI() {
 "Jasmine Jae"),
        Pair("$mainUrl/pornstars/siswet6",
 "Siswet"),
-       Pair("$mainUrl/pornstars/sweetie-fox1",
-"Sweetie Fox"),
-       Pair("$mainUrl/pornstars/henessy51",
-"Henessy"),
-       Pair("$mainUrl/pornstars/katerina-hartlova",
-"Katerina Hartlova"),
-       Pair("$mainUrl/pornstars/luna-rival1",
-"Luna Rival"),
-      Pair("$mainUrl/pornstars/sexy-susi1",
-"Sexy Susi"),
-      Pair("$mainUrl/pornstars/mary-wet",
-"Mary Wet"),
         )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
