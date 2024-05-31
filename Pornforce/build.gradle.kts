@@ -1,12 +1,12 @@
 // use an integer for version numbers
-version = 17
+version = 1
 
 
 cloudstream {
     // All of these properties are optional, you can safely remove them
 
     description = "The best free NSFW site"
-    authors = listOf("Stormunblessed", "Jace")
+    authors = listOf("OwenConnor")
 
     /**
     * Status int as the following:
