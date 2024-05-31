@@ -374,11 +374,8 @@ class XvideosProvider : MainAPI() {
                             url = validlink,
                             referer = data,
                                  
-.let 
-{ getQualityFromName(it) },
-                           
-                   isM3u8 
-= true
+                        quality = Qualities.Unknown.value
+
                         )
                     )
                 }
@@ -386,4 +383,3 @@ class XvideosProvider : MainAPI() {
         }
         return true
     }
-}
