@@ -98,8 +98,6 @@ class XvideosProvider : MainAPI() {
 "3D"),
        Pair("$mainUrl/c/asmr-229/",
 "ASMR"),
-       Pair("$mainUrl/jasmine-jae2",
-"Jasmine Jae"),
         )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
