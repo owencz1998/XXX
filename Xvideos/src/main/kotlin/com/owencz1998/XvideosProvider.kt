@@ -84,7 +84,7 @@ class XvideosProvider : MainAPI() {
 "Stockings"),
         Pair("$mainUrl/?k=teacher&top/",
 "Teacher"),
-        Pair("$mainUrl/c/anal-masturbation/",
+        Pair("$mainUrl/tags/anal-masturbation/",
 "Anal Masterbation"),
         Pair("$mainUrl/?k=vintage&top/",
 "Vintage"),
