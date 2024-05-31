@@ -373,8 +373,8 @@ class XvideosProvider : MainAPI() {
                             name = "${this.name} $validlinkext Default",
                             url = validlink,
                             referer = data,
-                            quality = Qualities.Unknown.value,
-                            isM3u8 = true
+                                                        .let { getQualityFromName(it) },
+                           isM3u8 = true
                         )
                     )
                 }
