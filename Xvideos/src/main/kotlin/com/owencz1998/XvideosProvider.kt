@@ -368,25 +368,13 @@ class XvideosProvider : MainAPI() {
                     val validlinkext = validLinkVal.second
                     Log.i(Dev, "Result HLS Default => $validlink")
                     callback(
-                        ExtractorLink(
+                                                ExtractorLink(
                             source = this.name,
-                            
-                                   
-         name = "${this.name} 
-$validlinkext Default",
-                   
-           url =
- validlink,
-        
-        referer=
- data,
-                                 
-                            quality = Qualities.Unknown
-.value,
-          
-        
-         isM3u8 = 
-true
+                            name = "${this.name} $validlinkext Default",
+                            url = validlink,
+                            referer = data,
+                            quality = Qualities.Unknown.value,
+                            isM3u8 = true
                         )
                     )
                 }
