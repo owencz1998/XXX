@@ -7,12 +7,12 @@ import com.lagradost.cloudstream3.utils.*
 import com.lagradost.cloudstream3.utils.AppUtils.toJson
 
 
-class XvideosProvider : MainAPI() {
+class PornforceProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     private val Dev = "DevDebug"
 
-    override var mainUrl = "https://www.xvideos.com"
-    override var name = "Xvideos"
+    override var mainUrl = "https://pornforce.com/"
+    override var name = "Pornforce"
     override val hasMainPage = true
     override val hasChromecastSupport = true
     override val hasDownloadSupport = true
