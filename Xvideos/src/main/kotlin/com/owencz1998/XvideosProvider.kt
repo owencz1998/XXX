@@ -64,6 +64,14 @@ class XvideosProvider : MainAPI() {
 "Shemale"),
         Pair("$mainUrl/?k=british&top",
 "British"),
+        Pair("$mainUrl/c/Cam_Porn-58/",
+"Cam"),
+        Pair("$mainUrl/c/Gapes-167",
+"Gape"),
+        Pair("$mainUrl/?k=caught&top/",
+"Caught"),
+        Pair("$mainUrl/pornstars/jasmine-jae2",
+"Jasmine Jae"),
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
