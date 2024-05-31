@@ -98,8 +98,6 @@ class XvideosProvider : MainAPI() {
 "3D"),
        Pair("$mainUrl/c/asmr-229/",
 "ASMR"),
-       Pair("$mainUrl/t/cum-swallowing/",
-"Swallowing"),
        Pair("$mainUrl/pornstars/jasmine-jae2",
 "Jasmine Jae"),
        Pair("$mainUrl/pornstars/siswet6",
