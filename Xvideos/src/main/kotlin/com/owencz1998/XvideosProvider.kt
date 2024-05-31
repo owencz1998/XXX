@@ -94,6 +94,8 @@ class XvideosProvider : MainAPI() {
 "Interracial"),
        Pair("$mainUrl/?k=hardcore&top/",
 "Hardcore"),
+        Pair("$mainUrl/ Pair("$mainUrl/?k=Belle%20delphine&top/",
+"Belle Delphine"),
        Pair("$mainUrl/pornstars/sweetie-fox1",
 "Sweetie Fox"),
        Pair("$mainUrl/pornstars/henessy51",
