@@ -95,6 +95,7 @@ class Pandamovies : MainAPI() {
         return newTvSeriesLoadResponse(title, url, TvType.NSFW, episodes) {
             this.posterUrl = poster
             this.plot = description
+            this.genre = genre
             this.tags = tags
             addActors(actors)
             this.year = year
