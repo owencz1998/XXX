@@ -15,7 +15,7 @@ class Pandamovies : MainAPI() {
     override val supportedTypes = setOf(TvType.NSFW)
 
     override val mainPage = mainPageOf(
-        "$mainUrl/all/?sort=created_at&page=" to "New Porn Movies",
+        "$mainUrl/genre/18-teens" to "Teen",
         "$mainUrl/popular/?filter=all&sort=by_likes&page=" to "Popular Porn Movies",
         "$mainUrl/studio/89/?sort=created_at&page=" to "Brazzers",
         "$mainUrl/studio/29/?sort=created_at&page=" to "Digital Playground",
