@@ -16,15 +16,6 @@ class Pandamovies : MainAPI() {
 
     override val mainPage = mainPageOf(
         "$mainUrl/genre/18-teens" to "Teen",
-        "$mainUrl/popular/?filter=all&sort=by_likes&page=" to "Popular Porn Movies",
-        "$mainUrl/studio/89/?sort=created_at&page=" to "Brazzers",
-        "$mainUrl/studio/29/?sort=created_at&page=" to "Digital Playground",
-        "$mainUrl/studio/16/?sort=created_at&page=" to "Evil Angel",
-        "$mainUrl/studio/6/?sort=created_at&page=" to "Bang Bros Productions",
-        "$mainUrl/studio/78/?sort=created_at&page=" to "Jules Jordan Video",
-        "$mainUrl/studio/64/?sort=created_at&page=" to "Reality Kings",
-        "$mainUrl/category/hentai-animation/?sort=created_at&page=" to "Animation",
-        "$mainUrl/category/teenagers-18/?sort=created_at&page=" to "Teen"
     )
 
     override suspend fun getMainPage(
@@ -53,7 +44,7 @@ class Pandamovies : MainAPI() {
     override suspend fun search(query: String): List<SearchResponse> {
         val searchResponse = mutableListOf<SearchResponse>()
         for (i in 1..10) {
-            val document = app.get("$mainUrl/search/?pattern=$query&what=1&page=$i").document
+            val document = app.get("$mainUrl/search/?pattern=$query&link=1&page=$i").document
             val results = document.select("div.content div.item")
                 .mapNotNull {
                     it.toSearchResult()
@@ -95,7 +86,6 @@ class Pandamovies : MainAPI() {
         return newTvSeriesLoadResponse(title, url, TvType.NSFW, episodes) {
             this.posterUrl = poster
             this.plot = description
-            this.genre = genre
             this.tags = tags
             addActors(actors)
             this.year = year
