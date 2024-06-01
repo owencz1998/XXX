@@ -5,9 +5,9 @@ import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import com.lagradost.cloudstream3.utils.*
 import org.jsoup.nodes.Element
 
-class Paradisehill : MainAPI() {
-    override var mainUrl = "https://en.paradisehill.cc"
-    override var name = "Paradisehill"
+class Pandamovies : MainAPI() {
+    override var mainUrl = "https://pandamovies.pw/"
+    override var name = "Pandamovies"
     override val hasMainPage = true
     override val hasDownloadSupport = true
     override var sequentialMainPage = true
