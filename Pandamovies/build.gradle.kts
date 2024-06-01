@@ -21,5 +21,5 @@ cloudstream {
         "NSFW",
     )
 
-    iconUrl = "https://www.google.com/s2/favicons?domain=en.paradisehill.cc&sz=%size%"
+    iconUrl = "https://pandamovies.pw/wp-content/uploads/2023/04/pandamoviefavicon-1.png"
 }
