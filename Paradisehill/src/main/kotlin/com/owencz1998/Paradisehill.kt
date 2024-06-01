@@ -17,7 +17,7 @@ class Paradisehill : MainAPI() {
     override val mainPage = mainPageOf(
         "$mainUrl/all/?sort=created_at&page=" to "New Porn Movies",
         "$mainUrl/popular/?filter=all&sort=by_likes&page=" to "Popular Porn Movies",
-        "$mainUrl/genre/18-teens/89/" to "Teen,
+        "$mainUrl/studio/89/?sort=created_at&page=" to "Brazzers",
         "$mainUrl/studio/29/?sort=created_at&page=" to "Digital Playground",
         "$mainUrl/studio/16/?sort=created_at&page=" to "Evil Angel",
         "$mainUrl/studio/6/?sort=created_at&page=" to "Bang Bros Productions",
