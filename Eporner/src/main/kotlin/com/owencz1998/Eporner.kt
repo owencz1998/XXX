@@ -22,7 +22,11 @@ class Eporner : MainAPI() {
             "cat/milf" to "Milf",
             "cat/japanese" to "Japanese",
             "cat/hd-1080p" to "1080 Porn",
-            "cat/4k-porn" to "4K Porn"
+            "cat/4k-porn" to "4K Porn",
+            "cat/babysitter" to "Baby Sitter",
+            "cat/big-tits" to "Big Tits",
+            "cat/teen" to "Teen"
+              
 
         )
 
