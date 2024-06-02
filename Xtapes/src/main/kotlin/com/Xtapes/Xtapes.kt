@@ -16,11 +16,11 @@ class Xtapes : MainAPI() {
 
     override val mainPage = mainPageOf(
         "porn-movies-hd" to "Latest",
-        "80026" to "BangBros",
-        "53177" to "Brazzers",
+        "86026" to "BangBros",
+        "57964" to "Brazzers",
         "61802" to "Naughty America",
         "56050" to "Reality Kings",
-        "05415" to "Play Ground",
+        "05407" to "Play Ground",
         "11075" to "Evil Angle",
         "11007" to "Harmony Films",
         "40100" to "New Sensations",
