@@ -49,7 +49,7 @@ class TimefourTv : MainAPI() {
                         Item(it.key, items = it.value.toJson()).toJson(),
                         this@TimefourTv.name,
                         TvType.Live,
-                        posterUrl = HomePoster,
+                        posterUrl = homePoster,
                     )
                 }
                 if (channels.isNotEmpty()) items.add(HomePageList(header, channels, true))
@@ -67,7 +67,7 @@ class TimefourTv : MainAPI() {
             Item(title, href).toJson(),
             this@TimefourTv.name,
             TvType.Live,
-            posterUrl = HomePoster,
+            posterUrl = homePoster,
         )
     }
 
@@ -156,7 +156,7 @@ class TimefourTv : MainAPI() {
         return if (url.startsWith(mainUrl)) {
             url
         } else {
-            "$mainUrl/stream/stream-url.php"
+            "$mainUrl/stream/stream-$url.php"
         }
     }
 
