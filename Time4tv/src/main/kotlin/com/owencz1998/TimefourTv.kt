@@ -9,7 +9,7 @@ import org.jsoup.nodes.Element
 import java.net.URI
 
 class TimefourTv : MainAPI() {
-    override var mainUrl = "https://time4tv.online/"
+    override var mainUrl = "https://dlhd.so/"
     override var name = "Time4tv"
     override val hasDownloadSupport = false
     override val hasMainPage = true
@@ -22,7 +22,7 @@ class TimefourTv : MainAPI() {
         "https://cdn.discordapp.com/attachments/1109266606292488297/1193060448929595454/Screenshot_2024-01-06_at_12-13-02_Logo_Maker_Used_By_2.3_Million_Startups.png?ex=65ebf0a1&is=65d97ba1&hm=2dc35d2fcc09530f6d9fc963ecf6b9a28eeec1a7c76a083711379c7280dd34dc&"
 
     override val mainPage = mainPageOf(
-        "$mainUrl/24-7-channels.php" to "24/7 Channels",
+        "$mainUrl/stream-152.php" to "24/7 Channels",
         "$mainUrl/schedule/schedule-generated.json" to "Schedule Channels"
     )
 
