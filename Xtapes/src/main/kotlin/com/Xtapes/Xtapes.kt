@@ -26,7 +26,7 @@ class Xtapes : MainAPI() {
         "40100" to "New Sensations",
         "37001" to "Sweet Sinner",
         "32718" to "Blacked",
-        "12096" to "Tonight's Girlfriend",
+        "12337" to "Tonight's Girlfriend",
         "70587" to "Porn Fidelity",
         "63704" to "Porn World",
         "41606" to "Mofos",
