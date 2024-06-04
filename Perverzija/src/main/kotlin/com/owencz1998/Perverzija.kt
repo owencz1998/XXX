@@ -102,7 +102,7 @@ class Perverzija : MainAPI() {
         "$mainUrl/studio/teamskeet/familystrokes/page/%d/?orderby=date" to "FamilyStrokes",
         "$mainUrl/studio/teamskeet/daughterswap/page/%d/?orderby=date" to "DaughterSwap",
         "$mainUrl/studio/adulttime/21sextury/dpfanatics/page/%d/?orderby=date" to "DPFanatics",
-        "$mainUrl/studio/handsonhardcore/21sextury/dpfanatics/page/%d/?orderby=date" to "Hardcore",
+        "$mainUrl/tag/handsonhardcore/ to "Hardcore",
     )
 
     override suspend fun getMainPage(
