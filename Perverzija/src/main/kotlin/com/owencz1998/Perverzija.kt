@@ -40,7 +40,7 @@ class Perverzija : MainAPI() {
         "$mainUrl/full-movie/page/%d/?orderby=date" to "Latest Movies",
         "$mainUrl/full-movie/page/%d/?orderby=view" to "Most Viewed Movies",
         "$mainUrl/full-movie/page/%d/?orderby=like" to "Most Liked Movies",
-        "$mainUrl/tag/4k-quality/page/?orderby=date" to "4K",
+        "$mainUrl/tag/4k-quality/page/%d/?orderby=date" to "4K",
         "$mainUrl/studio/onlyfans/page/%d/?orderby=date" to "Recent Onlyfans",
         "$mainUrl/studio/onlyfans/page/%d/?orderby=view" to "Most Viewed Onlyfans",
         "$mainUrl/studio/onlyfans/page/%d/?orderby=like" to "Most Liked Onlyfans",
