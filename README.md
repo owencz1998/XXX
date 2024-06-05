@@ -1,5 +1,7 @@
  <p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=XXX%20Repo&animation=twinkling&reversal=true" </p>
 
+Feel free to add the site of your choice and make a pr anytime.
+
 ● Goodporn ● PornHub ● Xvideos
 ● Paradisehill ● Mangoporn
 ● InternetChicks ● PornKen
