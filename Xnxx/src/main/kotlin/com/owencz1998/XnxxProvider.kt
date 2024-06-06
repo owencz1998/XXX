@@ -5,8 +5,9 @@ import com.lagradost.cloudstream3.plugins.Plugin
 import android.content.Context
 
 @CloudstreamPlugin
-class PorntubeProvider: Plugin() {
+class XvideosProviderPlugin: Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(Porntube())
+        // All providers should be added in this manner. Please don't edit the providers list directly.
+        registerMainAPI(XvideosProvider())
     }
 }
