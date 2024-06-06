@@ -17,6 +17,18 @@ class Xnxx : MainAPI() {
 
     override val mainPage = mainPageOf(
         "${mainUrl}/newest/"              to "Newest",
+        "${mainUrl}/search/1080p/"         to "1080p",
+
+import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
+import com.lagradost.cloudstream3.plugins.Plugin
+import android.content.Context
+
+@CloudstreamPlugin
+class xHamsterProvider: Plugin() {
+    override fun load(context: Context) {
+        registerMainAPI(xHamster())
+    }
+/search/1080p
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
