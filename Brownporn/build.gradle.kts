@@ -20,5 +20,5 @@ cloudstream {
         "NSFW",
     )
 
-    iconUrl = "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://tyler-brown.com/recent&ved=2ahUKEwiwxqypqMqGAxXmVEEAHVFcAKgQFnoECAUQAQ&usg=AOvVaw2k_FQ9v2epj1ExIGvDYgW-"
+    iconUrl = "http://www.google.com/s2/favicons?domain=https://tyler-brown.com"
 }
