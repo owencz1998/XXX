@@ -128,7 +128,7 @@ class BrownpornProvider : MainAPI() { // all providers must be an instance of Ma
             @JsonProperty
 ("Url") val streamlink: String? = null,//the link
             @JsonProperty("label") val qualityfile: String? = null,//720 480 360 240
-            @JsonProperty("type") val type: String? = null,//mp4
+            @JsonProperty("type") val type: String? = null,/video/mp4
     )
 
 }
