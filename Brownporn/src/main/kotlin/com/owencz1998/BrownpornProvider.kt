@@ -126,7 +126,7 @@ class BrownpornProvider : MainAPI() { // all providers must be an instance of Ma
 
     data class Streams(
             @JsonProperty
-("videofile") val streamlink: String? = null,//the link
+("File") val streamlink: String? = null,//the link
             @JsonProperty("label") val qualityfile: String? = null,//720 480 360 240
             @JsonProperty("type") val type: String? = null,//video/mp4
     )
