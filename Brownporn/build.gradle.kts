@@ -1,4 +1,4 @@
-version = 10
+version = 1
 
 
 cloudstream {
@@ -20,5 +20,5 @@ cloudstream {
         "NSFW",
     )
 
-    iconUrl = "https://www.google.com/s2/favicons?domain=noodlemagazine.com/&sz=%size%"
+    iconUrl = "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://tyler-brown.com/recent&ved=2ahUKEwiwxqypqMqGAxXmVEEAHVFcAKgQFnoECAUQAQ&usg=AOvVaw2k_FQ9v2epj1ExIGvDYgW-"
 }
