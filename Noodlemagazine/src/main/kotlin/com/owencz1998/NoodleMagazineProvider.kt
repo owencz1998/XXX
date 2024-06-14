@@ -117,9 +117,9 @@ class NoodleMagazineProvider : MainAPI() { // all providers must be an instance 
     data class Streams(
             @JsonProperty("file") val streamlink: String? = null,
 
-            @JsonProperty("label") val qualityfile: String? = null,
+            @JsonProperty("label") val qualityfile: String? = null,//1080p 720p 360p
 
-            @JsonProperty("type") val type: String? = null,
+            @JsonProperty("type") val type: String? = null,//MP4
     )
 
 }
