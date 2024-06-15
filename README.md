@@ -11,12 +11,10 @@ Feel free to add the site of your choice and make a pr anytime.
 ● TollyPro ● Xtapes ● uncutmaza
 ● Eporner ●Perverzija ● Xvideos 
 ● Xhamster ● Spankbang ● Sxyprn 
-● Javpoint ● Fullponer ●Ixiporn
-● NoodleMagazine
+● Javpoint ● Fullponer ● Ixiporn
+● NoodleMagazine ● Draftsex ● Brownporn
  
 Cloustream plugin
-
-[![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=31tpmfs65yekb3w3mamyzccn5l7q&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=true)](https://github.com/kittinan/spotify-github-profile)
 
 
 
