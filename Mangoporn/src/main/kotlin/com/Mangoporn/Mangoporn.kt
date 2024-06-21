@@ -25,6 +25,7 @@ class Mangoporn : MainAPI() {
         "studios/reality-kings" to "Reality Kings",
         "genre/family-roleplay" to "Family Roleplay",
         "genre/parody" to "Parody",
+        "genre/gangbang" to "Gangbang",
         "genre/18-teens" to "18+ Teens",
         "genre/anal" to "Anal",
         "genre/big-boobs" to "Big Boobs",
@@ -43,7 +44,9 @@ class Mangoporn : MainAPI() {
         "genre/asian" to "Asian",
 
         "genre/big-butt" to "Big Butt",
-        "genre/big-cock" to "Big Cock"
+        "genre/big-cock" to "Big Cock",
+        "genre/squirting" to "Squirting",
+        "genre/swallowing" to "Swallowing"
 
     )
 
