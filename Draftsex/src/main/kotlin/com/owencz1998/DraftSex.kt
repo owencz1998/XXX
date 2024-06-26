@@ -18,7 +18,7 @@ class DraftSex : MainAPI() {
         "" to "Latest",
         "$mainUrl/most-viewed/" to "Most Viewed",
         "$mainUrl/top-rated/" to "Top Rated",
-        "$mainUrl/channels/4/amateur" to "Amateur",
+        "{$mainUrl}/channels/4/amateur" to "Amateur",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
