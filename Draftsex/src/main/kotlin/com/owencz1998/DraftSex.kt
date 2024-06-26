@@ -5,7 +5,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class DraftSex : MainAPI() {
-    override var mainUrl              = "https://draftsex.porn"
+    override var mainUrl              = "https://draftsex.porn/"
     override var name                 = "DraftSex"
     override val hasMainPage          = true
     override var lang                 = "en"
@@ -16,8 +16,8 @@ class DraftSex : MainAPI() {
 
     override val mainPage = mainPageOf(
         "" to "Latest",
-        "$mainUrl/most-viewed/" to "Most Viewed",
-        "$mainUrl/top-rated/" to "Top Rated",
+        "{$mainUrl}/most-viewed/" to "Most Viewed",
+        "{$mainUrl}/top-rated/" to "Top Rated",
         "{$mainUrl}/channels/4/amateur" to "Amateur",
     )
 
