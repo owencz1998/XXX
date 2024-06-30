@@ -26,7 +26,8 @@ class DraftSex : MainAPI() {
         val home     = document.select("div. item.col").mapNotNull f").mapNotNull { it.toSearchResult() }
 
         return newHomePageResponse(
-            list  = HomePageList(
+            list  
+= HomePageList(
                 name               = request.name,
                 list               = home,
                 isHorizontalImages = true
