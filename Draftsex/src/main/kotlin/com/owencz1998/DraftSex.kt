@@ -22,11 +22,11 @@ class DraftSex : MainAPI() {
     )
 
         override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
-        val document = app.get(request.data + page + "?x_platform_switch=desktop").document
+        val document = app.get("$mainUrl/page$page.html").document
         val home     = document.select("div.thumb-list div.thumb-list__item").mapNotNull { it.toSearchResult() }
 
         return newHomePageResponse(
-            list    = HomePageList(
+            list  = HomePageList(
                 name               = request.name,
                 list               = home,
                 isHorizontalImages = true
