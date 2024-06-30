@@ -23,7 +23,7 @@ class DraftSex : MainAPI() {
 
         override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val document = app.get("$mainUrl/page$page.html").document
-        val home     = document.select("div.thumb-list div.thumb-list__item").mapNotNull { it.toSearchResult() }
+        val home     = document.select("div. item.col").mapNotNull f").mapNotNull { it.toSearchResult() }
 
         return newHomePageResponse(
             list  = HomePageList(
