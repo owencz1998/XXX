@@ -1,369 +1,144 @@
-package com.owencz1998
+package com.owencz1998 
 
-import com.fasterxml.jackson.annotation.JsonProperty
-import com.hexated.SubsExtractors.invokeOpenSubs
-import com.hexated.SubsExtractors.invokeWatchsomuch
+//import android.util.Log
+import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
-import com.lagradost.cloudstream3.LoadResponse.Companion.addImdbId
-import com.lagradost.cloudstream3.LoadResponse.Companion.addTrailer
 import com.lagradost.cloudstream3.utils.*
-import com.lagradost.cloudstream3.utils.AppUtils.parseJson
-import com.lagradost.cloudstream3.utils.AppUtils.toJson
+import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
+import java.util.*
 
-class StremioC : MainAPI() {
-    override var mainUrl = "https://dirty-pink.ers.pw/manifest.json"
-    override var name = "Porntube"
-    override val supportedTypes = setOf(TvType.Others)
-    override val hasMainPage = true
+class Pornforce : MainAPI() {
+    override var mainUrl              = "https://pornforce.com"
+    override var name                 = "Pornforce"
+    override val hasMainPage          = true
+    override var lang                 = "en"
+    override val hasQuickSearch       = false
+    override val hasDownloadSupport   = true
+    override val hasChromecastSupport = true
+    override val supportedTypes       = setOf(TvType.NSFW)
+    override val vpnStatus            = VPNStatus.MightBeNeeded
 
-    companion object {
-        private const val cinemataUrl = "https://v3-cinemeta.strem.io"
-        private const val TRACKER_LIST_URL = "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt"
-    }
+    override val mainPage = mainPageOf(
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=post_date&from="                            to "New Videos",
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=video_viewed&from="                         to "Most Viewed Videos",
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=rating&from="                               to "Top Rated Videos",
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=most_commented&from="                       to "Most Commented Videos",
+        "${mainUrl}/?mode=async&function=get_block&block_id=list_videos_most_recent_videos&sort_by=duration&from="                             to "Longest Videos",
+        "${mainUrl}/channels/brazzers/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="          to "Brazzers",
+        "${mainUrl}/channels/digitalplayground/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from=" to "Digital Playground",
+        "${mainUrl}/channels/realitykings/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="      to "Realitykings",
+        "${mainUrl}/channels/babes-network/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="     to "Babes Network",
+        "${mainUrl}/categories/amateur/?mode=async&function=get_block&block_id=list_videos_common_videos_list&sort_by=post_date&from="         to "Amateur"
+    )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
-        mainUrl = mainUrl.fixSourceUrl()
-        val res = app.get("${mainUrl}/manifest.json").parsedSafe<Manifest>()
-        val lists = mutableListOf<HomePageList>()
-        res?.catalogs?.apmap { catalog ->
-            catalog.toHomePageList(this).let {
-                if (it.list.isNotEmpty()) lists.add(it)
-            }
+        val document = app.get(request.data + page).document
+        val home     = document.select("div#list_videos_most_recent_videos_items div.item, div#list_videos_common_videos_list_items div.item").mapNotNull {
+            it.toSearchResult()
         }
-        return HomePageResponse(
-            lists,
-            false
+
+        return newHomePageResponse(
+            list = HomePageList(
+                name = request.name,
+                list = home,
+                isHorizontalImages = true
+            ),
+            hasNext = true
         )
+    }
+
+    private fun Element.toSearchResult(): SearchResponse? {
+        val full_title = this.selectFirst("strong.title")?.text() ?: return null
+        val last_index = full_title.lastIndexOf(" - ")
+        val raw_title  = if (last_index != -1) full_title.substring(0, last_index) else full_title
+        val title      = raw_title.removePrefix("- ").trim().removeSuffix("-").trim()
+
+        val href       = fixUrl(this.selectFirst("a")!!.attr("href"))
+        val posterUrl  = fixUrlNull(this.select("div.img > img").attr("src"))
+
+        return newMovieSearchResponse(title, href, TvType.Movie) {
+            this.posterUrl = posterUrl
+        }
+
     }
 
     override suspend fun search(query: String): List<SearchResponse> {
-        mainUrl = mainUrl.fixSourceUrl()
-        val res = app.get("${mainUrl}/manifest.json").parsedSafe<Manifest>()
-        val list = mutableListOf<SearchResponse>()
-        res?.catalogs?.apmap { catalog ->
-            list.addAll(catalog.search(query, this))
+        val searchResponse = mutableListOf<SearchResponse>()
+
+        for (say in 1..15) {
+            val document = app.get(
+                "${mainUrl}/search/nikki-benz/?mode=async&function=get_block&block_id=list_videos_videos_list_search_result&q=${query}&category_ids=&sort_by=&from_videos=${say}&from_albums=${say}",
+                headers = mapOf("X-Requested-With" to "XMLHttpRequest")
+            ).document
+
+            val results = document.select("div#list_videos_videos_list_search_result_items div.item").mapNotNull { it.toSearchResult() }
+            searchResponse.addAll(results)
+
+            if (results.isEmpty()) break
         }
-        return list.distinct()
+
+        return searchResponse
     }
 
     override suspend fun load(url: String): LoadResponse {
-        val res = parseJson<CatalogEntry>(url)
-        mainUrl =
-            if ((res.type == "movie" || res.type == "series") && isImdborTmdb(res.id)) cinemataUrl else mainUrl
-        val json = app.get("${mainUrl}/meta/${res.type}/${res.id}.json")
-            .parsedSafe<CatalogResponse>()?.meta ?: throw RuntimeException(url)
-        return json.toLoadResponse(this, res.id)
+        val document = app.get(url).document
+
+        val full_title      = document.selectFirst("div.headline > h1")?.text()?.trim().toString()
+        val last_index      = full_title.lastIndexOf(" - ")
+        val raw_title       = if (last_index != -1) full_title.substring(0, last_index) else full_title
+        val title           = raw_title.removePrefix("- ").trim().removeSuffix("-").trim()
+
+        val poster          = fixUrlNull(document.selectFirst("[property='og:image']")?.attr("content"))
+        val tags            = document.selectXpath("//div[contains(text(), 'Categories:')]/a").map { it.text() }
+        val description     = document.selectXpath("//div[contains(text(), 'Description:')]/em").text().trim()
+        val actors          = document.selectXpath("//div[contains(text(), 'Models:')]/a").map { it.text() }
+        val recommendations = document.select("div#list_videos_related_videos_items div.item").mapNotNull { it.toSearchResult() }
+
+        val year            = full_title.substring(full_title.length - 4).toIntOrNull()
+        val rating          = document.selectFirst("div.rating span")?.text()?.substringBefore("%")?.trim()?.toFloatOrNull()?.div(10)?.toString()?.toRatingInt()
+
+        val raw_duration    = document.selectXpath("//span[contains(text(), 'Duration')]/em").text().trim()
+        val duration_parts  = raw_duration.split(":")
+        val duration        = when (duration_parts.size) {
+            3 -> {
+                val hours   = duration_parts[0].toIntOrNull() ?: 0
+                val minutes = duration_parts[1].toIntOrNull() ?: 0
+
+                hours * 60 + minutes
+            }
+            else -> {
+                duration_parts[0].toIntOrNull() ?: 0
+            }
+        }
+
+        return newMovieLoadResponse(title.removePrefix("- ").removeSuffix("-").trim(), url, TvType.NSFW, url) {
+            this.posterUrl       = poster
+            this.year            = year
+            this.plot            = description
+            this.tags            = tags
+            this.recommendations = recommendations
+            this.rating          = rating
+            this.duration        = duration
+            addActors(actors)
+        }
     }
 
-    override suspend fun loadLinks(
-        data: String,
-        isCasting: Boolean,
-        subtitleCallback: (SubtitleFile) -> Unit,
-        callback: (ExtractorLink) -> Unit
-    ): Boolean {
-        val loadData = parseJson<LoadData>(data)
-        val request = app.get(
-            "${mainUrl}/stream/${loadData.type}/${loadData.id}.json",
-            timeout = 120L
-        )
-        if (request.isSuccessful) {
-            val res = request.parsedSafe<StreamsResponse>()
-            res?.streams?.forEach { stream ->
-                stream.runCallback(subtitleCallback, callback)
-            }
-        } else {
-            argamap(
-                {
-                    invokeStremioX(loadData.type, loadData.id, subtitleCallback, callback)
-                },
-                {
-                    invokeWatchsomuch(
-                        loadData.imdbId,
-                        loadData.season,
-                        loadData.episode,
-                        subtitleCallback
-                    )
-                },
-                {
-                    invokeOpenSubs(
-                        loadData.imdbId,
-                        loadData.season,
-                        loadData.episode,
-                        subtitleCallback
-                    )
-                },
+    override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
+        val document = app.get(data).document
+
+        document.select("div.info div:last-child a").map { res ->
+            callback.invoke(
+                ExtractorLink(
+                    this.name,
+                    this.name,
+                    res.attr("href").replace(Regex("\\?download\\S+.mp4&"), "?") + "&rnd=${Date().time}",
+                    referer = data,
+                    quality = Regex("([0-9]+p),").find(res.text())?.groupValues?.get(1).let { getQualityFromName(it) },
+                    headers = mapOf("Range" to "bytes=0-"),
+                )
             )
         }
 
         return true
-    }
-
-    private suspend fun invokeStremioX(
-        type: String?,
-        id: String?,
-        subtitleCallback: (SubtitleFile) -> Unit,
-        callback: (ExtractorLink) -> Unit
-    ) {
-        val sites = AcraApplication.getKey<Array<CustomSite>>(USER_PROVIDER_API)?.toMutableList()
-            ?: mutableListOf()
-        sites.filter { it.parentJavaClass == "StremioX" }.apmap { site ->
-            val res = app.get(
-                "${site.url.fixSourceUrl()}/stream/${type}/${id}.json",
-                timeout = 120L
-            ).parsedSafe<StreamsResponse>()
-            res?.streams?.forEach { stream ->
-                stream.runCallback(subtitleCallback, callback)
-            }
-        }
-    }
-
-    data class LoadData(
-        val type: String? = null,
-        val id: String? = null,
-        val season: Int? = null,
-        val episode: Int? = null,
-        val imdbId: String? = null,
-    )
-
-    data class CustomSite(
-        @JsonProperty("parentJavaClass") val parentJavaClass: String,
-        @JsonProperty("name") val name: String,
-        @JsonProperty("url") val url: String,
-        @JsonProperty("lang") val lang: String,
-    )
-
-    // check if id is imdb/tmdb cause stremio addons like torrentio works base on imdbId
-    private fun isImdborTmdb(url: String?): Boolean {
-        return imdbUrlToIdNullable(url) != null || url?.startsWith("tmdb:") == true
-    }
-
-    private data class Manifest(val catalogs: List<Catalog>)
-    private data class Catalog(
-        var name: String?,
-        val id: String,
-        val type: String?,
-        val types: MutableList<String> = mutableListOf()
-    ) {
-        init {
-            if (type != null) types.add(type)
-        }
-
-        suspend fun search(query: String, provider: StremioC): List<SearchResponse> {
-            val entries = mutableListOf<SearchResponse>()
-            types.forEach { type ->
-                val res = app.get(
-                    "${provider.mainUrl}/catalog/${type}/${id}/search=${query}.json",
-                    timeout = 120L
-                ).parsedSafe<CatalogResponse>()
-                res?.metas?.forEach { entry ->
-                    entries.add(entry.toSearchResponse(provider))
-                }
-            }
-            return entries
-        }
-
-        suspend fun toHomePageList(provider: StremioC): HomePageList {
-            val entries = mutableListOf<SearchResponse>()
-            types.forEach { type ->
-                val res = app.get(
-                    "${provider.mainUrl}/catalog/${type}/${id}.json",
-                    timeout = 120L
-                ).parsedSafe<CatalogResponse>()
-                res?.metas?.forEach { entry ->
-                    entries.add(entry.toSearchResponse(provider))
-                }
-            }
-            return HomePageList(
-                "$type - ${name ?: id}",
-                entries
-            )
-        }
-    }
-
-    private data class CatalogResponse(val metas: List<CatalogEntry>?, val meta: CatalogEntry?)
-
-    private data class Trailer(
-        val source: String?,
-        val type: String?
-    )
-
-    private data class CatalogEntry(
-        @JsonProperty("name") val name: String,
-        @JsonProperty("id") val id: String,
-        @JsonProperty("poster") val poster: String?,
-        @JsonProperty("background") val background: String?,
-        @JsonProperty("description") val description: String?,
-        @JsonProperty("imdbRating") val imdbRating: String?,
-        @JsonProperty("type") val type: String?,
-        @JsonProperty("videos") val videos: List<Video>?,
-        @JsonProperty("genre") val genre: List<String>?,
-        @JsonProperty("genres") val genres: List<String>?,
-        @JsonProperty("cast") val cast: List<String>?,
-        @JsonProperty("year") val yearNum: String? = null,
-        @JsonProperty("trailers") val trailersSources: ArrayList<Trailer>? = arrayListOf()
-    ) {
-        fun toSearchResponse(provider: StremioC): SearchResponse {
-            return provider.newMovieSearchResponse(
-                fixTitle(name),
-                this.toJson(),
-                TvType.Others
-            ) {
-                posterUrl = poster
-            }
-        }
-
-        suspend fun toLoadResponse(provider: StremioC, imdbId: String?): LoadResponse {
-            if (videos.isNullOrEmpty()) {
-                return provider.newMovieLoadResponse(
-                    name,
-                    "${provider.mainUrl}/meta/${type}/${id}.json",
-                    TvType.Movie,
-                    LoadData(type, id, imdbId = imdbId)
-                ) {
-                    posterUrl = poster
-                    backgroundPosterUrl = background
-                    rating = imdbRating.toRatingInt()
-                    plot = description
-                    year = yearNum?.toIntOrNull()
-                    tags = genre ?: genres
-                    addActors(cast)
-                    addTrailer(trailersSources?.map { "https://www.youtube.com/watch?v=${it.source}" })
-                    addImdbId(imdbId)
-                }
-            } else {
-                return provider.newTvSeriesLoadResponse(
-                    name,
-                    "${provider.mainUrl}/meta/${type}/${id}.json",
-                    TvType.TvSeries,
-                    videos.map {
-                        it.toEpisode(provider, type, imdbId)
-                    }
-                ) {
-                    posterUrl = poster
-                    backgroundPosterUrl = background
-                    rating = imdbRating.toRatingInt()
-                    plot = description
-                    year = yearNum?.toIntOrNull()
-                    tags = genre ?: genres
-                    addActors(cast)
-                    addTrailer(trailersSources?.map { "https://www.youtube.com/watch?v=${it.source}" }
-                        ?.randomOrNull())
-                    addImdbId(imdbId)
-                }
-            }
-
-        }
-    }
-
-    private data class Video(
-        @JsonProperty("id") val id: String? = null,
-        @JsonProperty("title") val title: String? = null,
-        @JsonProperty("name") val name: String? = null,
-        @JsonProperty("season") val seasonNumber: Int? = null,
-        @JsonProperty("number") val number: Int? = null,
-        @JsonProperty("episode") val episode: Int? = null,
-        @JsonProperty("thumbnail") val thumbnail: String? = null,
-        @JsonProperty("overview") val overview: String? = null,
-        @JsonProperty("description") val description: String? = null,
-    ) {
-        fun toEpisode(provider: StremioC, type: String?, imdbId: String?): Episode {
-            return provider.newEpisode(
-                LoadData(type, id, seasonNumber, episode ?: number, imdbId)
-            ) {
-                this.name = name ?: title
-                this.posterUrl = thumbnail
-                this.description = overview ?: description
-                this.season = seasonNumber
-                this.episode = episode ?: number
-            }
-        }
-    }
-
-    private data class StreamsResponse(val streams: List<Stream>)
-    private data class Subtitle(
-        val url: String?,
-        val lang: String?,
-        val id: String?,
-    )
-
-    private data class ProxyHeaders(
-        val request: Map<String, String>?,
-    )
-
-    private data class BehaviorHints(
-        val proxyHeaders: ProxyHeaders?,
-        val headers: Map<String, String>?,
-    )
-
-    private data class Stream(
-        val name: String?,
-        val title: String?,
-        val url: String?,
-        val description: String?,
-        val ytId: String?,
-        val externalUrl: String?,
-        val behaviorHints: BehaviorHints?,
-        val infoHash: String?,
-        val sources: List<String> = emptyList(),
-        val subtitles: List<Subtitle> = emptyList()
-    ) {
-        suspend fun runCallback(
-            subtitleCallback: (SubtitleFile) -> Unit,
-            callback: (ExtractorLink) -> Unit
-        ) {
-            if (url != null) {
-                callback.invoke(
-                    ExtractorLink(
-                        name ?: "",
-                        fixSourceName(name, title),
-                        url,
-                        "",
-                        getQuality(listOf(description,title,name)),
-                        headers = behaviorHints?.proxyHeaders?.request ?: behaviorHints?.headers
-                        ?: mapOf(),
-                        type = INFER_TYPE
-                    )
-                )
-                subtitles.map { sub ->
-                    subtitleCallback.invoke(
-                        SubtitleFile(
-                            SubtitleHelper.fromThreeLettersToLanguage(sub.lang ?: "") ?: sub.lang
-                            ?: "",
-                            sub.url ?: return@map
-                        )
-                    )
-                }
-            }
-            if (ytId != null) {
-                loadExtractor("https://www.youtube.com/watch?v=$ytId", subtitleCallback, callback)
-            }
-            if (externalUrl != null) {
-                loadExtractor(externalUrl, subtitleCallback, callback)
-            }
-            if (infoHash != null) {
-                val resp = app.get(TRACKER_LIST_URL).text
-                val otherTrackers = resp
-                    .split("\n")
-                    .filterIndexed { i, _ -> i % 2 == 0 }
-                    .filter { s -> s.isNotEmpty() }.joinToString("") { "&tr=$it" }
-
-                val sourceTrackers = sources
-                    .filter { it.startsWith("tracker:") }
-                    .map { it.removePrefix("tracker:") }
-                    .filter { s -> s.isNotEmpty() }.joinToString("") { "&tr=$it" }
-
-                val magnet = "magnet:?xt=urn:btih:${infoHash}${sourceTrackers}${otherTrackers}"
-                callback.invoke(
-                    ExtractorLink(
-                        name ?: "",
-                        title ?: name ?: "",
-                        magnet,
-                        "",
-                        Qualities.Unknown.value
-                    )
-                )
-            }
-        }
     }
 }
