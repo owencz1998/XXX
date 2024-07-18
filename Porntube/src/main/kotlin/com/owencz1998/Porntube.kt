@@ -11,7 +11,7 @@ import com.lagradost.cloudstream3.utils.*
 import com.lagradost.cloudstream3.utils.AppUtils.parseJson
 import com.lagradost.cloudstream3.utils.AppUtils.toJson
 
-class StremioC : MainAPI() {
+class Porntube : MainAPI() {
     override var mainUrl = "https://dirty-pink.ers.pw/manifest.json"
     override var name = "Porntube"
     override val supportedTypes = setOf(TvType.Others)
