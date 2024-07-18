@@ -9,7 +9,7 @@ import com.lagradost.cloudstream3.utils.*
 import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import java.util.*
 
-class Sincity : MainAPI() {
+class GoodPorn : MainAPI() {
     override var mainUrl              = "https://sincity.is"
     override var name                 = "Sincity"
     override val hasMainPage          = true
