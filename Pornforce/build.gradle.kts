@@ -1,22 +1,9 @@
-import org.jetbrains.kotlin.konan.properties.Properties
-
-// use an integer for version numbers
 version = 1
 
-android {
-    defaultConfig {
-        val properties = Properties()
-        properties.load(project.rootProject.file("local.properties").inputStream())
-
-        buildConfigField("String", "TMDB_API", "\"${properties.getProperty("TMDB_API")}\"")
-    }
-}
-
 cloudstream {
-    language = "en"
-    // All of these properties are optional, you can safely remove them
-
-     description = "nsfw"
+    authors     = listOf("OwenConnor")
+    language    = "en"
+    description = "nsfw"
 
     /**
      * Status int as the following:
@@ -24,11 +11,8 @@ cloudstream {
      * 1: Ok
      * 2: Slow
      * 3: Beta only
-     * */
-    status = 1 // will be 3 if unspecified
-    tvTypes = listOf(
-        "nsfw",
-    )
-
-    iconUrl = "https://raw.githubusercontent.com/hexated/cloudstream-extensions-hexated/master/StremioX/icon.png"
+    **/
+    status  = 1 // will be 3 if unspecified
+    tvTypes = listOf("NSFW")
+    iconUrl = "https://www.google.com/s2/favicons?domain=pornforce.to&sz=%size%"
 }
