@@ -1,4 +1,3 @@
-// ! https://github.com/hexated/cloudstream-extensions-hexated/blob/master/GoodPorn/src/main/kotlin/com/hexated/GoodPorn.kt
 
 package com.owencz1998 
 
@@ -9,9 +8,9 @@ import com.lagradost.cloudstream3.utils.*
 import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import java.util.*
 
-class GoodPorn : MainAPI() {
-    override var mainUrl              = "https://goodporn.to"
-    override var name                 = "GoodPorn"
+class Sincity : MainAPI() {
+    override var mainUrl              = "https://sincity.is/"
+    override var name                 = "Sincity"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
