@@ -19,7 +19,7 @@ class Pornforce : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
         override val mainPage = mainPageOf(
-            "updates" to "Newest",
+        "${mainUrl}/updates/"                to "Featured",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
