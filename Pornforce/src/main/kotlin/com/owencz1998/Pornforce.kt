@@ -19,9 +19,7 @@ class Pornforce : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
         override val mainPage = mainPageOf(
-            "best-videos" to "Best Videos",
-            "top-rated" to "Top Rated",
-            "most-viewed" to "Most Viewed",
+            "updates" to "Newest",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
