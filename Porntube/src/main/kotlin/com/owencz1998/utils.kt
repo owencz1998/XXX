@@ -5,7 +5,7 @@ import com.lagradost.cloudstream3.plugins.Plugin
 import android.content.Context
 
 @CloudstreamPlugin
-class PirnforcePlugin: Plugin() {
+class PornforcePlugin: Plugin() {
     override fun load(context: Context) {
         registerMainAPI(Pornforce())
     }
