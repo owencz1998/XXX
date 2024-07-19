@@ -19,7 +19,7 @@ class Whoreshub : MainAPI() {
         "${mainUrl}/most-popular" to "Most Popular",
         "${mainUrl}/top-rated" to "Top Rated",
         "${mainUrl}/categories/solo" to "Solo",
-        "${mainUrl}/categories/masterbation" to "Masterbation",
+        "${mainUrl}/categories/masturbation" to "Masturbation",
         "${mainUrl}/categories/public" to "Public",
         "${mainUrl}/categories/toys" to "Toys",
         "${mainUrl}/categories/cumshot" to "Cumshot",
