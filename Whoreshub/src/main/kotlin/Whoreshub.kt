@@ -18,6 +18,15 @@ class Whoreshub : MainAPI() {
         "${mainUrl}/latest-updates" to "Latest",
         "${mainUrl}/most-popular" to "Most Popular",
         "${mainUrl}/top-rated" to "Top Rated",
+        "${mainUrl}/categories/solo" to "Solo",
+        "${mainUrl}/categories/masterbation" to "Masterbation",
+        "${mainUrl}/categories/public" to "Public",
+        "${mainUrl}/categories/toys" to "Toys",
+        "${mainUrl}/categories/cumshot" to "Cumshot",
+        "${mainUrl}/categories/petite" to "Petite",
+        "${mainUrl}/categories/amateur" to "Amateur",
+        "${mainUrl}/categories/teen" to "Teen",
+        "${mainUrl}/categories/homemade" to "Homemade",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
