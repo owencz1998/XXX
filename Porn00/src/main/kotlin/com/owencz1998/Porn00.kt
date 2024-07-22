@@ -16,7 +16,7 @@ class Porn00 : MainAPI() {
 
     override val mainPage = mainPageOf(
         "${mainUrl}/latest-vids" to "Latest",
-        "${mainUrl}/most-popular" to "Most Popular",
+        "${mainUrl}/popular-vids" to "Most Popular",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
