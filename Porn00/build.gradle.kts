@@ -1,12 +1,12 @@
 // use an integer for version numbers
 version = 3
 
-
 cloudstream {
     // All of these properties are optional, you can safely remove them
 
-    description = "The best free NSFW site"
-    authors = listOf("OwenConnor")
+    description = "Whoreshub"
+    language    = "en"
+    authors = listOf("owenconnor")
 
     /**
     * Status int as the following:
@@ -21,8 +21,5 @@ cloudstream {
     // You can find a list of avaliable types here:
     // https://recloudstream.github.io/cloudstream/html/app/com.lagradost.cloudstream3/-tv-type/index.html
     tvTypes = listOf("NSFW")
-
-    iconUrl = "http://static-ss.xnxx-cdn.com/v3/img/skins/xnxx/logo-xnxx.png"
-
-    language = "en"
+    iconUrl = "https://findbestporno.com/public/uploads/image/2021/8/Porn00.jpg"
 }
