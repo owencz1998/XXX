@@ -5,7 +5,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class Porn00 : MainAPI() {
-    override var mainUrl              = "https://www.porn00.com/latest-vids"
+    override var mainUrl              = "https://www.porn00.com"
     override var name                 = "Porn00"
     override val hasMainPage          = true
     override var lang                 = "en"
@@ -15,29 +15,8 @@ class Porn00 : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        "${mainUrl}/latest-updates" to "Latest",
+        "${mainUrl}/latest-vids" to "Latest",
         "${mainUrl}/most-popular" to "Most Popular",
-        "${mainUrl}/top-rated" to "Top Rated",
-        "${mainUrl}/categories/solo" to "Solo",
-        "${mainUrl}/categories/masturbation" to "Masturbation",
-        "${mainUrl}/categories/public" to "Public",
-        "${mainUrl}/categories/toys" to "Toys",
-        "${mainUrl}/categories/cumshot" to "Cumshot",
-        "${mainUrl}/categories/petite" to "Petite",
-        "${mainUrl}/categories/amateur" to "Amateur",
-        "${mainUrl}/categories/teen" to "Teen",
-        "${mainUrl}/categories/homemade" to "Homemade",
-        "${mainUrl}/categories/ass-to-mouth" to "Ass to mouth",
-        "${mainUrl}/categories/anal" to "Anal",
-        "${mainUrl}/categories/small-tits" to "Small Tits",
-        "${mainUrl}/categories/big-tits" to "Big Tits",
-       "${mainUrl}/categories/cosplay" to "Cosplay",
-       "${mainUrl}/categories/handjob" to "Handjob",
-       "${mainUrl}/categories/babysitter" to "Babysitter",
-       "${mainUrl}/categories/milf" to "Milf",
-       "${mainUrl}/categories/threesome" to "Threesome",
-       "${mainUrl}/categories/deepthroat" to "Deepthroat",
-       "${mainUrl}/categories/fisting" to "Fisting",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
