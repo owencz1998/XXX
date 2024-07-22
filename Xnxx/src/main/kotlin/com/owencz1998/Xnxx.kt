@@ -4,97 +4,111 @@ import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
-class Xnxx : MainAPI() {
-    override var mainUrl              = "https://www.xnxx.com"
-    override var name                 = "Xnxx"
+class Porn00 : MainAPI() {
+    override var mainUrl              = "https://www.porn00.com/latest-vids"
+    override var name                 = "Porn00"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
     override val hasDownloadSupport   = true
-    override val hasChromecastSupport = true
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        "${mainUrl}/newest/"              to "Newest",
-        "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly",
-        "${mainUrl}/most-viewed/monthly/" to "Most viewed monthly",
-        "${mainUrl}/most-viewed"          to "Most viewed all time",
-        "${mainUrl}/most-viewed/weekly/"  to "Most viewed weekly",
-        "${mainUrl}/categories/amateur/"  to "Amateur",
-        "${mainUrl}/search/anal/"  to "Anal",
-        "${mainUrl}/search/18-porn/"  to "18",
+        "${mainUrl}/latest-updates" to "Latest",
+        "${mainUrl}/most-popular" to "Most Popular",
+        "${mainUrl}/top-rated" to "Top Rated",
+        "${mainUrl}/categories/solo" to "Solo",
+        "${mainUrl}/categories/masturbation" to "Masturbation",
+        "${mainUrl}/categories/public" to "Public",
+        "${mainUrl}/categories/toys" to "Toys",
+        "${mainUrl}/categories/cumshot" to "Cumshot",
+        "${mainUrl}/categories/petite" to "Petite",
+        "${mainUrl}/categories/amateur" to "Amateur",
+        "${mainUrl}/categories/teen" to "Teen",
+        "${mainUrl}/categories/homemade" to "Homemade",
+        "${mainUrl}/categories/ass-to-mouth" to "Ass to mouth",
+        "${mainUrl}/categories/anal" to "Anal",
+        "${mainUrl}/categories/small-tits" to "Small Tits",
+        "${mainUrl}/categories/big-tits" to "Big Tits",
+       "${mainUrl}/categories/cosplay" to "Cosplay",
+       "${mainUrl}/categories/handjob" to "Handjob",
+       "${mainUrl}/categories/babysitter" to "Babysitter",
+       "${mainUrl}/categories/milf" to "Milf",
+       "${mainUrl}/categories/threesome" to "Threesome",
+       "${mainUrl}/categories/deepthroat" to "Deepthroat",
+       "${mainUrl}/categories/fisting" to "Fisting",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
-        val document = app.get(request.data + page + "?x_platform_switch=desktop").document
-        val home     = document.select("div.thumb-list div.thumb-list__item").mapNotNull { it.toSearchResult() }
+        val document = app.get("${request.data}/${page}/").document
+        val home = document.select("div.block-thumbs a.item").mapNotNull { it.toSearchResult() }
 
         return newHomePageResponse(
-            list    = HomePageList(
-                name               = request.name,
-                list               = home,
+            list = HomePageList(
+                name = request.name,
+                list = home,
                 isHorizontalImages = true
             ),
             hasNext = true
         )
     }
 
-    private fun Element.toSearchResult(): SearchResponse? {
-        val title     = this.selectFirst("a.video-thumb-info__name")?.text() ?: return null
-        val href      = fixUrl(this.selectFirst("a.video-thumb-info__name")!!.attr("href"))
-        val posterUrl = fixUrlNull(this.select("img.thumb-image-container__image").attr("src"))
+    private fun Element.toSearchResult(): SearchResponse {
+        val title = this.attr("title")
+        val href = this.attr("href")
+        val posterUrl = fixUrlNull(this.selectFirst("img").attr("data-src"))
 
-        return newMovieSearchResponse(title, href, TvType.Movie) { this.posterUrl = posterUrl }
+        return newMovieSearchResponse(title, href, TvType.Movie) {
+            this.posterUrl = posterUrl
+        }
     }
 
     override suspend fun search(query: String): List<SearchResponse> {
         val searchResponse = mutableListOf<SearchResponse>()
 
-        for (i in 0 until 15) {
-            val document = app.get("${mainUrl}/search/${query.replace(" ", "+")}/?page=$i&x_platform_switch=desktop").document
+        val document = app.get("${mainUrl}/search/?q=${query}").document
 
-            val results = document.select("div.thumb-list div.thumb-list__item").mapNotNull { it.toSearchResult() }
+        val results = document.select("div.block-thumbs a.item").mapNotNull { it.toSearchResult() }
 
-            if (!searchResponse.containsAll(results)) {
-                searchResponse.addAll(results)
-            } else {
-                break
-            }
-
-            if (results.isEmpty()) break
-        }
+        searchResponse.addAll(results)
 
         return searchResponse
     }
 
     override suspend fun load(url: String): LoadResponse {
         val document = app.get(url).document
-
-        val title           = document.selectFirst("div.with-player-container h1")?.text()?.trim().toString()
-        val poster          = fixUrlNull(document.selectFirst("div.xp-preload-image")?.attr("style")?.substringAfter("https:")?.substringBefore("\');"))
-        val tags            = document.select(" nav#video-tags-list-container ul.root-8199e.video-categories-tags.collapsed-8199e li.item-8199e a.video-tag").map { it.text() }
-        val recommendations = document.select("div.related-container div.thumb-list div.thumb-list__item").mapNotNull { it.toSearchResult() }
+        val title = document.selectFirst("meta[property=og:title]").attr("content")
+        val posterUrl = fixUrlNull(document.selectFirst("meta[property=og:image]").attr("content"))
 
         return newMovieLoadResponse(title, url, TvType.NSFW, url) {
-            this.posterUrl       = poster
-            this.tags            = tags
-            this.recommendations = recommendations
+            this.posterUrl = posterUrl
         }
     }
 
-    override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
-        app.get(url = data).let { response ->
-            callback(
-                ExtractorLink(
-                    source  = name,
-                    name    = name,
-                    url     = fixUrl(response.document.selectXpath("//link[contains(@href,'.m3u8')]")[0]?.attr("href").toString()),
-                    referer = mainUrl,
-                    quality = Qualities.Unknown.value,
-                    isM3u8  = true
+    override suspend fun loadLinks(
+        data: String,
+        isCasting: Boolean,
+        subtitleCallback: (SubtitleFile) -> Unit,
+        callback: (ExtractorLink) -> Unit
+        ): Boolean {
+
+        val document = app.get(data).document
+        val docText = document.toString()
+        val regex = Regex("""video_(?:url|alt_url(?:2|3)?): '(https:\/\/[^']+)'""")
+        val links = regex.findAll(docText).map { it.groupValues[1] }.toList()
+        for(link in links) {
+            if(link.isNotEmpty()) {
+                callback.invoke(
+                    ExtractorLink(
+                        this.name,
+                        this.name,
+                        link,
+                        referer = "",
+                        quality = Regex("""_(1080|720|480|360)p\.mp4""").find(link) ?. groupValues ?. getOrNull(1) ?. toIntOrNull() ?: Qualities.Unknown.value,
+                    )
                 )
-            )
+            }
         }
 
         return true
