@@ -21,7 +21,8 @@ class SxyPrn : MainAPI() {
         "$mainUrl/popular/top-viewed.html?p=day" to "Popular - Day",
         "$mainUrl/popular/top-viewed.html" to "Popular - Week",
         "$mainUrl/popular/top-viewed.html?p=month" to "Popular - Month",
-        "$mainUrl/popular/top-viewed.html?p=all" to "Popular - All Time"
+        "$mainUrl/popular/top-viewed.html?p=all" to "Popular - All Time",
+        "$mainUrl/trending/blowjob.html?sm=trending&trends=61" to "Blowjob"
     )
 
     override suspend fun getMainPage(
