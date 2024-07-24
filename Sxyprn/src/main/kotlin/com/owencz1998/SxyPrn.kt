@@ -22,7 +22,13 @@ class SxyPrn : MainAPI() {
         "$mainUrl/popular/top-viewed.html" to "Popular - Week",
         "$mainUrl/popular/top-viewed.html?p=month" to "Popular - Month",
         "$mainUrl/popular/top-viewed.html?p=all" to "Popular - All Time",
-        "$mainUrl/trending/blowjob.html?sm=trending&trends=61" to "Blowjob"
+        "$mainUrl/trending/blowjob.html?sm=trending&trends=61" to "Blowjob",
+        "$mainUrl/trending/teens.html?sm=trending&trends=21" to "Teens",
+        "$mainUrl/trending/onlyfans.html?sm=trending&trends=7" to "Onlyfans",
+        "$mainUrl/trending/bdsm.html?sm=trending&trends=184" to "Bdsm",
+        "$mainUrl/trending/stepsis.html?sm=trending&trends=497" to "Stepsis",
+        "$mainUrl/trending/petite.html?sm=trending&trends=501" to "Petite",
+       "$mainUrl/trending/teacher.html?sm=trending&trends=1165" to "Teacher"  
     )
 
     override suspend fun getMainPage(
