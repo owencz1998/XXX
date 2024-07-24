@@ -28,7 +28,7 @@ class SxyPrn : MainAPI() {
         "$mainUrl/trending/bdsm.html?sm=trending&trends=184" to "Bdsm",
         "$mainUrl/trending/stepsis.html?sm=trending&trends=497" to "Stepsis",
         "$mainUrl/trending/petite.html?sm=trending&trends=501" to "Petite",
-       "$mainUrl/trending/teacher.html?sm=trending&trends=1165" to "Teacher"  
+       "$mainUrl/searches/teacher.html?sm=trending&trends=1165" to "Teacher"  
     )
 
     override suspend fun getMainPage(
