@@ -6,7 +6,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class Mangoporn : MainAPI() {
-    override var mainUrl              = "http://mangoporn.net"
+    override var mainUrl              = "http://mangoporn.co"
     override var name                 = "Mangoporn"
     override val hasMainPage          = true
     override var lang                 = "en"
