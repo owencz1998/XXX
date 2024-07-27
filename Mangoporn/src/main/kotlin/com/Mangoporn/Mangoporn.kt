@@ -6,7 +6,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class Mangoporn : MainAPI() {
-    override var mainUrl              = "http://mangoporn.co"
+    override var mainUrl              = "http://mangoporn.net"
     override var name                 = "Mangoporn"
     override val hasMainPage          = true
     override var lang                 = "en"
@@ -25,7 +25,6 @@ class Mangoporn : MainAPI() {
         "studios/reality-kings" to "Reality Kings",
         "genre/family-roleplay" to "Family Roleplay",
         "genre/parody" to "Parody",
-        "genre/gangbang" to "Gangbang",
         "genre/18-teens" to "18+ Teens",
         "genre/anal" to "Anal",
         "genre/big-boobs" to "Big Boobs",
@@ -42,11 +41,8 @@ class Mangoporn : MainAPI() {
         "genre/squirting" to "Squirting",
         "genre/milf" to "MILF",
         "genre/asian" to "Asian",
-
         "genre/big-butt" to "Big Butt",
-        "genre/big-cock" to "Big Cock",
-        "genre/squirting" to "Squirting",
-        "genre/swallowing" to "Swallowing"
+        "genre/big-cock" to "Big Cock"
 
     )
 
@@ -122,7 +118,7 @@ class Mangoporn : MainAPI() {
         val document = app.get(url).document
 
         val title = document.selectFirst("div.data > h1")?.text().toString()
-        val poster : document.selectFirst( div.poster > img")?.attr( data-wpfc-original-src )?.trim().toString()
+        val poster = document.selectFirst("div.poster > img")?.attr("data-wpfc-original-src")?.trim().toString()
         val description = document.selectFirst("meta[property=og:description]")?.attr("content")?.trim()
         val recommendations =
             document.select("ul.videos.related >  li").map {
