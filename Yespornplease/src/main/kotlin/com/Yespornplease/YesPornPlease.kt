@@ -19,6 +19,15 @@ class YesPornPlease : MainAPI() {
         "${mainUrl}/xnxx/small-tits/" to "Small Tits",
         "${mainUrl}/xnxx/teen/" to "Teen",
         "${mainUrl}/xnxx/threesome/" to "Threesome",
+        "${mainUrl}/xnxx/blonde/" to "Blonde",
+        "${mainUrl}/xnxx/creampie/" to "Creampie",
+        "${mainUrl}/xnxx/red-head/" to "Redhead",
+        "${mainUrl}/xnxx/squirt/" to "Squirt",
+        "${mainUrl}/xnxx/brunette/" to "Brunette",
+        "${mainUrl}/xnxx/lesbian/" to "Lesbian",
+        "${mainUrl}/xnxx/gangbang/" to "Gangbang",
+        "${mainUrl}/xnxx/public/" to "Public",
+        "${mainUrl}/xnxx/shaved-pussy/" to "Shaved Pussy",
         "${mainUrl}/brazzers" to "Brazzers",
     )
 
