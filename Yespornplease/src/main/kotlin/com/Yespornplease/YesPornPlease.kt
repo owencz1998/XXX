@@ -19,6 +19,7 @@ class YesPornPlease : MainAPI() {
         "${mainUrl}/xnxx/small-tits/" to "Small Tits",
         "${mainUrl}/xnxx/teen/" to "Teen",
         "${mainUrl}/xnxx/threesome/" to "Threesome",
+        "${mainUrl}/brazzers" to "Brazzers",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
