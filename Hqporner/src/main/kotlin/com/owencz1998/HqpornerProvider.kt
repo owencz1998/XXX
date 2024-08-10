@@ -6,8 +6,8 @@ import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
 
 @CloudstreamPlugin
-class hqpornerProvider : Plugin() {
+class HqpornerProvider : Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(hqporner())
+        registerMainAPI(Hqporner())
     }
 }
