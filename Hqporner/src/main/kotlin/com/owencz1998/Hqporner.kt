@@ -7,7 +7,7 @@ import com.lagradost.cloudstream3.network.WebViewResolver
 import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import org.jsoup.Jsoup
 
-class hqporner : MainAPI() {
+class Hqporner : MainAPI() {
     override var mainUrl              = "https://m.hqporner.com"
     override var name                 = "Hqporner"
     override val hasMainPage          = true
