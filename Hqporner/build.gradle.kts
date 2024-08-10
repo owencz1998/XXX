@@ -1,9 +1,9 @@
 version = 1
 
 cloudstream {
-    authors     = listOf("Coxju")
+    authors     = listOf("OwenConnor")
     language    = "en"
-    description = "FullPorner is the best free full length porn video site. Choose from millions of hardcore videos that stream quickly and in high quality and only full length"
+    description = "HqPorner is the best free full length porn video site. Choose from millions of hardcore videos that stream quickly and in high quality and only full length"
 
     /**
      * Status int as the following:
