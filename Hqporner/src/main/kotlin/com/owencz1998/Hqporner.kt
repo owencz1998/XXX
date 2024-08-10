@@ -7,9 +7,9 @@ import com.lagradost.cloudstream3.network.WebViewResolver
 import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import org.jsoup.Jsoup
 
-class FullPorner : MainAPI() {
-    override var mainUrl              = "https://fullporner.com"
-    override var name                 = "FullPorner"
+class hqporner : MainAPI() {
+    override var mainUrl              = "https://m.hqporner.com"
+    override var name                 = "Hqporner"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
@@ -22,11 +22,7 @@ class FullPorner : MainAPI() {
         "${mainUrl}/home/"                to "Featured",
         "${mainUrl}/category/amateur/"    to "Amateur",
         "${mainUrl}/category/teen/"       to "Teen",
-        "${mainUrl}/category/cumshot/"    to "CumShot",
-        "${mainUrl}/category/deepthroat/" to "DeepThroat",
-        "${mainUrl}/category/orgasm/"     to "Orgasm",
-        "${mainUrl}/category/threesome/"  to "ThreeSome",
-        "${mainUrl}/category/group-sex/"  to "Group Sex",
+        "${mainUrl}/category/anal-sex-hd/"    to "Anal",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
