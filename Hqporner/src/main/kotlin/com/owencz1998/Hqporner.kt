@@ -16,7 +16,7 @@ class Hqporner : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-            "anal-sex-hd" to "Anal",
+           ${mainUrl}/home/"                to "Featured",
 
         )
 
