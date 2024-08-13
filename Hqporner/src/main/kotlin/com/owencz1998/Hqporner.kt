@@ -16,17 +16,7 @@ class Hqporner : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-            "best-videos" to "Best Videos",
-            "top-rated" to "Top Rated",
-            "most-viewed" to "Most Viewed",
-            "cat/milf" to "Milf",
-            "cat/japanese" to "Japanese",
-            "cat/hd-1080p" to "1080 Porn",
-            "cat/4k-porn" to "4K Porn",
-            "cat/babysitter" to "Baby Sitter",
-            "cat/big-tits" to "Big Tits",
-            "cat/teen" to "Teen"
-
+            "anal-sex-hd" to "Anal",
 
         )
 
