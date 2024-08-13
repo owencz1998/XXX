@@ -16,7 +16,8 @@ class Hqporner : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        "${mainUrl}/home/"                to "Featured",
+        "${mainUrl}/top/"                to "Topvideos",
+        "${mainUrl}/categories/anal-sex-hd"                to "Anal",
 
         )
 
@@ -80,7 +81,7 @@ class Hqporner : MainAPI() {
 
     override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
         val response = app.get(
-            data, interceptor = WebViewResolver(Regex("""https://www\.m.hqporner\.com/xhr/video"""))
+            data, interceptor = WebViewResolver(Regex("""https://www\.hqporner\.com/xhr/video"""))
         )
         val json=response.text
         val regex = Regex("labelShort\":\\s\"(.*?)\"|src\":\\s\"(.*)\"")
