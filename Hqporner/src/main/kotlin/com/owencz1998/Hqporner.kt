@@ -16,7 +16,7 @@ class Hqporner : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-           ${mainUrl}/home/"                to "Featured",
+        "${mainUrl}/home/"                to "Featured",
 
         )
 
