@@ -19,16 +19,6 @@ class YesPornPlease : MainAPI() {
         "${mainUrl}/xnxx/small-tits/" to "Small Tits",
         "${mainUrl}/xnxx/teen/" to "Teen",
         "${mainUrl}/xnxx/threesome/" to "Threesome",
-        "${mainUrl}/xnxx/blonde/" to "Blonde",
-        "${mainUrl}/xnxx/creampie/" to "Creampie",
-        "${mainUrl}/xnxx/red-head/" to "Redhead",
-        "${mainUrl}/xnxx/squirt/" to "Squirt",
-        "${mainUrl}/xnxx/brunette/" to "Brunette",
-        "${mainUrl}/xnxx/lesbian/" to "Lesbian",
-        "${mainUrl}/xnxx/gangbang/" to "Gangbang",
-        "${mainUrl}/xnxx/public/" to "Public",
-        "${mainUrl}/xnxx/shaved-pussy/" to "Shaved Pussy",
-        "${mainUrl}/brazzers" to "Brazzers",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
@@ -90,19 +80,23 @@ class YesPornPlease : MainAPI() {
         ): Boolean {
 
         val document = app.get(data).document
-        val iframeLink = document.select("iframe").get(1).attr("data-litespeed-src")
-        val iframeDocument = app.get(iframeLink).document
-        val link = iframeDocument.selectFirst("source").attr("src")
-
-        callback.invoke(
-            ExtractorLink(
-                this.name,
-                this.name,
-                link,
-                referer = mainUrl,
-                quality = Qualities.Unknown.value,
+        val iframes = document.select("iframe")
+        if(iframes.size >= 3) {
+            val thirdIframe = iframes[2]
+            val link = thirdIframe.attr("src")
+            val doc = app.get(link).document
+            val source = doc.selectFirst("video > source").attr("src")
+            callback.invoke(
+                ExtractorLink(
+                    this.name,
+                    this.name,
+                    source,
+                    referer = mainUrl,
+                    quality = Qualities.Unknown.value,
+                )
             )
-        )
+        }
+
         return true
     }
 }
