@@ -25,6 +25,7 @@ class FreePornVideos : MainAPI() {
         "networks/rk-com" to "Reality Kings",
         "categories/jav-uncensored" to "Jav",
         "networks/mom-lover" to "MILF"
+        "sites/bad-milfs" to "Bad Milfs"
 
     )
 
