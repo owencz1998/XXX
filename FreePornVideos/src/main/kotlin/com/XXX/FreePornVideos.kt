@@ -74,8 +74,9 @@ class FreePornVideos : MainAPI() {
         "sites/i-know-that-girl" to "I Know That Girl",
         "sites/perfect-fucking-strangers" to "Perfect Fucking Strangers",
         "sites/my-babysitters-club" to "My Babysitters Club",
-        "sites/tushy" to "Tusy",
+        "sites/tushy" to "Tushy",
         "sites/tushyraw" to "TushyRaw",
+        "sites/blacks-on-blondes" to "Blacks On Blondes",
         "sites/blacked-raw" to "BlackedRaw",
         "sites/brown-bunnies" to "Brown Bunnies",
         "sites/bbcparadise" to "BBC Paradise",
@@ -100,7 +101,6 @@ class FreePornVideos : MainAPI() {
         "sites/momswap" to "Mom Swap",
         "sites/daughter-swap" to "Daughter Swap",
         "networks/mom-lover" to "Mom Lover",
-        "sites/brat-tamer" to "Brat Tamer",
         "sites/wake-up-n-fuck2" to "Wakeup N Fuck",
         "sites/girlsway" to "GirlsWay",
         "sites/lesbea" to "Lesbea",
@@ -116,6 +116,8 @@ class FreePornVideos : MainAPI() {
         "sites/vixen" to "Vixen",
         "sites/trans-angels" to "Trans Angels",
         "sites/transfixed" to "TransFixed"
+        "categories/69" to "69",
+        "models/angela-white" to "Angela White",
         
 
 
