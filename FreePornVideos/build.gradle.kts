@@ -1,4 +1,4 @@
-version = 3.1
+version = 3.2
 
 cloudstream {
     authors     = listOf("HindiProviders,XXX")
