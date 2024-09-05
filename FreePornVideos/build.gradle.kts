@@ -1,7 +1,7 @@
-version = 2.4
+version = 2.5
 
 cloudstream {
-    authors     = listOf("HindiProviders")
+    authors     = listOf("HindiProviders,XXX")
     language    = "en"
     description = "Premium porn with 4K support"
 
