@@ -29,7 +29,22 @@ class FreePornVideos : MainAPI() {
         "categories/jav-uncensored" to "Jav",
         "networks/mom-lover" to "MILF",
         "networks/nubiles-porn-com" to "Nubiles",
-        "sites/bad-milfs" to "Bad Milfs"
+        "sites/mature-nl" to "Mature",
+        "sites/sexart" to "Sex Art",
+        "sites/fake-hostel" to "Fake Hostel",
+        "sites/momwantcreampie" to "Mom Wants Creampie",
+        "sites/dfxtra-originals" to "Dfxtra Orginals",
+        "sites/dad-crush" to "Dad Crush",
+        "sites/titty-attack" to "Titty Attack",
+        "sites/sexmex" to "Sexmex",
+        "sites/netvideogirls" to "Net Video Girls",
+        "sites/dont-break-me" to "Dont Break Me",
+        "sites/we-live-together" to "We Live Together",
+        "sites/tushyraw" to "Tushy Raw",
+        "sites/pure-taboo" to "Pure Taboo",
+        "sites/thundercock" to "Thunder Cock",
+        "sites/bad-milfs" to "Bad Milfs",
+        "sites/trans-angels" to "Trans Angels"
         
 
 
