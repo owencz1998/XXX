@@ -1,9 +1,9 @@
-version = 2.8
+version = 2.9
 
 cloudstream {
     authors     = listOf("HindiProviders,XXX")
     language    = "en"
-    description = "Premium porn with 4K support"
+    description = "Premium porn with the biggest selection with 4K support"
 
     /**
      * Status int as the following:
