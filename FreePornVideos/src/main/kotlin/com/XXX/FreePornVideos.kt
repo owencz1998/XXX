@@ -116,7 +116,7 @@ class FreePornVideos : MainAPI() {
         "sites/vixen" to "Vixen",
         "sites/trans-angels" to "Trans Angels",
         "sites/transfixed" to "TransFixed",
-        "models/angela-white" to "Angela White"
+        "models/angela-white" to "Angela White",
         "models/mia-khalifa" to "Mia Khalifa"
         
 
