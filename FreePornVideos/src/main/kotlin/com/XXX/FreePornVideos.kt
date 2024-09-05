@@ -45,7 +45,7 @@ class FreePornVideos : MainAPI() {
         "sites/caught-fapping" to "Caught Fapping",
         "sites/public-bang" to "Public Bang",
         "sites/dare-dorm" to "Dare Dorm",
-        "sites/pornforce" to "Porn Force",
+        "sites/pornforce/" to "Porn Force",
         "sites/exxxtra-small" to "Exxxtra Small",
         "sites/princesscum.com" to "Princess Cum",
         "categories/jav-uncensored" to "Jav",
