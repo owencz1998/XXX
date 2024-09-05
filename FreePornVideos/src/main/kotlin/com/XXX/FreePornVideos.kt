@@ -93,8 +93,8 @@ class FreePornVideos : MainAPI() {
         "sites/bad-milfs" to "Bad Milfs", 
         "sites/dane-jones" to "Dane Jones",
         "sites/vixen" to "Vixen",
-        "sites/trans-angels" to "Trans Angels"
-        "sites/transfixed" to "TransFixed",
+        "sites/trans-angels" to "Trans Angels",
+        "sites/transfixed" to "TransFixed"
         
 
 
