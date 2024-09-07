@@ -1,4 +1,4 @@
-version = 3.2
+version = 3.3
 
 cloudstream {
     authors     = listOf("HindiProviders,XXX")
@@ -13,6 +13,6 @@ cloudstream {
      * 3: Beta only
     **/
     status  = 1 // will be 3 if unspecified
-    tvTypes = listOf("NSFW")
+    tvTypes = listOf("TvSeries", "Movie")
     iconUrl = "https://www.google.com/s2/favicons?domain=freepornvideos.xxx&sz=%size%"
 }
