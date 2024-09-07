@@ -229,7 +229,7 @@ class FreePornVideos : MainAPI() {
             }
         }
 
-        return newMovieLoadResponse(title.removePrefix("- ").removeSuffix("-").trim(), url, TvType.Movies, url) {
+        return newMovieLoadResponse(title.removePrefix("- ").removeSuffix("-").trim(), url, TvType.Movie, url) {
             this.posterUrl       = poster
             this.year            = year
             this.plot            = description
