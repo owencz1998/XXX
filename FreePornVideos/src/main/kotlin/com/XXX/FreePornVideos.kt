@@ -11,7 +11,7 @@ class FreePornVideos : MainAPI() {
     override var name                 = "Free Porn Videos"
     override val hasMainPage          = true
     override var lang                 = "en"
-    override val hasQuickSearch       = false
+    override val hasQuickSearch       = true
     override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
