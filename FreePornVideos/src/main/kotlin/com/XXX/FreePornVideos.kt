@@ -17,6 +17,7 @@ class FreePornVideos : MainAPI() {
 
     override val mainPage = mainPageOf(
         "most-popular/week" to "Most Popular",
+        "top-rated/week" to "Top Rated",
         "networks/brazzers-com" to "Brazzers",
         "networks/mylf-com" to "MYLF",
         "sites/evil-angel" to "Evil Angel",
