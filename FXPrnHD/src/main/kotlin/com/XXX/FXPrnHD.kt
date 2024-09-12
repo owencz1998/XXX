@@ -55,8 +55,7 @@ class Fxprnhd : MainAPI() {
     private fun Element.toSearchResult(): SearchResponse? {
         val title = this.selectFirst("span.title")?.text() ?: return null
         val href = fixUrl(this.selectFirst("a")!!.attr("href"))
-        val posterUrl = this.select("img").attr("data")
-        Log.d("posterUrl", posterUrl)
+        val posterUrl  = fixUrlNull(this.select("div.img > img").attr("src"))
         return newMovieSearchResponse(title, href, TvType.Movie) {
             this.posterUrl = posterUrl
         }
