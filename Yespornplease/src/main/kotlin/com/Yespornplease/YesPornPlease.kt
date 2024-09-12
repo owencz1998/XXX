@@ -16,11 +16,25 @@ class YesPornPlease : MainAPI() {
 
     override val mainPage = mainPageOf(
         "${mainUrl}" to "Home",
-        "${mainUrl}/xnxx/sexmex/" to "Sexmex",
-        "${mainUrl}/xnxx/small-tits/" to "Small Tits",
+        "${mainUrl}/sexmex/" to "Sexmex",
         "${mainUrl}/xnxx/teen/" to "Teen",
         "${mainUrl}/xnxx/threesome/" to "Threesome",
+        "${mainUrl}/xnxx/gangbang/" to "Gangbang",
         "${mainUrl}/xnxx/red-head/" to "RedHead",
+        "${mainUrl}/xnxx/blonde/" to "Blonde",
+        "${mainUrl}/xnxx/brunette/" to "Brunette",
+        "${mainUrl}/xnxx/latina/" to "Latina",
+        "${mainUrl}/xnxx/creampie/" to "Creampie",
+        "${mainUrl}/xnxx/squirt/" to "Squirt",
+        "${mainUrl}/xnxx/asian/" to "Asain",
+        "${mainUrl}/xnxx/lesbian/" to "Lesbian",
+        "${mainUrl}/xnxx/big-tits/" to "Big Tits",
+        "${mainUrl}/xnxx/small-tits/" to "Small Tits",
+        "${mainUrl}/xnxx/anal/" to "Anal",
+        "${mainUrl}/xnxx/big-ass/" to "Big Ass",
+        "${mainUrl}/xnxx/small-ass/" to "Small Ass",
+        "${mainUrl}/xnxx/shaved-pussy/" to "Shaved Pussy",
+        "${mainUrl}/xnxx/public/" to "Public",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
