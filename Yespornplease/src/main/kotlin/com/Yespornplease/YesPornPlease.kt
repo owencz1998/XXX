@@ -16,9 +16,11 @@ class YesPornPlease : MainAPI() {
 
     override val mainPage = mainPageOf(
         "${mainUrl}" to "Home",
+        "${mainUrl}/xnxx/sexmex/" to "Sexmex",
         "${mainUrl}/xnxx/small-tits/" to "Small Tits",
         "${mainUrl}/xnxx/teen/" to "Teen",
         "${mainUrl}/xnxx/threesome/" to "Threesome",
+        "${mainUrl}/xnxx/red-head/" to RedHead",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
