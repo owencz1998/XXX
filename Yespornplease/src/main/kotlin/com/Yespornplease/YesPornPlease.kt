@@ -16,7 +16,6 @@ class YesPornPlease : MainAPI() {
 
     override val mainPage = mainPageOf(
         "${mainUrl}" to "Home",
-        "${mainUrl}/sexmex/" to "Sexmex",
         "${mainUrl}/xnxx/small-tits/" to "Small Tits",
         "${mainUrl}/xnxx/teen/" to "Teen",
         "${mainUrl}/xnxx/threesome/" to "Threesome",
