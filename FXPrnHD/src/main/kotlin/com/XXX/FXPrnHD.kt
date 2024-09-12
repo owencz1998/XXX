@@ -23,6 +23,12 @@ class Fxprnhd : MainAPI() {
         "$mainUrl/c/blacked" to "Blacked",
         "$mainUrl/c/pervmom" to "Pervmom",
         "$mainUrl/s/teens" to "Teen",
+        "$mainUrl/s/anal" to "Anal",
+        "$mainUrl/s/big-boobs" to "Big Boobs",
+        "$mainUrl/fake-"taxi" to "Fake Taxi",
+        "$mainUrl/s/fingering" to "Figering",
+        "$mainUrl/s/glory-hole" to "Glory Hole",
+        "$mainUrl/s/titty-fuck" to "Titty Fuck",
 
         )
 
