@@ -58,7 +58,6 @@ class Fxprnhd : MainAPI() {
         val posterUrl = this.select("img").attr("src")
         Log.d("posterUrl", posterUrl)"
         return if (!posterUrl.contains(".jpg")) {
-        val poster=this.select("div.poster > img").attr("src")
         return newMovieSearchResponse(title, href, TvType.Movie) {
             this.posterUrl = posterUrl
         }
