@@ -14,5 +14,5 @@ cloudstream {
     **/
     status  = 1 // will be 3 if unspecified
     tvTypes = listOf("NSFW")
-    iconUrl = "https://pornhoarder.org/img/logo.svg"
+            iconUrl = "https://www.google.com/s2/favicons?domain=pornhoarder.com&sz=%size%"
 }
