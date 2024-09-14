@@ -56,9 +56,142 @@ class Fxprnhd : MainAPI() {
         val title = this.selectFirst("span.title")?.text() ?: return null
         val href = fixUrl(this.selectFirst("a")!!.attr("href"))
         val posterUrl = this.select("img").attr("src")
-        Log.d("posterUrl", posterUrl)"
-        return newMovieSearchResponse(title, href, TvType.Movie) {
-            this.posterUrl = posterUrl
+        Log.d("posterUrl", posterUrl)
+
+
+select( strong title"). text()
+.
+val href
+= this
+
+
+selectFirst("a")!! attr("href
+•
+
+
+val posterUrl
+this.select("a img").attr\
+
+
+data-src")
+
+
+return newMovieSearch
+
+
+Response(title,
+
+
+href,
+
+
+J
+
+
+TvType
+
+
+Movie)
+
+
+Y
+
+
+this. posterUrl
+
+
+posterUrl
+
+
+select( strong title"). text()
+.
+val href
+= this
+
+
+selectFirst("a")!! attr("href
+•
+
+
+val posterUrl
+this.select("a img").attr\
+
+
+data-src")
+
+
+return newMovieSearch
+
+
+Response(title,
+
+
+href,
+
+
+J
+
+
+TvType
+
+
+Movie)
+
+
+Y
+
+
+this. posterUrl
+
+
+posterUrl
+
+
+
+
+
+select( strong title"). text()
+.
+val href
+= this
+
+
+selectFirst("a")!! attr("href
+•
+
+
+val posterUrl
+this.select("a img").attr\
+
+
+data-src")
+
+
+return newMovieSearch
+
+
+Response(title,
+
+
+href,
+
+
+J
+
+
+TvType
+
+
+Movie)
+
+
+Y
+
+
+this. posterUrl
+
+
+poste
         }
 
     }
