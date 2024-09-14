@@ -14,5 +14,5 @@ cloudstream {
     **/
     status  = 1 // will be 3 if unspecified
     tvTypes = listOf("NSFW")
-            iconUrl = "https://www.imghippo.com/i/68Yn11726317734.png"
+    iconUrl = "https://www.imghippo.com/i/68Yn11726317734.png"
 }
