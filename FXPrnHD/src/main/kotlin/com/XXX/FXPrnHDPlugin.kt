@@ -1,4 +1,4 @@
-package com.owencz1998
+package com.XXX
 
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
