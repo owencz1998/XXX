@@ -9,7 +9,7 @@ import okhttp3.FormBody
 import org.json.JSONObject
 
 class PornhoarderPlugin : MainAPI() {
-    override var mainUrl              = "https://pornhoarder.org"
+    override var mainUrl              = "https://www1.pornhoarder.tv"
     override var name                 = "Pornhoarder"
     override val hasMainPage          = true
     override var lang                 = "en"
