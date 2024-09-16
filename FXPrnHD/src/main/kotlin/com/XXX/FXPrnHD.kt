@@ -45,7 +45,7 @@ class Fxprnhd : MainAPI() {
         return newHomePageResponse(
             list = HomePageList(
                 name = request.name,
-                list = home,
+            list = home,
                 isHorizontalImages = true
             ),
             hasNext = true
@@ -58,7 +58,7 @@ class Fxprnhd : MainAPI() {
         val posterUrl = this.select("img").attr("src")
         Log.d("posterUrl", posterUrl)
         return newMovieSearchResponse(title, href, TvType.Movie) {
-            this.posterUrl = posterUrl
+        this.posterUrl = posterUrl
         }
 
     }
