@@ -18,7 +18,7 @@ class PornhoarderPlugin : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-        private val ajaxUrl = "$mainUrl/ajax_search.php"
+    private val ajaxUrl = "$mainUrl/ajax_search.php"
 
     override val mainPage = mainPageOf(
             "Latest" to "Latest Videos",
