@@ -5,7 +5,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.network.WebViewResolver
 import com.lagradost.cloudstream3.utils.*
 
-class Newsensation: MainAPI() {
+class Newsensations: MainAPI() {
     override var mainUrl              = "https://www.newsensations.com/"
     override var name                 = "newsensations"
     override val hasMainPage          = true
