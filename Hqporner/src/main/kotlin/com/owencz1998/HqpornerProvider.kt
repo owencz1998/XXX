@@ -1,12 +1,12 @@
-package com.owencz1998
+package com.xxx
 
 import android.content.Context
-import com.owencz1998.Hqporner
+import com.xxx.newsensation
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
 
 @CloudstreamPlugin
-class HqpornerProvider : Plugin() {
+class NewsensationProvider : Plugin() {
     override fun load(context: Context) {
         registerMainAPI(Hqporner())
     }
