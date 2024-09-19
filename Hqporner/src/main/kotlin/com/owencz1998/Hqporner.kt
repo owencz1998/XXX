@@ -1,4 +1,4 @@
-package com.owencz1998
+package com.xxx
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
@@ -6,8 +6,8 @@ import com.lagradost.cloudstream3.network.WebViewResolver
 import com.lagradost.cloudstream3.utils.*
 
 class Hqporner : MainAPI() {
-    override var mainUrl              = "https://m.hqporner.com"
-    override var name                 = "Hqporner"
+    override var mainUrl              = "https://www.newsensations.com/"
+    override var name                 = "newsensations"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasDownloadSupport   = true
@@ -16,8 +16,8 @@ class Hqporner : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        "${mainUrl}/top/"                to "Topvideos",
-        "${mainUrl}/categories/anal-sex-hd"                to "Anal",
+        "${mainUrl}/latest/"                to "Latest",
+        "${mainUrl}/categories/anal-1-d.html"                to "Anal",
 
         )
 
