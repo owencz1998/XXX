@@ -11,11 +11,11 @@ class FreePornVideos : MainAPI() {
     override var name                 = "Free Porn Videos"
     override val hasMainPage          = true
     override var lang                 = "en"
-    override val hasQuickSearch       = true
-    override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
+    override val hasQuickSearch       = false
+    override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-    override val mainPage = mainPageOf(
+        override val mainPage = mainPageOf(
         "most-popular/week" to "Most Popular",
         "top-rated/week" to "Top Rated",
         "networks/brazzers-com" to "Brazzers",
@@ -154,9 +154,6 @@ class FreePornVideos : MainAPI() {
         "models/angela-white" to "Angela White",
         "models/riley-reid" to "Riley Reid",
         "models/abella-danger" to "Abella-danger"
-        
-
-
 
     )
 
@@ -186,12 +183,20 @@ class FreePornVideos : MainAPI() {
 
     }
 
+    fun String?.createSlug(): String? {
+        return this?.filter { it.isWhitespace() || it.isLetterOrDigit() }
+            ?.trim()
+            ?.replace("\\s+".toRegex(), "-")
+            ?.lowercase()
+    }
+
     override suspend fun search(query: String): List<SearchResponse> {
         val searchResponse = mutableListOf<SearchResponse>()
 
         for (i in 1..5) {
+            val searchquery=query.createSlug() ?:""
             val document = app.get(
-                "${mainUrl}/search/$query/")
+                "${mainUrl}/search/$searchquery/")
             .document
             val results = document.select("#custom_list_videos_videos_list_search_result_items > div.item").mapNotNull { it.toSearchResult() }
             searchResponse.addAll(results)
@@ -233,7 +238,7 @@ class FreePornVideos : MainAPI() {
             }
         }
 
-        return newMovieLoadResponse(title.removePrefix("- ").removeSuffix("-").trim(), url, TvType.Movie, url) {
+        return newMovieLoadResponse(title.removePrefix("- ").removeSuffix("-").trim(), url, TvType.NSFW, url) {
             this.posterUrl       = poster
             this.year            = year
             this.plot            = description
@@ -261,4 +266,3 @@ class FreePornVideos : MainAPI() {
 
         return true
     }
-}
