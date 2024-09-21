@@ -16,7 +16,6 @@ class FreePornVideos : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        override val mainPage = mainPageOf(
         "most-popular/week" to "Most Popular",
         "top-rated/week" to "Top Rated",
         "networks/brazzers-com" to "Brazzers",
