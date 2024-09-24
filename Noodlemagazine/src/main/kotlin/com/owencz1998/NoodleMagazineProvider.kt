@@ -18,13 +18,16 @@ class NoodleMagazineProvider : MainAPI() { // all providers must be an instance 
 
     override val mainPage = mainPageOf(
         "latest" to "Latest",
+        "masterbation" to "Masterbation",
+        "solo" to "Solo",
+        "teen" to "Teen",
+        "lesbian" to "Lesbian",
         "onlyfans" to "Onlyfans",
         "latina" to "Latina",
         "blonde" to "Blonde",
         "milf" to "MILF",
         "jav" to "JAV",
-        "hentai" to "Hentai",
-        "lesbian" to "Lesbian"
+        "hentai" to "Hentai"
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
