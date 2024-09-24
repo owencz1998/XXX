@@ -21,11 +21,19 @@ class NoodleMagazineProvider : MainAPI() { // all providers must be an instance 
         "masterbation" to "Masterbation",
         "solo" to "Solo",
         "teen" to "Teen",
+        "amateur" to "Amateur", 
         "lesbian" to "Lesbian",
         "onlyfans" to "Onlyfans",
         "latina" to "Latina",
         "blonde" to "Blonde",
         "milf" to "MILF",
+        "ganbang" to "Gangbang",
+        "public" to "Public", 
+        "fingering" to "Fingering",
+        "dildo" to "Dildo",
+        "hardcore" to "Hardcore"
+        "sex%20machine" to "Sex Machine",
+        "bella%20delphine" to "Bella Delphine",
         "jav" to "JAV",
         "hentai" to "Hentai"
     )
