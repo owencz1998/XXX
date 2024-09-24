@@ -23,6 +23,7 @@ class NoodleMagazineProvider : MainAPI() { // all providers must be an instance 
         "teen" to "Teen",
         "amateur" to "Amateur", 
         "lesbian" to "Lesbian",
+        "gloryhole" to "Gloryhole",
         "onlyfans" to "Onlyfans",
         "latina" to "Latina",
         "blonde" to "Blonde",
