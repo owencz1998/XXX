@@ -22,7 +22,7 @@ class PornhoarderPlugin : MainAPI() {
             "/trending-videos/" to "Trending Videos",
             "/random-videos/" to "Random Videos",
             "/pornstars/" to "Pornstars",
-            "/search/backroomcastingcouch" to "Backroom Casting Couch"
+            "/search/backroom-casting-couch" to "Backroom Casting Couch"
         )
 
     private fun getRequestBody (query: String, isLatest : Boolean, page:Int) : FormBody
