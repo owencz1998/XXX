@@ -14,5 +14,5 @@ cloudstream {
     **/
     status  = 1 // will be 3 if unspecified
     tvTypes = listOf("NSFW")
-    iconUrl = "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://pornforce.com/&ved=2ahUKEwiT9o3gz7GHAxVZQkEAHeZ5CcMQFnoECBQQAQ&usg=AOvVaw13Y_7fvmMkc_anqNFKgpE4"
+    iconUrl = "https://www.google.com/s2/favicons?domain=pornforce.com&sz=%size%"
 }
