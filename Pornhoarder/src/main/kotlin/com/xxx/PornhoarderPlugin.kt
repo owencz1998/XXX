@@ -19,10 +19,10 @@ class PornhoarderPlugin : MainAPI() {
 
     override val mainPage = mainPageOf(
             "Latest" to "Latest Videos",
-            "Popular" to "Popular Videos",
             "/trending-videos/" to "Trending Videos",
             "/random-videos/" to "Random Videos",
-            "/pornstars/" to "Pornstars"
+            "/pornstars/" to "Pornstars",
+            "/search/backroomCastingCouch" to "Backroom Casting Couch"
         )
 
     private fun getRequestBody (query: String, isLatest : Boolean, page:Int) : FormBody
