@@ -21,8 +21,7 @@ class PornhoarderPlugin : MainAPI() {
             "Latest" to "Latest Videos",
             "/trending-videos/" to "Trending Videos",
             "/random-videos/" to "Random Videos",
-            "/pornstars/" to "Pornstars",
-            "/backroomcastingcouch" to "Backroom Casting Couch"
+            "/pornstars/" to "Pornstars"
         )
 
     private fun getRequestBody (query: String, isLatest : Boolean, page:Int) : FormBody
