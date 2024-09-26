@@ -149,8 +149,7 @@ class FreePornVideos : MainAPI() {
         "sites/trans-angels" to "Trans Angels",
         "sites/transfixed" to "TransFixed",
         "sites/pinko-tgirls" to "Pinko Tgirls",
-        "models/most-popular" to "Most Popular Pornstars",
-        "models/top-rated" to "Top Rated Pornstars",
+        "models/total-videos" to "Pornstars",
         "models/angela-white" to "Angela White",
         "models/riley-reid" to "Riley Reid",
         "models/abella-danger" to "Abella-danger"
