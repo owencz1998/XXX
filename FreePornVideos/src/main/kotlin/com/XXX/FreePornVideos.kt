@@ -122,7 +122,6 @@ class FreePornVideos : MainAPI() {
         "networks/mom-lover" to "Mom Lover",
         "sites/momsboytoy" to "Moms Boy Toy",
         "sites/got-mylf" to "Got Mylf",
-        "sites/momshoot" to "Mom Shoot",
         "sites/momishorny" to "Mom Is Horny",
         "sites/brattymilf" to "Bratty Milf",
         "sites/freeusemilf" to "Free Use Milf",
@@ -133,7 +132,6 @@ class FreePornVideos : MainAPI() {
         "sites/wake-up-n-fuck2" to "Wake up N Fuck",
         "sites/girlsway" to "GirlsWay",
         "sites/girls-out-west" to "Girls Out West",
-        "sites/dyked" to "Device Dyked",
         "sites/lesbea" to "Lesbea",
         "sites/crazy-college-gfs" to "Crazy College Gfs",
         "sites/shoplyfter" to "ShopLyfter",
@@ -151,6 +149,7 @@ class FreePornVideos : MainAPI() {
         "sites/trans-angels" to "Trans Angels",
         "sites/transfixed" to "TransFixed",
         "sites/pinko-tgirls" to "Pinko Tgirls",
+        "models/week" to "Models",
         "models/angela-white" to "Angela White",
         "models/riley-reid" to "Riley Reid",
         "models/abella-danger" to "Abella-danger"
