@@ -152,10 +152,10 @@ class FreePornVideos : MainAPI() {
         "models/vanessa-alessia" to "Vanessa Alessia",
         "models/angela-white" to "Angela White",
         "models/riley-reid" to "Riley Reid",
-        "models/abella-danger" to "Abella-danger",
+        "models/abella-danger" to "Abella Danger",
         "models/yasmina-khan" to "Yasmina Khan",
         "models/jasmine-grey" to "Jasmine Grey",
-        "models/haley-spades" to "Haley-Spades",
+        "models/haley-spades" to "Haley Spades",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
