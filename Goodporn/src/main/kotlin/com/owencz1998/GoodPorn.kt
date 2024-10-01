@@ -11,7 +11,7 @@ import java.util.*
 
 class GoodPorn : MainAPI() {
     override var mainUrl              = "https://www.fpo.xxx/"
-    override var name                 = "Sincity"
+    override var name                 = "FPO"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
