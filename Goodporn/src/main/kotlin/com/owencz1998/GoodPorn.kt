@@ -21,8 +21,7 @@ class GoodPorn : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        
-             "/new-1/" to "new videos",
+          "/new-1/" to "new videos",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
