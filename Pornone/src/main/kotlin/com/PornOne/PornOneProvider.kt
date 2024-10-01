@@ -21,8 +21,17 @@ class PornOneProvider : MainAPI() {
 
     override val mainPage = mainPageOf(
             "/" to "Latest Updates",
-            "/pornstars" to "Pornstars",
+            "/teen/" to "Teen",
+            "/toys/" to "Toys",
             "/anal/" to "Anal",
+            "/masterbation/" to "Masterbation",
+            "/stroking/" to "Stroking",
+            "/street/" to "Street",
+            "/school/" to "School",
+            "/sister/" to "Sister",
+            "/squirting/" to "Squirting",
+            "/slut/" to "Slut",
+            "/swallowing/" to "Swallowing",
             "/asian/" to "Asian",
             "/ass/" to "Ass",
             "/bbw/" to "BBW",
