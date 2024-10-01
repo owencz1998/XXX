@@ -10,7 +10,7 @@ import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import java.util.*
 
 class GoodPorn : MainAPI() {
-    override var mainUrl              = "https://pornenix.com/"
+    override var mainUrl              = "https://www.fpo.xxx"
     override var name                 = "FPO"
     override val hasMainPage          = true
     override var lang                 = "en"
