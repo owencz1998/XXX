@@ -21,7 +21,7 @@ class PornOneProvider : MainAPI() {
 
     override val mainPage = mainPageOf(
             "/" to "Latest Updates",
-            "/pornstars" to "Pornstars",
+            "/pornstars/" to "Pornstars",
             "/anal/" to "Anal",
             "/asian/" to "Asian",
             "/ass/" to "Ass",
