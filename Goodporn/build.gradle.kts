@@ -1,4 +1,4 @@
-version = 2.2
+version = 2
 
 cloudstream {
     authors     = listOf("OwenConnor")
