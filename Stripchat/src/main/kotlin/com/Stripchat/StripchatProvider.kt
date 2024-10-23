@@ -19,6 +19,7 @@ class StripchatProvider : MainAPI() {
 
     override val mainPage = mainPageOf(
             "girls" to "Girls",
+            "teens" to "Teens",
             "couples" to "Couples",
             "men" to "Men",
             "trans" to "Trans",
