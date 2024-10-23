@@ -22,5 +22,5 @@ cloudstream {
     // You can find a list of avaliable types here:
     // https://recloudstream.github.io/cloudstream/html/app/com.lagradost.cloudstream3/-tv-type/index.html
     tvTypes = listOf("NSFW")
-    iconUrl = "https://www.google.com/s2/favicons?domain=internetchicks.cc&sz=%size%"
+    iconUrl = "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://internetchicks.com/categories/&ved=2ahUKEwiglfzMh6SJAxXGTkEAHWeaN98QFnoECAgQAQ&usg=AOvVaw36mxiYPuw9bsIxNYv-JQr-"
 }
