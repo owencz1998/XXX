@@ -17,16 +17,29 @@ class Hqporner : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-        "${mainUrl}/category/milf" to "Milf",
-        "${mainUrl}/category/asian" to "Asian",
-        "${mainUrl}/category/japanese-girls-porn" to "Japanese",
-        "${mainUrl}/studio/free-brazzers-videos" to "Brazzers",
-        "${mainUrl}/category/big-tits" to "Big Tits",
-        "${mainUrl}/category/1080p-porn" to "1080p Porn",
-        "${mainUrl}/category/4k-porn" to "4k Porn",
         "${mainUrl}/top/week" to "Week TOP",
         "${mainUrl}/top/month" to "Month TOP",
         "${mainUrl}/top" to "All Time Best Porn",
+        "${mainUrl}/category/milf" to "Milf",
+        "${mainUrl}/category/old-and-young" to "Old And Young",
+        "${mainUrl}/category/teen-porn" to "Teen",
+        "${mainUrl}/category/amateur" to "Amateur",
+        "${mainUrl}/category/big-tits" to "Big Tits",
+        "${mainUrl}/category/big-dick" to "Big Dick",
+        "${mainUrl}/category/lesbian" to "Lesbian",
+        "${mainUrl}/category/threesome" to "Threesome",
+        "${mainUrl}/category/gangbang" to "Gangbang",
+        "${mainUrl}/category/group-sex" to "Group Sex",
+        "${mainUrl}/category/masterbation" to "Masterbation",
+        "${mainUrl}/category/squirt" to "Squirt",
+        "${mainUrl}/category/creampie" to "Creampie",
+        "${mainUrl}/category/uniforms" to "Uniforms",
+        "${mainUrl}/category/asian" to "Asian",
+        "${mainUrl}/category/japanese-girls-porn" to "Japanese",
+        "${mainUrl}/studio/free-brazzers-videos" to "Brazzers",
+        "${mainUrl}/category/1080p-porn" to "1080p Porn",
+        "${mainUrl}/category/4k-porn" to "4k Porn",
+        
 
 
     )
