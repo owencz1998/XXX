@@ -22,5 +22,5 @@ cloudstream {
     // You can find a list of avaliable types here:
     // https://recloudstream.github.io/cloudstream/html/app/com.lagradost.cloudstream3/-tv-type/index.html
     tvTypes = listOf("NSFW")
-    iconUrl = "httpspornhoarder.org/img/logo.svg"
+    iconUrl = "https://internetchicks.com/wp-content/uploads/2021/02/cropped-Untitled-design-56.png?x15539"
 }
