@@ -1,4 +1,4 @@
-package com.CXXX
+package com.xxx
 
 import com.lagradost.cloudstream3.SubtitleFile
 import com.lagradost.cloudstream3.app
