@@ -14,5 +14,5 @@ cloudstream {
     **/
     status  = 1 // will be 3 if unspecified
     tvTypes = listOf("NSFW")
-    iconUrl = "https://web.static.mmcdn.com/images/logo.svg?hash=7c993ccd600a"
+    iconUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7__IlNWYcf8ysOLr6DoVokSO_ela9eaZh-Q&s"
 }
