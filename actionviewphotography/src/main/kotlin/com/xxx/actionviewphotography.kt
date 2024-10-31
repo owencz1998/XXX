@@ -12,7 +12,7 @@ class actionviewphotography : MainAPI() {
     override var mainUrl              = "https://actionviewphotography.com"
     override var name                 = "Noodle NSFW"
     override val hasMainPage          = true
-    override var lang                 = "hi"
+    override var lang                 = "en"
     override val hasQuickSearch       = false
     override val hasDownloadSupport   = true
     override val hasChromecastSupport = true
