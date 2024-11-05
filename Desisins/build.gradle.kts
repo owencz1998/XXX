@@ -2,7 +2,7 @@ version = 1
 
 cloudstream {
     authors     = listOf("rockhero1234")
-    language    = "en"
+    language    = "hi"
     description = "18+ webseries clips"
 
     /**
