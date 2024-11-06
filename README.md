@@ -29,6 +29,20 @@
 
 Feel free to add the site of your choice and make a pullrequest anytime!
 
+## wanted to add
+
+https://www.3movs.com/
+
+https://www.cumlouder.com/
+
+https://www.letmejerk.com/
+
+https://www.youjizz.com/
+
+https://pornobae.com/
+
+https://ok.xxx/
+
 ## <a href="https://raw.githubusercontent.com/owencz1998/XXX/builds/XXX.json">Install</a>
 
 ##
