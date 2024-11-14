@@ -15,7 +15,7 @@ class SxyPrn : MainAPI() {
     override val vpnStatus = VPNStatus.MightBeNeeded
     override val supportedTypes = setOf(TvType.NSFW)
 
-   override val mainPage = mainPageOf(
+    override val mainPage = mainPageOf(
         "$mainUrl/new.html?page=" to "New Videos",
         "$mainUrl/new.html?sm=trending&page=" to "Trending",
         "$mainUrl/new.html?sm=views&page=" to "Most Viewed",
