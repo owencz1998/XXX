@@ -29,6 +29,14 @@ class Pornobae : MainAPI() {
             "category/adult-empire/my-pervy-family" to "My Pervy Family",
             "category/nubiles-porn/nfbusty" to "NF Busty",
             "category/adult-time/pure-taboo" to "Pure Taboo",
+            "category/18eighteen" to "18eighteen",
+            "category/21sextury-network" to "21sextury",
+            "category/abuse-me" to "Abuse Me",
+            "category/adult-empire" to "Adult Empire",
+            "category/allinternal" to "Allinternal",
+            "category/amateur-allure" to "Amateur Allure",
+            "category/mylf/anal-mom/" to "Anal Mom",
+            "category/family-therapy/anal-therapy/" to "Anal Therapy",
 
     )
 
