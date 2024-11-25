@@ -35,8 +35,8 @@ class Pornobae : MainAPI() {
             "category/adult-empire" to "Adult Empire",
             "category/allinternal" to "Allinternal",
             "category/amateur-allure" to "Amateur Allure",
-            "category/mylf/anal-mom/" to "Anal Mom",
-            "category/family-therapy/anal-therapy/" to "Anal Therapy",
+            "category/mylf/anal-mom" to "Anal Mom",
+            "category/family-therapy/anal-therapy" to "Anal Therapy",
 
     )
 
