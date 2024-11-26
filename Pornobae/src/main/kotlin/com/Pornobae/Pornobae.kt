@@ -10,7 +10,7 @@ class Pornobae : MainAPI() {
     override var name                 = "Pornobae"
     override val hasMainPage          = true
     override var lang                 = "en"
-    override val hasQuickSearch       = false
+    override val hasQuickSearch       = true
     override val hasDownloadSupport   = true
     override val hasChromecastSupport = true
     override val supportedTypes       = setOf(TvType.NSFW)
@@ -18,14 +18,13 @@ class Pornobae : MainAPI() {
 
     override val mainPage = mainPageOf(
             "category/brazzers" to "Brazzers",
-            "category/nubiles-porn/brattysis" to "Bratty Sis",
             "category/adult-time" to "Adult Time",
-            "category/nubiles-porn/mom-lover" to "MILF",
-            "category/nubiles-porn/brattysis" to "Bratty Sis",
             "category/bangbros" to "Bangbros",
-            "category/brazzers" to "Brazzers",
+            "category/ddf-network" to "DDF Network",
+            "category/family-therapy" to "Family Therapy",
             "category/babes-network" to "Babes Network",
             "category/teamskeet/family-strokes" to "Family Strokes",
+            "category/fakehub/fake-taxi" to "Fake Taxi",
             "category/tushy/blacked-raw" to "Blacked Raw",
             "category/black-patrol" to "Black Patrol",
             "category/adult-empire/my-pervy-family" to "My Pervy Family",
@@ -45,6 +44,37 @@ class Pornobae : MainAPI() {
             "category/teamskeet/bffs" to "Bffs",
             "category/black-loads" to "black loads",
             "category/blue-pill-men" to "Blue Pill Men",
+            "category/college-rules" to "College Rules",
+            "category/busty-buffy/" to "Bust Buffy",
+            "category/nubiles-porn/mom-lover" to "Mom Lover",
+            "category/nubiles-porn/brattysis" to "Bratty Sis",
+            "category/culioneros" to "Culioneros",
+            "category/pornpros/cum4k" to "Cum 4k",
+            "category/cumlouder" to "Cumlouder",
+            "category/teamskeet/dad-crush" to "Dad Crush",
+            "category/dancing-bear" to "Dancing Bear",
+            "category/dare-dorm" to "Dare Dorm",
+            "category/date-slam" to "Date Slam",
+            "category/teamskeet/daughter-swap" to "Daughter Swap",
+            "category/defloration" to "Defloration",
+            "category/deviante" to "Deviante",
+            "category/digital-playground" to "Digital Playground",
+            "category/dirty-flix" to "Dirty Flix",
+            "category/dogfart-network" to "Dogfart Network",
+            "category/dont-fuck-my-daughter" to "Dont Fuck My Daughter",
+            "category/adult-empire/elegant-angel" to "Elegant Angel",
+            "category/exploitedcollegegirls" to "Exploited College Girls",
+            "category/fakehub/fake-agent" to "Fake Agent",
+            "category/fakehub/fake-agent-uk" to "Fake Agent Uk",
+            "category/fakehub/fake-driving-school" to "Fake Driving School",
+            "category/fakehub/fake-hospital" to "Fake Hospital",
+            "category/fakehub/fake-hostel" to "Fake Hostel",
+            "category/family-hookups" to "Family Hookups",
+            "category/adult-empire/filthy-kings" to "Filthy Kings",
+            
+            
+   
+            
    
 
     )
