@@ -26,6 +26,8 @@ class Pornobae : MainAPI() {
             "category/brazzers" to "Brazzers",
             "category/babes-network" to "Babes Network",
             "category/teamskeet/family-strokes" to "Family Strokes",
+            "category/tushy/blacked-raw" to "Blacked Raw",
+            "category/black-patrol" to "Black Patrol",
             "category/adult-empire/my-pervy-family" to "My Pervy Family",
             "category/nubiles-porn/nfbusty" to "NF Busty",
             "category/adult-time/pure-taboo" to "Pure Taboo",
@@ -37,6 +39,13 @@ class Pornobae : MainAPI() {
             "category/amateur-allure" to "Amateur Allure",
             "category/mylf/anal-mom" to "Anal Mom",
             "category/family-therapy/anal-therapy" to "Anal Therapy",
+            "category/arabs-exposed" to "Arabs Exposed",
+            "category/asstraffic" to "Asstraffic",
+            "category/backroom-casting-couch" to "Backroom Casting",
+            "category/teamskeet/bffs" to "Bffs",
+            "category/black-loads" to "black loads",
+            "category/blue-pill-men" to "Blue Pill Men",
+   
 
     )
 
