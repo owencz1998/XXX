@@ -1,7 +1,7 @@
-version = 1
+version = 2
 
 cloudstream {
-    authors     = listOf("HindiProvider")
+    authors     = listOf("HindiProvider, XXX")
     language    = "en"
     description = "Pornobae"
 
