@@ -17,6 +17,7 @@ class Eporner : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
+            "" to "Recent Videos",
             "best-videos" to "Best Videos",
             "top-rated" to "Top Rated",
             "most-viewed" to "Most Viewed",
