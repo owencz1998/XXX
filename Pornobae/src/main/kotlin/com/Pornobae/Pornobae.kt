@@ -71,6 +71,13 @@ class Pornobae : MainAPI() {
             "category/fakehub/fake-hostel" to "Fake Hostel",
             "category/family-hookups" to "Family Hookups",
             "category/adult-empire/filthy-kings" to "Filthy Kings",
+            "category/first-anal-quest" to "First Anal",
+            "category/foster-tapes" to "Foster Tapes",
+            "category/teamskeet/freaky-fembots" to "Freaky",
+            "category/teamskeet/freeuse-fantasy" to "Freeuse",
+            "category/mylf/freeuse-milf" to "Freeuse Milf",
+            "category/fullpornnetwork" to "Full Porn Network",
+            "category/hotcrazymess" to "Hot Crazy Mess",
             
             
    
