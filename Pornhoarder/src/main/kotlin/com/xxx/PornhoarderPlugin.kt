@@ -18,10 +18,12 @@ class PornhoarderPlugin : MainAPI() {
     private val ajaxUrl = "$mainUrl/ajax_search.php"
 
     override val mainPage = mainPageOf(
+            "/pornstars/" to "Pornstars",
+            "/categories/" to "categories",
             "Latest" to "Latest Videos",
             "/trending-videos/" to "Trending Videos",
             "/random-videos/" to "Random Videos",
-            "/pornstars/" to "Pornstars"
+            
         )
 
     private fun getRequestBody (query: String, isLatest : Boolean, page:Int) : FormBody
