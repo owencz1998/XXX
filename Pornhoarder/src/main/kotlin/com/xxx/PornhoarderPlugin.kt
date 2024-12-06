@@ -19,7 +19,6 @@ class PornhoarderPlugin : MainAPI() {
 
     override val mainPage = mainPageOf(
             "/pornstars/" to "Pornstars",
-            "/categories/anal/" to "anal",
             "Latest" to "Latest Videos",
             "/trending-videos/" to "Trending Videos",
             "/random-videos/" to "Random Videos",
@@ -52,6 +51,7 @@ class PornhoarderPlugin : MainAPI() {
         if(request.data == "Latest" || request.data == "Popular")
         {
             val body = getRequestBody("",request.data == "Latest",page)
+            val body = getRequestBody("",request.data == "Pornstars",page)
             val document = app.post(ajaxUrl, requestBody = body).document
             val responseList  = document.select(".video article").mapNotNull { it.toSearchResult() }
             return newHomePageResponse(HomePageList(request.name, responseList, isHorizontalImages = false),hasNext = true)
