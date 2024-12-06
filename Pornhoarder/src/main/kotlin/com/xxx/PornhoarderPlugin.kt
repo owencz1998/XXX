@@ -19,7 +19,7 @@ class PornhoarderPlugin : MainAPI() {
 
     override val mainPage = mainPageOf(
             "/pornstars/" to "Pornstars",
-            "/categories/" to "categories",
+            "/categories/anal/" to "anal",
             "Latest" to "Latest Videos",
             "/trending-videos/" to "Trending Videos",
             "/random-videos/" to "Random Videos",
