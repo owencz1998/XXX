@@ -50,7 +50,7 @@ class PornhoarderPlugin : MainAPI() {
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         if(request.data == "Latest" || request.data == "Popular")
         {
-            val body = getRequestBody("",request.data == "Latest,Trending",page)
+            val body = getRequestBody("",request.data == "Latest",page)
             val document = app.post(ajaxUrl, requestBody = body).document
             val responseList  = document.select(".video article").mapNotNull { it.toSearchResult() }
             return newHomePageResponse(HomePageList(request.name, responseList, isHorizontalImages = true),hasNext = true)
