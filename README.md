@@ -27,6 +27,13 @@
   </a>
 </p>
 
+### 🕹 Tools and Programming languages used :
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,gradle,github,githubactions&theme=light&perline=5" />
+  </a>
+</p>
+
 Feel free to add the site of your choice and make a pullrequest anytime!
 
 ## wanted to add
