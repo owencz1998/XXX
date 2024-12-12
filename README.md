@@ -1,10 +1,9 @@
- <p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=XXX%20Repo&animation=twinkling&reversal=true" </p>
+ 
+<p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=XXX%20Repo&animation=twinkling&reversal=true" </p>
 
 # XXX Cloustream plugin
 
-##
-
-<!-- Badges -->
+## <!-- Badges -->
  <p>
    <a   href="https://github.com/AmineSoukara/EgyBest-Api/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/owencz1998/xxx" alt="contributors" />
@@ -26,6 +25,8 @@
     <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fhexated%2Fxxx&count_bg=%23FF0000&title_bg=%23555555&icon=tinder.svg&icon_color=%23FF0000&title=Hits&edge_flat=false" alt="hits" />
   </a>
 </p>
+
+## [![Discord](https://invidget.switchblade.xyz/5Hus6fM)](https://discord.gg/5Hus6fM)
 
 ### 🕹 Tools and Programming languages used :
 <p align="left">
@@ -52,9 +53,20 @@ https://ok.xxx/
 
 ## <a href="https://raw.githubusercontent.com/owencz1998/XXX/builds/XXX.json">Install</a>
 
-##
+### License
+[![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)
 
-[![Discord](https://invidget.switchblade.xyz/5Hus6fM)](https://discord.gg/5Hus6fM)
+These extensions are Free: You can use, study, share and modify it at your will. They can be redistributed and/or modified under the terms of the
+[GNU General Public License](https://www.gnu.org/licenses/gpl.html) version 3 or later published by the Free Software Foundation.
+
+
+### DMCA
+We hereby issue this notice to inform you that these extensions just function like an ordinary browser (like your browser) that fetch video files from internet,
+and do not violate the provisions of the Digital Millennium Copyright Act (DMCA). 
+The Content these extensions may access is not hosted by us or the Cloudstream 3 application but the websites they are browsing in their autonomous mode. It is sole responsibility 
+of the user and his/her countries' or states' law. If you think they are violating any intellectual property then please contact the actual file hosts not the owners of this repository or the CloudStream 3 app.
+
+Thank You.
  
 
 
