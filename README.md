@@ -2,7 +2,7 @@
 <p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=XXX%20Repo&animation=twinkling&reversal=true" </p>
 
 # XXX Cloustream plugin
-## <a href="https://raw.githubusercontent.com/owencz1998/XXX/builds/XXX.json">Install</a>
+[<img alt="alt_text" width="100px" src="https://discordapp.com/assets/f92a9f8821057c551982b659b268ed8e.svg"/>](https://self-similarity.github.io/http-protocol-redirector?r=https://raw.githubusercontent.com/owencz1998/XXX/builds/XXX.json)
 
 ## <!-- Badges -->
  <p>
