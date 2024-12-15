@@ -28,6 +28,8 @@
 
 ## [![Discord](https://invidget.switchblade.xyz/5Hus6fM)](https://discord.gg/5Hus6fM)
 
+## [![Discord](https://invidget.switchblade.xyz/5Hus6fM)](https://discord.gg/MJC2cq7E)
+
 ### 🕹 Tools and Programming languages used :
 <p align="left">
   <a href="https://skillicons.dev">
