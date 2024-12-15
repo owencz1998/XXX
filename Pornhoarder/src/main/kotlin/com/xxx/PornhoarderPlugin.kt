@@ -18,7 +18,7 @@ class PornhoarderPlugin : MainAPI() {
     private val ajaxUrl = "$mainUrl/ajax_search.php"
 
     override val mainPage = mainPageOf(
-            "/pornstars/" to "Pornstars",
+            "/pornstar/cory-chase/" to "Cory Chase",
             "Latest" to "Latest Videos",
             "/trending-videos/" to "Trending Videos",
             "/random-videos/" to "Random Videos",
@@ -60,7 +60,7 @@ class PornhoarderPlugin : MainAPI() {
         {
             val document = app.get("$mainUrl${request.data}?page=$page").document
             val responseList  = document.select(".video article").mapNotNull { it.toSearchResult() }
-            return newHomePageResponse(HomePageList(request.name, responseList, isHorizontalImages = false),hasNext = true)
+            return newHomePageResponse(HomePageList(request.name, responseList, isHorizontalImages = true),hasNext = true)
         }
     }
 
