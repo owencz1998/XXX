@@ -6,7 +6,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class Xtapes : MainAPI() {
-    override var mainUrl              = "https://xtapes.to"
+    override var mainUrl              = "https://v.xtapes.to"
     override var name                 = "Xtapes"
     override val hasMainPage          = true
     override var lang                 = "en"
