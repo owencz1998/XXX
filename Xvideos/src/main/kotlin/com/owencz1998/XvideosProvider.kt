@@ -29,6 +29,16 @@ class XvideosProvider : MainAPI() {
         Pair(mainUrl, "Main Page"),
         Pair("$mainUrl/new/", "New"),
         Pair("$mainUrl/c/amateur-65/", "Amateur")
+        Pair("$mainUrl/c/Anal-12/", "Anal"),
+        Pair("$mainUrl/c/blowjob-15/", "Blowjob"),
+        Pair("$mainUrl/c/big_tits-23/", "Big Tits"),
+        Pair("$mainUrl/c/big_cock-34/", "Big Cock"),
+        Pair("$mainUrl/c/big_ass-24/", "Big Ass"),
+        Pair("$mainUrl/c/blonde-20/", "Blonde"),
+        Pair("$mainUrl/c/cam_porn-58/", "Cam Porn"),
+        Pair("$mainUrl/?k=casting&top/", "Casting"),
+        Pair("$mainUrl/?k=cheating&top/", "Cheating"),
+        
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
