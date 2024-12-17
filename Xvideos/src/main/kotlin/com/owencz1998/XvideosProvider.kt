@@ -1,17 +1,11 @@
 package com.owencz1998
 
 import android.util.Log
-import org.jsoup.nodes.Element
-import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.utils.*
-import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.mvvm.logError
-import com.lagradost.cloudstream3.network.WebViewResolver
-import com.lagradost.cloudstream3.utils.ExtractorLink
-import com.lagradost.cloudstream3.utils.M3u8Helper
-import com.lagradost.cloudstream3.utils.getQualityFromName
-import org.json.JSONObject
+import com.lagradost.cloudstream3.utils.*
+import com.lagradost.cloudstream3.utils.AppUtils.toJson
+
 
 class XvideosProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
@@ -35,21 +29,21 @@ class XvideosProvider : MainAPI() {
         Pair(mainUrl, "Main Page"),
         Pair("$mainUrl/new/", "New"),
         Pair("$mainUrl/c/squirting-56/",
-"💦 Squirt"),
+"Squirt"),
         Pair("$mainUrl/c/amateur-65/",
-"👧 Amateur"),
+"Amateur"),
         Pair("$mainUrl/c/teen-13/", 
-"👱‍♀️ Teen"),
+"Teen"),
         Pair("$mainUrl/?k=handjob&top/",
-"✊️ Handjob"),   
+"Handjob"),   
         Pair("$mainUrl/c/big_Tits-23/",
-"🍈🍈 Big tits"),
+"Big tits"),
         Pair("$mainUrl/c/lesbian-26/", 
-"🫦 Lesbian"),
+"Lesbian"),
         Pair("$mainUrl/c/anal-12/",
-"🙇‍♀️ Anal"),
+"Anal"),
         Pair("$mainUrl/c/blowjob-15/",
-"💨 Blowjob"),
+"Blowjob"),
         Pair("$mainUrl/c/solo_and_masturbation-33/",
 "Solo"),
         Pair("$mainUrl/c/cumshot-18", 
@@ -122,7 +116,7 @@ class XvideosProvider : MainAPI() {
 "Sexy Susi"),
       Pair("$mainUrl/pornstars/mary-wet",
 "Mary Wet"),
-     )
+    )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val categoryData = request.data
@@ -368,7 +362,7 @@ class XvideosProvider : MainAPI() {
                     val validlinkext = validLinkVal.second
                     Log.i(Dev, "Result HLS Default => $validlink")
                     callback(
-                                                ExtractorLink(
+                        ExtractorLink(
                             source = this.name,
                             name = "${this.name} $validlinkext Default",
                             url = validlink,
@@ -382,5 +376,4 @@ class XvideosProvider : MainAPI() {
         }
         return true
     }
-}                                                                                   
- 
+}
