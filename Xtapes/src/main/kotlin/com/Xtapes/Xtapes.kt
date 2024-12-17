@@ -31,8 +31,6 @@ class Xtapes : MainAPI() {
         "63869" to "Porn World",
         "896912" to "Mofos",    
     )
-"     
-    )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val document = app.get("$mainUrl/${request.data}/page/$page/").document
