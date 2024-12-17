@@ -31,6 +31,8 @@ class Xtapes : MainAPI() {
         "63869" to "Porn World",
         "896912" to "Mofos",    
     )
+"     
+    )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val document = app.get("$mainUrl/${request.data}/page/$page/").document
@@ -80,9 +82,10 @@ class Xtapes : MainAPI() {
         val document = app.get(url).document
 
         val title       = document.selectFirst("meta[property=og:title]")?.attr("content")?.trim().toString()
-        val poster      = "https://previews.agefotostock.com/previewimage/medibigoff/6a9bd0bbe77dc222cc98115970b36678/zon-7579670.jpg"
+        val iframe      = document.selectFirst("#video-code iframe")?.attr("src").toString()
+        val iframeDoc   = app.get(iframe).document
+        val poster      = fixUrlNull(iframeDoc.selectFirst("div#vplayer > img")?.attr("src"))
         val description = document.selectFirst("meta[property=og:description]")?.attr("content")?.trim()
-
 
         return newMovieLoadResponse(title, url, TvType.NSFW, url) {
             this.posterUrl = poster
@@ -94,7 +97,7 @@ class Xtapes : MainAPI() {
         val document = app.get(data).document
         document.select("#video-code iframe").forEach { links ->
             val url=links.attr("src")
-            Log.d("Owen Test",url)
+            Log.d("XXX Test",url)
             loadExtractor(url,subtitleCallback, callback)
         }
         return true
