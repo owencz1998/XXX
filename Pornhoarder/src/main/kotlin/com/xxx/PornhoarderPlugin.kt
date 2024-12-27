@@ -21,7 +21,7 @@ class PornhoarderPlugin : MainAPI() {
             "Latest" to "Latest Videos",
             "/trending-videos/" to "Trending Videos",
             "/random-videos/" to "Random Videos",
-            "/search/?search=ana/" to "Anal",
+            "/search/anal" to "Anal",
             "/pornstar/cory-chase/" to "Cory Chase",
             "/pornstar/angela-white/" to "Angela White",
             "pornstar" to "Pornstars",
