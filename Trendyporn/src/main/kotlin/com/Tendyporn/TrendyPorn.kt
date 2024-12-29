@@ -19,6 +19,16 @@ class TrendyPorn : MainAPI() {
         "${mainUrl}/most-recent/" to "Most Recent",
         "${mainUrl}/most-viewed/" to "Most Viewed",
         "${mainUrl}/random/" to "Random",
+        "${mainUrl}/channels/2/amateur/" to "Amateur",
+        "${mainUrl}/channels/3/anal/" to "Anal",
+        "${mainUrl}/channels/1/asian/" to "Asian",
+        "${mainUrl}/channels/4/ass/" to "Ass",
+        "${mainUrl}/channels/5/bbw/" to "BBW",
+        "${mainUrl}/channels/6/bdsm/" to "BDSM",
+        "${mainUrl}/channels/7/blonde/" to "Blonde",
+        "${mainUrl}/channels/8/blowjobs/" to "BlowJobs", 
+        "${mainUrl}/channels/9/british/" to "British",
+
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
