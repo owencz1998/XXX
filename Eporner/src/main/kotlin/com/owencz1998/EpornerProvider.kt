@@ -1,4 +1,4 @@
-package com.owencz1998
+package com.Eporner
 
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
