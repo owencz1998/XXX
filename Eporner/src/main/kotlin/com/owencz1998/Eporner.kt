@@ -1,4 +1,4 @@
-package com.owencz1998
+package com.Eporner
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
@@ -25,9 +25,8 @@ class Eporner : MainAPI() {
             "cat/japanese" to "Japanese",
             "cat/hd-1080p" to "1080 Porn",
             "cat/4k-porn" to "4K Porn",
-            "cat/babysitter" to "Baby Sitter",
-            "cat/big-tits" to "Big Tits",
-            "cat/teen" to "Teen"
+            "channel/perved-family" to "Perved Family",
+            "recommendations" to "Recommendation Videos",
 
         )
 
@@ -59,10 +58,24 @@ class Eporner : MainAPI() {
 
     override suspend fun search(query: String): List<SearchResponse> {
         val subquery=query.replace(" ","-")
-        val document = app.get("${mainUrl}/search/$subquery/").document
-        val results = document.select("div.mb").mapNotNull {
-            it.toSearchResult() }
-        return results
+        val searchResponse = mutableListOf<SearchResponse>()
+
+        for (i in 1..10) {
+            val document = app.get("${mainUrl}/search/$subquery/$i").document
+            //val document = app.get("${mainUrl}/page/$i/?s=$query").document
+
+            val results = document.select("div.mb").mapNotNull {
+                it.toSearchResult() }
+
+            if (!searchResponse.containsAll(results)) {
+                searchResponse.addAll(results)
+            } else {
+                break
+            }
+
+            if (results.isEmpty()) break
+        }
+        return searchResponse
     }
 
     override suspend fun load(url: String): LoadResponse {
