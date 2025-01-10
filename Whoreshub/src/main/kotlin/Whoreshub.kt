@@ -1,4 +1,4 @@
-package com.owencz1998
+package com.Whoreshub
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
