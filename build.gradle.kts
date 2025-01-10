@@ -1,17 +1,16 @@
 import com.lagradost.cloudstream3.gradle.CloudstreamExtension
 import com.android.build.gradle.BaseExtension
 
+
 buildscript {
     repositories {
         google()
         mavenCentral()
-        // Shitpack repo which contains our tools and dependencies
         maven("https://jitpack.io")
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.7.3")
-        // Cloudstream gradle plugin which makes everything work and builds plugins
+        classpath("com.android.tools.build:gradle:8.6.0")
         classpath("com.github.recloudstream:gradle:master-SNAPSHOT")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
     }
@@ -35,26 +34,25 @@ subprojects {
     apply(plugin = "com.lagradost.cloudstream3.gradle")
 
     cloudstream {
-        // when running through github workflow, GITHUB_REPOSITORY should contain current repository name
-        // you can modify it to use other git hosting services, like gitlab
-        setRepo(System.getenv("GITHUB_REPOSITORY") ?: "https://github.com/owencz1998/XXX")
-    
-        authors = listOf("owencz1998")
+        setRepo(System.getenv("GITHUB_REPOSITORY") ?: "https://github.com/phisher98/CXXX")
+        authors = listOf("Phisher98")
     }
 
     android {
-        namespace = "com.owencz1998"
+        namespace = "com.Phisher98"
 
         defaultConfig {
             minSdk = 21
             compileSdkVersion(35)
             targetSdk = 35
+
         }
 
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
         }
+
 
         tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile> {
             compilerOptions {
@@ -73,28 +71,20 @@ subprojects {
     dependencies {
         val apk by configurations
         val implementation by configurations
-
-        // Stubs for all Cloudstream classes
-        //noinspection GradleDeprecatedConfiguration
         apk("com.lagradost:cloudstream3:pre-release")
 
-        // these dependencies can include any of those which are added by the app,
-        // but you dont need to include any of them if you dont need them
-        // https://github.com/recloudstream/cloudstream/blob/master/app/build.gradle
-        implementation(kotlin("stdlib")) // adds standard kotlin features, like listOf, mapOf etc
-        implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
-        implementation("org.jsoup:jsoup:1.18.3") // html parser
+        // Other dependencies
+        implementation(kotlin("stdlib"))
+        implementation("com.github.Blatzar:NiceHttp:0.4.11")
+        implementation("org.jsoup:jsoup:1.18.3")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.16.0")
-        implementation("me.xdrop:fuzzywuzzy:1.4.0")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.0")
-        implementation("org.json:json:20231013")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.16.0")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
         implementation("com.faendir.rhino:rhino-android:1.6.0")
-        implementation("commons-codec:commons-codec:1.15")
-        implementation("com.github.mezhevikin:http-request-kotlin:0.0.5")
-        implementation("com.google.code.gson:gson:2.10")
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
-        implementation("com.google.cloud:google-cloud-translate:1.94.4")
-        implementation("androidx.annotation:annotation:1.3.0")
+        implementation("me.xdrop:fuzzywuzzy:1.4.0")
+        implementation("com.google.code.gson:gson:2.11.0")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
     }
 }
 
