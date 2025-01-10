@@ -1,4 +1,4 @@
-package com.owencz1998
+package com.Trendyporn
 
 import android.content.Context
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
