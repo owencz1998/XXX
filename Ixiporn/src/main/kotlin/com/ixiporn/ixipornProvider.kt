@@ -1,4 +1,4 @@
-package com.coxju
+package com.ixiporn
 
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
