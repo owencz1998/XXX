@@ -1,4 +1,4 @@
-package com.Yespornplease
+package com.YesPornPlease
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
