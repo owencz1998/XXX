@@ -1,4 +1,4 @@
-package com.coxju
+package com.SpankBang
 
 import android.util.Log
 import org.jsoup.nodes.Element
