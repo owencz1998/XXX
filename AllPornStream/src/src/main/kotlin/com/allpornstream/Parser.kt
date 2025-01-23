@@ -1,4 +1,4 @@
-package com.CXXX
+package com.allpornstream
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
