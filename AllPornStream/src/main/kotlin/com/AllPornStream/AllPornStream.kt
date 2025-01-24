@@ -34,6 +34,7 @@ class AllPornStream : MainAPI() {
         "studio=SweetSinner" to "SweetSinner Studio",
         "studio=FamilyXXX" to "FamilyXXX Studio",
         "studio=StepSiblingsCaught" to "StepSiblingsCaught Studio",
+        "actors" to "Actors",
         )
 
     override suspend fun getMainPage(
