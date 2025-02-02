@@ -59,15 +59,7 @@ class PornHubProvider : MainAPI() {
         "${mainUrl}/video?c=102&page="       to "Brazilian",
         "${mainUrl}/video?c=11&page="       to "Brunette",
         "${mainUrl}/video?c=14&page="       to "Bukkake",
-        "${mainUrl}/video?c=86&page="       to "Cartoon",
-        "${mainUrl}/video?c=90&page="       to "Casting",
-        "${mainUrl}/video?c=12&page="       to "Celebrity",
-        "${mainUrl}/video?c=732&page="       to "Closed Captions",
-        "${mainUrl}/video?c=241&page="       to "Cosplay",
-        "${mainUrl}/video?c=15&page="       to "Creampie",
-        "${mainUrl}/video?c=242&page="       to "Cuckold",
-        "${mainUrl}/video?c=16&page="       to "Cumshot",
-        "${mainUrl}/video?c=100&page="       to "Czech",
+        "${mainUrl}/video?c=86&page="       to "Cartoon",     
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
