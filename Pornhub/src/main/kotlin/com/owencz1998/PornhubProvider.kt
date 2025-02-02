@@ -52,7 +52,7 @@ class PornHubProvider : MainAPI() {
         "${mainUrl}/video?c=7"       to "Big Dick",
         "${mainUrl}/video?c=8"       to "Big Tits",
         "${mainUrl}/video?c=13"       to "Blowjob",
-        "${mainUrl}/video?c=96       to "British",
+        "${mainUrl}/video?c=96"       to "British",
         "${mainUrl}/video?c=9"       to "Blonde",
         "${mainUrl}/video?c=76"       to "Bisexual Male",
         "${mainUrl}/video?c=10"       to "Bondage",
