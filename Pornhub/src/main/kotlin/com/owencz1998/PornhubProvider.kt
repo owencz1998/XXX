@@ -13,33 +13,27 @@ import com.lagradost.cloudstream3.utils.M3u8Helper
 import com.lagradost.cloudstream3.utils.getQualityFromName
 import org.json.JSONObject
 
-class PornHubProvider : MainAPI() {
+class CornHubProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     override var mainUrl              = "https://www.pornhub.com"
-    override var name                 = "PornHub"
+    override var name                 = "CornHub"
     override val hasMainPage          = true
     override var lang                 = "en"
-    override val hasQuickSearch       = true
+    override val hasQuickSearch       = false
     override val hasDownloadSupport   = true
     override val hasChromecastSupport = true
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
-    "${mainUrl}/video?o=mr&hd=1&page="           to "Recently Featured",
-    "${mainUrl}/video?o=tr&t=w&hd=1&page="       to "Top Rated",
-    "${mainUrl}/video?o=mv&t=w&hd=1&page="       to "Most Viewed",
-    "${mainUrl}/video?o=ht&t=w&hd=1&page="       to "Hottest",
-    "${mainUrl}/video?p=professional&hd=1&page=" to "Professional",
-    "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
-    "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
-    "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
-    "${mainUrl}/video?p=amateur&hd=1&page="      to "Amateur",  // New Category
-    "${mainUrl}/video?p=lesbian&hd=1&page="      to "Lesbian",  // New Category
-    "${mainUrl}/video?p=anal&hd=1&page="         to "Anal",     // New Category
-    "${mainUrl}/video?p=big-tits&hd=1&page="     to "Big Tits", // New Category
-    "${mainUrl}/video?p=blowjob&hd=1&page="      to "Blowjob"   // New Category                                                                                       
-    
+        "${mainUrl}/video?o=mr&hd=1&page="           to "Recently Featured",
+        "${mainUrl}/video?o=tr&t=w&hd=1&page="       to "Top Rated",
+        "${mainUrl}/video?o=mv&t=w&hd=1&page="       to "Most Viewed",
+        "${mainUrl}/video?o=ht&t=w&hd=1&page="       to "Hottest",
+        "${mainUrl}/video?p=professional&hd=1&page=" to "Professional",
+        "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
+        "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
+        "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
