@@ -16,7 +16,7 @@ import org.json.JSONObject
 class PornHubProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     override var mainUrl              = "https://www.pornhub.com"
-    override var name                 = "CornHub"
+    override var name                 = "PornHub"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
@@ -26,6 +26,7 @@ class PornHubProvider : MainAPI() {
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
     override val mainPage = mainPageOf(
+        "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
         "${mainUrl}/video?o=mr&hd=1&page="           to "Recently Featured",
         "${mainUrl}/video?o=tr&t=w&hd=1&page="       to "Top Rated",
         "${mainUrl}/video?o=mv&t=w&hd=1&page="       to "Most Viewed",
@@ -33,8 +34,40 @@ class PornHubProvider : MainAPI() {
         "${mainUrl}/video?p=professional&hd=1&page=" to "Professional",
         "${mainUrl}/video?o=lg&hd=1&page="           to "Longest",
         "${mainUrl}/video?p=homemade&hd=1&page="     to "Homemade",
-        "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
+        "${mainUrl}/video?c=139&page="       to "Verified Models",
+        "${mainUrl}/video?c=65&page="       to "Threesome",
+        "${mainUrl}/video?c=29&page="       to "Milf",
+        "${mainUrl}/video?c=27&page="       to "Lesbian",
+        "${mainUrl}/video?c=492&page="       to "Solo Female",
+        "${mainUrl}/video?c=18&page="       to "Fetish",
+        "${mainUrl}/video?c=105&page="       to "60fps",
+        "${mainUrl}/video?c=3&page="       to "Amateur",
+        "${mainUrl}/video?c=35&page="       to "Anal",
+        "${mainUrl}/video?c=98&page="       to "Arab",
+        "${mainUrl}/video?c=1&page="       to "Asian",
+        "${mainUrl}/video?c=89&page="       to "Babysitter",
+        "${mainUrl}/video?c=6&page="       to "BBW",
+        "${mainUrl}/video?c=141&page="       to "Behind The Scenes",
+        "${mainUrl}/video?c=4&page="       to "Big Ass",
+        "${mainUrl}/video?c=7&page="       to "Big Dick",
+        "${mainUrl}/video?c=8&page="       to "Big Tits",
         "${mainUrl}/video?c=13&page="       to "Blowjob",
+        "${mainUrl}/video?c=96&page="       to "British",
+        "${mainUrl}/video?c=9&page="       to "Blonde",
+        "${mainUrl}/video?c=76&page="       to "Bisexual Male",
+        "${mainUrl}/video?c=10&page="       to "Bondage",
+        "${mainUrl}/video?c=102&page="       to "Brazilian",
+        "${mainUrl}/video?c=11&page="       to "Brunette",
+        "${mainUrl}/video?c=14&page="       to "Bukkake",
+        "${mainUrl}/video?c=86&page="       to "Cartoon",
+        "${mainUrl}/video?c=90&page="       to "Casting",
+        "${mainUrl}/video?c=12&page="       to "Celebrity",
+        "${mainUrl}/video?c=732&page="       to "Closed Captions",
+        "${mainUrl}/video?c=241&page="       to "Cosplay",
+        "${mainUrl}/video?c=15&page="       to "Creampie",
+        "${mainUrl}/video?c=242&page="       to "Cuckold",
+        "${mainUrl}/video?c=16&page="       to "Cumshot",
+        "${mainUrl}/video?c=100&page="       to "Czech",
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
