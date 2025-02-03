@@ -21,58 +21,12 @@ class PornOneProvider : MainAPI() {
 
     override val mainPage = mainPageOf(
             "/" to "Latest Updates",
-            "/porn-shorts/" to "Shorts",
-            "/teen/" to "Teen",
-            "/petite/" to "Petite",
-            "/young/" to "Young",
-            "/licking-pussy/" to "Licking Pussy",
-            "/big-boobs/" to "Big Boobs",
-            "/hardcore/" to "Hardcore",
-            "/pussy/" to "Pussy",
             "/anal/" to "Anal",
-            "/masturbation/" to "Masturbation",
-            "/solo/" to "Solo",
-            "/wanking/" to "Wanking",
-            "/stroking/" to "Stroking",
-            "/street/" to "Street",
-            "/public/" to "public",
-            "/nasty/" to "Nasty",
-            "/school/" to "School",
-            "/teacher/" to "Teacher",
-            "/nerd/" to "Nerd",
-            "/uniform/" to "Uniform",
-            "/wedding/" to "Wedding",
-            "/pump/" to "Pump",
-            "/machine/" to "Machine",
-            "/hogtied/" to "Hogtied",
-            "/toys/" to "Toys",
-            "/vibrator/" to "Vibrator",
-            "/oil/" to "Oil",
-            "/sister/" to "Sister",
-            "/squirting/" to "Squirting",
-            "/wet/" to "Wet",
-            "/milking/" to "Milking",
-            "/jerking/" to "Jerking",
-            "/jizz/" to "Jizz",
-            "/slut/" to "Slut",
-            "/orgy/" to "Orgy",
-            "/pregnant/" to "Pregnant",
-            "/pawg/" to "Pawg",
-            "/tight/" to "Tight",
-            "/throat/" to "Throat",
-            "/tease/" to "Tease",
-            "/swallowing/" to "Swallowing",
-            "/orgasm/" to "Orgasm",
-            "/underwater/" to "underwater",
-            "/spy/" to "Spy",
-            "/hidden/" to "Hidden",
-            "/old-man/" to "Old Man",
-            "/old-and-young/" to "Old And Young",
             "/asian/" to "Asian",
             "/ass/" to "Ass",
             "/bbw/" to "BBW",
+            "/big-boobs/" to "Big Boobs",
             "/big-dick/" to "Big Dick",
-            "/monster/" to "Monster",
             "/blonde/" to "Blonde",
             "/brunette/" to "Brunette",
             "/busty/" to "Busty",
@@ -87,6 +41,7 @@ class PornOneProvider : MainAPI() {
             "/mom/" to "Mom",
             "/natural-tits/" to "Natural Tits",
             "/stepmom/" to "Stepmom",
+            "/teacher/" to "Teacher",
             "/threesome/" to "Threesome",
             "/wife/" to "Wife",
         )
@@ -99,20 +54,11 @@ class PornOneProvider : MainAPI() {
 
     private fun Element.toSearchResult(): SearchResponse {
         val title = this.select(".imgvideo.w-full").attr("alt")
-        var posterUrl = ""
-if (imgElements.isNotEmpty()) {
-    for (img in imgElements) {
-       val src = img.attr("data-src").ifBlank { img.attr("src") }
-        if (src.isNotBlank()) {
-            posterUrl = src
-        }
-    }
-}
-
-if (posterUrl.isBlank()) {
-    posterUrl = "default_url_or_error_handling"
-}
-
+        val href =  this.attr("href")
+        var posterUrl = this.select(".imgvideo.w-full").attr("data-src")
+        if(posterUrl.isNullOrBlank())
+        {
+            posterUrl = this.select(".imgvideo.w-full").attr("src")
         }
         return newMovieSearchResponse(title, href, TvType.Movie) {
             this.posterUrl = posterUrl
@@ -150,7 +96,7 @@ if (posterUrl.isBlank()) {
         val title = jsonObj.get("name")
         val poster = jsonObj.getJSONArray("thumbnailUrl")[0]
         val description = jsonObj.get("description")
-    
+
 
         return newMovieLoadResponse(title.toString(), url, TvType.NSFW, url) {
             this.posterUrl = poster.toString()
