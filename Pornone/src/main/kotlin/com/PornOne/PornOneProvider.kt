@@ -58,7 +58,7 @@ class PornOneProvider : MainAPI() {
         var posterUrl = this.select(".imgvideo.w-full").attr("data-src")
         if(posterUrl.isNullOrBlank())
         {
-            posterUrl = this.select(".imgvideo.w-full").attr("src")
+            posterUrl = this.select(".imgvideo.w-full").attr("data-src")
         }
         return newMovieSearchResponse(title, href, TvType.Movie) {
             this.posterUrl = posterUrl
