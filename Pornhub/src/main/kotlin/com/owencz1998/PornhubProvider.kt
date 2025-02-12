@@ -38,7 +38,7 @@ class PornHubProvider : MainAPI() {
         "${mainUrl}/video?c=27&page="                to "Lesbian",
         "${mainUrl}/video?c=139&page="               to "Verified Models",
         "${mainUrl}/video?c=65&page="                to "Threesome",
-        "${mainUrl}/video?c=29"       to "Milf",
+        "${mainUrl}/video?c=29&page="                to "Milf",
         "${mainUrl}/video?c=492&page="               to "Solo Female",
         "${mainUrl}/video?c=18&page="                to "Fetish",
         "${mainUrl}/video?c=105&page="               to "60fps",
