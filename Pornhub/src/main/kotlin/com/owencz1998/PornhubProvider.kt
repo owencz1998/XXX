@@ -36,7 +36,13 @@ class PornHubProvider : MainAPI() {
         "${mainUrl}/video?o=cm&t=w&hd=1&page="       to "Newest",
         "${mainUrl}/video?c=35&page="                to       "Anal",
         "${mainUrl}/video?c=27&page="                to "Lesbian",
-        "${mainUrl}/video?c=139&page="               to "Verified Models",           
+        "${mainUrl}/video?c=139&page="               to "Verified Models",
+        "${mainUrl}/video?c=65&page="                to "Threesome",
+        "${mainUrl}/video?c=29"       to "Milf",
+        "${mainUrl}/video?c=492&page="               to "Solo Female",
+        "${mainUrl}/video?c=18&page="                to "Fetish",
+        "${mainUrl}/video?c=105&page="               to "60fps",
+        "${mainUrl}/video?c=3&page="                 to "Amateur",           
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
