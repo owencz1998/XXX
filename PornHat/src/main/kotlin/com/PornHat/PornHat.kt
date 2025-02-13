@@ -35,7 +35,7 @@ class PornHat : MainAPI() {
         mainUrl to "New Videos",
         "$mainUrl/trending/" to "Trending",
         "$mainUrl/popular/" to "Popular",
-        "$mainUrl/tags/masterbation" to "Masturbation",
+        "$mainUrl/tags/masturbation/" to "Masturbation",
     )
 
     private fun getVideos(document: Document): List<MovieSearchResponse> {
