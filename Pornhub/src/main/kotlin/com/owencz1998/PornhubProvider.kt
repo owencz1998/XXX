@@ -46,7 +46,7 @@ class PornHubProvider : MainAPI() {
         "${mainUrl}/video?c=8&page="                 to "Big Tits",
         "${mainUrl}/video?c=13&page="                to "Blowjob",
         "${mainUrl}/video?c=12&page="                to "Celebrity",
-        "${mainUrl}/video?c=11&page="                to "Brunette",                        
+        "${mainUrl}/video?c=102&page="               to "Brazilian",                        
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
