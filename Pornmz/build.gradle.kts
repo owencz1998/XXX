@@ -5,7 +5,7 @@ version = 2
 cloudstream {
     // All of these properties are optional, you can safely remove them
 
-    description = "Pornmz" "X" 
+    description = "Pornmz, X"
     language    = "en"
     authors = listOf("megix")
 
