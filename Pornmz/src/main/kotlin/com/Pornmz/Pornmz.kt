@@ -20,6 +20,15 @@ class Pornmz : MainAPI() {
         "/pmvideo/s/bangbros" to "BangBros",
         "/pmvideo/s/naughtyamerica" to "NaughtyAmerica",
         "/pmvideo/s/realitykings" to "RealityKings",
+        "/pmvideo/c/blacked" to "Blacked",
+        "/pmvideo/c/incest" to "FamilySex",
+        "/pmvideo/s/faketaxi" to "FakeTaxi",
+        "/pmvideo/c/teen" to "Teen",
+        "/pmvideo/s/toys" to "Toys",
+        "/pmvideo/s/schoolgirl" to "School Girls",
+        "/pmvideo/c/big-tits" to "Big Tits",
+        "/pmvideo/s/anal" to "Anal",
+        "/pmvideo/c/caughtfapping" to "CaughtFapping more coming soon! ",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
