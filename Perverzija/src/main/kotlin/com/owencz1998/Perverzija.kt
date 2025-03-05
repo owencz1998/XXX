@@ -111,7 +111,7 @@ class Perverzija : MainAPI() {
         page: Int,
         request: MainPageRequest
     ): HomePageResponse {
-        val document = app.get(request.data.format(page), interceptor = cfInterceptor).document
+        val document = app.get(request.data.format(page), interceptor = cfInterceptor, timeout = 100L).document
         val home = document.select("div.row div div.post").mapNotNull {
             it.toSearchResult()
         }
@@ -199,11 +199,13 @@ class Perverzija : MainAPI() {
         subtitleCallback: (SubtitleFile) -> Unit,
         callback: (ExtractorLink) -> Unit
     ): Boolean {
-        val response = app.get(data)
+        val response = app.get(data, interceptor = cfInterceptor)
         val document = response.document
 
         val iframeUrl = document.select("div#player-embed iframe").attr("src")
 
-        return loadExtractor(iframeUrl, subtitleCallback, callback)
+        Xtremestream().getUrl(iframeUrl, data, subtitleCallback, callback)
+
+        return true
     }
 }
