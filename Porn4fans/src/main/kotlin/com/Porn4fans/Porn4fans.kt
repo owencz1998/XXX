@@ -1,4 +1,4 @@
-package com.megix
+package com.Porn4fans
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.utils.AppUtils.parseJson
