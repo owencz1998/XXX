@@ -22,6 +22,16 @@ class Porn4fans : MainAPI() {
         "$mainUrl/categories/pornstar/%d/" to "Pornstars",
         "$mainUrl/onlyfans-videos/%d/?p=video_viewed&post_date_from=30" to "Most Viewed(Month)",
         "$mainUrl/onlyfans-videos/%d/?p=video_viewed" to "Most Viewed(All time)",
+        "$mainUrl/categories/anal/%d/" to "Anal",
+        "$mainUrl/categories/big-dick/%d/" to "Big Dick",
+        "$mainUrl/categories/spoon-fucking/%d/" to "Spoon Fucking",
+        "$mainUrl/categories/pale/%d/" to "Pale",
+        "$mainUrl/categories/nympho/%d/" to "Nympho",
+        "$mainUrl/categories/big-natural-tits/%d/" to "Big Natural Tits",
+        "$mainUrl/categories/small-tits/%d/" to "Small Tits",
+        "$mainUrl/categories/milf/%d/" to "Milf",
+        "$mainUrl/categories/threesome/%d/" to "Threesome",
+        "$mainUrl/categories/perfect-porn/%d/" to "Perfect Porn",
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
