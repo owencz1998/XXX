@@ -1,7 +1,7 @@
-version = 15
+version = 16
 
 cloudstream {
-    authors     = listOf("HindiProvider")
+    authors     = listOf("xxx")
     language    = "en"
     description = "IXI Porn"
 
