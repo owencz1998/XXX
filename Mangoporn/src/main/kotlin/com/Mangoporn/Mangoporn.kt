@@ -14,7 +14,7 @@ class Mangoporn : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-        override val mainPage = mainPageOf(
+    override val mainPage = mainPageOf(
         "genres/porn-movies" to "Latest Release",
         "genre/russian" to "Russian",
         "studios/brazzers" to "Brazzers",
