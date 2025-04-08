@@ -15,7 +15,7 @@ class ixiporn : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-    override val mainPage = mainPageOf(
+        override val mainPage = mainPageOf(
             "${mainUrl}/?filter=latest/page/" to "Latest Release",
             "${mainUrl}/tag/ullu-web-series/page/" to "Ullu Web Series",
             "${mainUrl}/search/Hunters/page/" to "Hunter Web Series",
@@ -78,7 +78,7 @@ class ixiporn : MainAPI() {
         val title       = document.selectFirst("meta[property=og:title]")?.attr("content")?.trim().toString()
         val poster      = fixUrlNull(document.selectFirst("[property='og:image']")?.attr("content"))
         val description = document.selectFirst("meta[property=og:description]")?.attr("content")?.trim()
-    
+
 
         return newMovieLoadResponse(title, url, TvType.NSFW, url) {
             this.posterUrl = poster
@@ -91,13 +91,14 @@ class ixiporn : MainAPI() {
 
         document.select("div.video-player").map { res ->
             callback.invoke(
-                    ExtractorLink(
-                        source  = this.name,
-                        name    = this.name,
-                        url     = fixUrl(res.selectFirst("meta[itemprop=contentURL]")?.attr("content")?.trim().toString()),
-                        referer = data,
-                        quality = Qualities.Unknown.value
-                    )
+                newExtractorLink(
+                    source = this.name,
+                    name = this.name,
+                    url = fixUrl(res.selectFirst("meta[itemprop=contentURL]")?.attr("content")?.trim().toString())
+                ) {
+                    this.referer = data
+                    this.quality = Qualities.Unknown.value
+                }
             )
         }
 
