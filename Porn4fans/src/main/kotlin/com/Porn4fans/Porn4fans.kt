@@ -1,4 +1,4 @@
-package com.Porn4fans
+package com.Porn4Fans
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.utils.AppUtils.parseJson
@@ -15,7 +15,7 @@ class Porn4fans : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-    override val mainPage = mainPageOf(
+        override val mainPage = mainPageOf(
         "$mainUrl/onlyfans-videos/%d/" to "Latest",
         "$mainUrl/onlyfans-videos/%d/?p=video_viewed&post_date_from=7" to "Most Viewed(This Week)",
         "$mainUrl/categories/roleplay-fantasy/%d/" to "Roleplay",
@@ -115,13 +115,14 @@ class Porn4fans : MainAPI() {
 
     override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
         callback.invoke(
-            ExtractorLink(
-                "Porn4fans",
-                "Porn4fans",
-                data,
-                mainUrl,
-                Qualities.Unknown.value
-            )
+            newExtractorLink(
+                source = "Porn4fans",
+                name = "Porn4fans",
+                url = data
+            ) {
+                this.referer = mainUrl
+                this.quality = Qualities.Unknown.value
+            }
         )
         return true
     }
