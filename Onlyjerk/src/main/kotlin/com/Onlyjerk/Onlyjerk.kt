@@ -1,4 +1,4 @@
-package com.megix
+package com.Onlyjerk
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
