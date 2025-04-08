@@ -14,7 +14,7 @@ class YesPornPlease : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-    override val mainPage = mainPageOf(
+        override val mainPage = mainPageOf(
         "${mainUrl}" to "Home",
         "${mainUrl}/sexmex/" to "Sexmex",
         "${mainUrl}/xnxx/teen/" to "Teen",
@@ -96,16 +96,16 @@ class YesPornPlease : MainAPI() {
         ): Boolean {
 
         val document = app.get(data).document
-        val iframe = document.select(".wp-video iframe").attr("data-litespeed-src")
-        val source = app.get(iframe).document.select("#video > a").attr("href")
+        val source = document.select("source").attr("src")
         callback.invoke(
-            ExtractorLink(
-                this.name,
-                this.name,
-                source,
-                referer = mainUrl,
-                quality = Qualities.Unknown.value,
-            )
+            newExtractorLink(
+                source = this.name,
+                name = this.name,
+                url = source
+            ) {
+                this.referer = mainUrl
+                this.quality = Qualities.Unknown.value
+            }
         )
 
         return true
