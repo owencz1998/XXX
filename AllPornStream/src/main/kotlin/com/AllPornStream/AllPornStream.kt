@@ -16,7 +16,7 @@ class AllPornStream : MainAPI() {
     override val vpnStatus = VPNStatus.MightBeNeeded
     override val supportedTypes = setOf(TvType.NSFW)
 
-        override val mainPage = mainPageOf(
+    override val mainPage = mainPageOf(
         "studio=SexMex" to "SexMex Studio",
         "studio=BrazzersExxtra" to "BrazzersExxtra Studio",
         "studio=EvilAngel" to "EvilAngel Studio",
