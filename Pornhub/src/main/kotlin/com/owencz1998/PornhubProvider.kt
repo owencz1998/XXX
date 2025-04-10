@@ -8,15 +8,15 @@ import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.mvvm.logError
 import com.lagradost.cloudstream3.network.WebViewResolver
-import com.lagradost.cloudstream3.utils.ExtractorLink
+import com.lagradost.cloudstream3.utils.newExtractorLink
 import com.lagradost.cloudstream3.utils.M3u8Helper
 import com.lagradost.cloudstream3.utils.getQualityFromName
 import org.json.JSONObject
 
-class PornHubProvider : MainAPI() {
+class CornHubProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     override var mainUrl              = "https://www.pornhub.com"
-    override var name                 = "PornHub"
+    override var name                 = "CornHub"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
@@ -172,15 +172,18 @@ class PornHubProvider : MainAPI() {
                         videoUrl
                     ), true
                 ).apmap { stream ->
-                    extlinkList.add(ExtractorLink(
-                        source = name,
-                        name = "${this.name}",
-                        url = stream.streamUrl,
-                        referer = mainUrl,
-                        quality = Regex("(\\d+)").find(quality ?: "")?.groupValues?.get(1)
-                            .let { getQualityFromName(it) },
-                        isM3u8 = true
-                    ))
+                    extlinkList.add(
+                        newExtractorLink(
+                            source = name,
+                            name = "${this.name}",
+                            url = stream.streamUrl,
+                            type = ExtractorLinkType.M3U8,
+                        ) {
+                            this.quality = Regex("(\\d+)").find(quality ?: "")?.groupValues?.get(1)
+                            .let { getQualityFromName(it) }
+                            this.referer = mainUrl
+                        }
+                    )
                 }
                 extlinkList.forEach(callback)
             }
