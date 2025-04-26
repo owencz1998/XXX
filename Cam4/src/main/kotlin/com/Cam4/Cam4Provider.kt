@@ -72,7 +72,7 @@ class Cam4Provider : MainAPI() {
         val res = app.get(streamUrl).text
         val json = JSONObject(res)
         callback.invoke(
-            ExtractorLink(
+            NewExtractorLink(
                 source = name,
                 name = name,
                 url = json.get("cdnURL").toString(),
