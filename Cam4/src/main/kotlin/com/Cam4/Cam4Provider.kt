@@ -66,13 +66,13 @@ class Cam4Provider : MainAPI() {
         )
     }
 
-    override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
+    override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (neExtractorLink) -> Unit): Boolean {
         val username = Uri.parse(data).path?.replace("/","")
         val streamUrl = "https://www.cam4.com/rest/v1.0/profile/$username/streamInfo"
         val res = app.get(streamUrl).text
         val json = JSONObject(res)
         callback.invoke(
-            ExtractorLink(
+            newExtractorLink(
                 source = name,
                 name = name,
                 url = json.get("cdnURL").toString(),
