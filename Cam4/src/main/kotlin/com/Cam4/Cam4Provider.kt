@@ -4,6 +4,7 @@ package com.Cam4
 import android.net.Uri
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.lagradost.cloudstream3.*
+import com.lagradost.cloudstream3.utils. newExtractorLink
 import com.lagradost.cloudstream3.utils.*
 import org.json.JSONObject
 
