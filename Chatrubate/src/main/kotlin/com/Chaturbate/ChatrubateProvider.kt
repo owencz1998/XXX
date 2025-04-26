@@ -92,13 +92,13 @@ class ChatrubateProvider : MainAPI() {
         )
     }
 
-    override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (ExtractorLink) -> Unit): Boolean {
+    override suspend fun loadLinks(data: String, isCasting: Boolean, subtitleCallback: (SubtitleFile) -> Unit, callback: (NewExtractorLink) -> Unit): Boolean {
         val doc = app.get(data).document
         val script = doc.select("script").find { item-> item.html().contains("window.initialRoomDossier") }
         val json = script!!.html().substringAfter("window.initialRoomDossier = \"").substringBefore(";").unescapeUnicode()
         val m3u8Url = "\"hls_source\": \"(.*).m3u8\"".toRegex().find(json)?.groups?.get(1)?.value
         callback.invoke(
-            ExtractorLink(
+            NewExtractorLink(
                 source = name,
                 name = name,
                 url = m3u8Url.toString()+".m3u8",
