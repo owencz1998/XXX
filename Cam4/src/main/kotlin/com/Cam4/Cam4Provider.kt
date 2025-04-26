@@ -54,7 +54,7 @@ class Cam4Provider : MainAPI() {
         val title = document.selectFirst("meta[property=og:title]")?.attr("content")?.trim().toString()
         val poster = fixUrlNull(document.selectFirst("[property='og:image']")?.attr("content"))
         val description = document.selectFirst("meta[property=og:description]")?.attr("content")?.trim()
-    
+
 
          return LiveStreamLoadResponse(
             name      = title,
@@ -72,7 +72,7 @@ class Cam4Provider : MainAPI() {
         val res = app.get(streamUrl).text
         val json = JSONObject(res)
         callback.invoke(
-            NewExtractorLink(
+            ExtractorLink(
                 source = name,
                 name = name,
                 url = json.get("cdnURL").toString(),
@@ -95,4 +95,3 @@ class Cam4Provider : MainAPI() {
         @JsonProperty("users")  val users: List<User> = arrayListOf()
     )
 }
-
