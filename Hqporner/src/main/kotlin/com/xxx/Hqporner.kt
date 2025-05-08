@@ -16,7 +16,7 @@ class Hqporner : MainAPI() {
     override val supportedTypes       = setOf(TvType.NSFW)
     override val vpnStatus            = VPNStatus.MightBeNeeded
 
-        override val mainPage = mainPageOf(
+    override val mainPage = mainPageOf(
         "${mainUrl}/top/week" to "Top Week",
         "${mainUrl}/top/month" to "Top Month",
         "${mainUrl}/top" to "All Time Best Porn",
@@ -64,6 +64,7 @@ class Hqporner : MainAPI() {
         "${mainUrl}/category/russian" to "Russian",
         "${mainUrl}/category/asian" to "Asian",
         "${mainUrl}/category/japanese-girls-porn" to "Japanese",
+
 
     )
 
