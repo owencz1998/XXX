@@ -16,7 +16,7 @@ class NoodleMagazineProvider : MainAPI() { // all providers must be an instance 
         TvType.NSFW
     )
 
-        override val mainPage = mainPageOf(
+    override val mainPage = mainPageOf(
         "latest" to "Latest",
         "masterbation" to "Masterbation",
         "solo" to "Solo",
