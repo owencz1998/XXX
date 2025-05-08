@@ -22,7 +22,7 @@ import org.jsoup.nodes.Element
 
 class Perverzija : MainAPI() {
     override var name = "Perverzija"
-    override var mainUrl = "https://tube.perverzija.com/"
+    override var mainUrl = "https://tube.perverzija.com"
     override val supportedTypes = setOf(TvType.NSFW)
 
     override val hasDownloadSupport = true
