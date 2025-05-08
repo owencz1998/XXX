@@ -45,7 +45,7 @@ class Fxprnhd : MainAPI() {
         return newHomePageResponse(
             list = HomePageList(
                 name = request.name,
-            list = home,
+                list = home,
                 isHorizontalImages = true
             ),
             hasNext = true
@@ -58,7 +58,7 @@ class Fxprnhd : MainAPI() {
         val posterUrl = this.select("img").attr("src")
         Log.d("posterUrl", posterUrl)
         return newMovieSearchResponse(title, href, TvType.Movie) {
-        this.posterUrl = posterUrl
+            this.posterUrl = posterUrl
         }
 
     }
@@ -118,17 +118,18 @@ class Fxprnhd : MainAPI() {
         if (iframe.startsWith(mainUrl)) {
             val video = app.get(iframe, referer = data).document.select("video source").attr("src")
             callback.invoke(
-                ExtractorLink(
-                    this.name,
-                    this.name,
-                    video,
-                    "$mainUrl/",
-                    Qualities.Unknown.value,
-                    INFER_TYPE,
-                    headers = mapOf(
-                        "Range" to "bytes=0-",
-                    ),
-                )
+                newExtractorLink(
+                    source = this.name,
+                    name = this.name,
+                    url = video,
+                    type = INFER_TYPE
+                ) {
+                    this.referer = "$mainUrl/"
+                    this.quality = Qualities.Unknown.value
+                    this.headers = mapOf(
+                        "Range" to "bytes=0-"
+                    )
+                }
             )
         } else {
             loadExtractor(iframe, "$mainUrl/", subtitleCallback, callback)
