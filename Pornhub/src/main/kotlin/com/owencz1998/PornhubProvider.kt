@@ -13,10 +13,10 @@ import com.lagradost.cloudstream3.utils.M3u8Helper
 import com.lagradost.cloudstream3.utils.getQualityFromName
 import org.json.JSONObject
 
-class PornHubProvider : MainAPI() {
+class CornHubProvider : MainAPI() {
     private val globalTvType = TvType.NSFW
     override var mainUrl              = "https://www.pornhub.com"
-    override var name                 = "PornHub"
+    override var name                 = "CornHub"
     override val hasMainPage          = true
     override var lang                 = "en"
     override val hasQuickSearch       = false
@@ -44,7 +44,8 @@ class PornHubProvider : MainAPI() {
         "${mainUrl}/video?c=4&page="                 to "Big Ass",
         "${mainUrl}/video?c=7&page="                 to "Big Dick",
         "${mainUrl}/video?c=8&page="                 to "Big Tits",
-        "${mainUrl}/video?c=13&page="                to "Blowjob",                       
+        "${mainUrl}/video?c=13&page="                to "Blowjob",
+                       
     )
     private val cookies = mapOf(Pair("hasVisited", "1"), Pair("accessAgeDisclaimerPH", "1"))
 
