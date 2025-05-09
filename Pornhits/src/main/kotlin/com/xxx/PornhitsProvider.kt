@@ -3,7 +3,7 @@ package com.xxx
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
 import android.content.Context
-import com.KillerDogeEmpire.Pornhits
+import com.xxx.Pornhits
 
 @CloudstreamPlugin
 class PornhitsProvider: Plugin() {
