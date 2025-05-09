@@ -1,4 +1,4 @@
-package com.spankbang
+package com.Spankbang
 
 import android.util.Log
 import org.jsoup.nodes.Element
