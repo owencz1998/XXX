@@ -57,7 +57,7 @@ class XhamsterProvider : MainAPI() {
     override var mainUrl = "https://vi.xhspot.com"
     override var name = "Xhamster"
     override val hasMainPage = true
-    override var lang = "vi"
+    override var lang = "en"
     override val supportedTypes = setOf(TvType.Movie)
 
     private fun getInitialsJson(html: String): InitialsJson? {
