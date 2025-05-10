@@ -39,6 +39,7 @@ class Whoreshub : MainAPI() {
        "${mainUrl}/categories/deepthroat" to "Deepthroat",
        "${mainUrl}/categories/fisting" to "Fisting",
     )
+
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val document = app.get("${request.data}/${page}/").document
         val home = document.select("div.block-thumbs a.item").mapNotNull { it.toSearchResult() }
@@ -99,13 +100,15 @@ class Whoreshub : MainAPI() {
         for(link in links) {
             if(link.isNotEmpty()) {
                 callback.invoke(
-                    ExtractorLink(
-                        this.name,
-                        this.name,
-                        link,
-                        referer = "",
-                        quality = Regex("""_(1080|720|480|360)p\.mp4""").find(link) ?. groupValues ?. getOrNull(1) ?. toIntOrNull() ?: Qualities.Unknown.value,
-                    )
+                    newExtractorLink(
+                        source = this.name,
+                        name = this.name,
+                        url = link
+                    ) {
+                        this.referer = ""
+                        this.quality = Regex("""_(1080|720|480|360)p\.mp4""")
+                            .find(link)?.groupValues?.getOrNull(1)?.toIntOrNull() ?: Qualities.Unknown.value
+                    }
                 )
             }
         }
