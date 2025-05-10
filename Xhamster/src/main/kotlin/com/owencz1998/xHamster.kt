@@ -118,11 +118,11 @@ data class VideoThumbProps(
 // === LỚP PROVIDER CHÍNH ===
 class XhamsterProvider: MainAPI() {
     // Thông tin cơ bản
-    override var mainUrl = "https://vi.xhspot.com" // Đã xác nhận URL này
+    override var mainUrl = "https://xhamster.com" // Đã xác nhận URL này
     override var name = "Xhamster"
     override val hasMainPage = true
     override var lang = "en"
-    override val supportedTypes = setOf(TvType.NSFW)
+    override val supportedTypes = setOf(TvType.Movie)
 
     // Hàm phụ trợ parse JSON (No changes needed here, uses unified InitialsJson)
      private fun getInitialsJson(html: String): InitialsJson? {
