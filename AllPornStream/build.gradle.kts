@@ -14,6 +14,6 @@ cloudstream {
     **/
     status  = 1 // will be 3 if unspecified
     tvTypes = listOf("NSFW")
-                    ("Moivie")
+                    ("Movie")
     iconUrl = "https://img.apstream.org/logo_aps.png"
 }
