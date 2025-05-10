@@ -3,14 +3,14 @@ package owencz1998
 import android.content.Context
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
-// Import này có thể cần thiết nếu registerMainAPI là extension function
+// This import might be necessary if registerMainAPI is an extension function
 // import com.lagradost.cloudstream3.plugins.PluginManager.registerMainAPI
 
-@CloudstreamPlugin // Đánh dấu đây là plugin
-class XhamsterPlugin: Plugin() { // Kế thừa Plugin
+@CloudstreamPlugin // Marks this as a plugin
+class XhamsterPlugin : Plugin() { // Inherits from Plugin
     override fun load(context: Context) {
-        // Tất cả provider nên được thêm vào theo cách này.
-        // Đăng ký AnimeHayProvider
-        registerMainAPI(XhamsterProvider()) // Gọi đăng ký provider ở đây
+        // All providers should be added in this way.
+        // Register XhamsterProvider
+        registerMainAPI(XhamsterProvider()) // Calls the provider registration here
     }
 }
