@@ -13,6 +13,7 @@ cloudstream {
      * 3: Beta only
     **/
     status  = 1 // will be 3 if unspecified
-    tvTypes = listOf("NSFW,MOVIE")
+    tvTypes = listOf("NSFW")
+                    ("Moivie")
     iconUrl = "https://img.apstream.org/logo_aps.png"
 }
