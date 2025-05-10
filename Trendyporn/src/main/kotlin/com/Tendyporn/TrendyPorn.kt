@@ -1,4 +1,4 @@
-package com.TrendyPorn
+package com.Trendyporn
 
 import org.jsoup.nodes.Element
 import com.lagradost.cloudstream3.*
