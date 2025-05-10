@@ -6,7 +6,7 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
 class Xtapes : MainAPI() {
-    override var mainUrl              = "https://v.xtapes.to"
+    override var mainUrl              = "https://xtapes.to"
     override var name                 = "Xtapes"
     override val hasMainPage          = true
     override var lang                 = "en"
@@ -16,20 +16,21 @@ class Xtapes : MainAPI() {
 
     override val mainPage = mainPageOf(
         "porn-movies-hd" to "Latest",
-        "612367" to "BangBros",
-        "945041" to "Brazzers",
-        "658723" to "Naughty America",
-        "536424" to "Reality Kings",
-        "536424" to "Play Ground",
+        "80026" to "BangBros",
+        "53177" to "Brazzers",
+        "61802" to "Naughty America",
+        "56050" to "Reality Kings",
+        "05415" to "Play Ground",
         "11075" to "Evil Angle",
         "11007" to "Harmony Films",
-        "401786" to "New Sensations",
-        "37583" to "Sweet Sinner",
-        "360712" to "Blacked",
-        "26517" to "Tonight's Girlfriend",
-        "786129" to "Porn Fidelity",
-        "63869" to "Porn World",
-        "896912" to "Mofos",    
+        "40100" to "New Sensations",
+        "37001" to "Sweet Sinner",
+        "32718" to "Blacked",
+        "12096" to "Tonight's Girlfriend",
+        "70587" to "Porn Fidelity",
+        "63704" to "Porn World",
+        "41606" to "Mofos",
+        "63416" to "Jules Jordan"     
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
@@ -95,7 +96,7 @@ class Xtapes : MainAPI() {
         val document = app.get(data).document
         document.select("#video-code iframe").forEach { links ->
             val url=links.attr("src")
-            Log.d("XXX Test",url)
+            Log.d("Phisher Test",url)
             loadExtractor(url,subtitleCallback, callback)
         }
         return true
