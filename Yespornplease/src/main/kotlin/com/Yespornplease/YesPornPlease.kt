@@ -83,7 +83,7 @@ class YesPornPlease : MainAPI() {
         val document = app.get(url).document
         val title = document.selectFirst("meta[property=og:title]")?.attr("content") ?:""
         val posterUrl = document.selectFirst("meta[property=og:image]")?.attr("content") ?:""
-        return newMovieLoadResponse(title, url, TvType.NSFW, url) {
+        return newMovieLoadResponse(title, url, TvType.Movie, url) {
             this.posterUrl = posterUrl
         }
     }
